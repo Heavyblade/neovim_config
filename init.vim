@@ -27,13 +27,15 @@ set foldnestmax=10
 set nofoldenable
 set foldlevel=2
 
+let g:tokyonight_style="night"
+
 "xxxxxxxx SOURCE EXTRAS xxxxxxxx
 source $HOME/.config/nvim/vim-plug/plugins.vim
 source $HOME/.config/nvim/after/telescope.nvim.vim
 source $HOME/.config/nvim/after/lsp_config.nvim.vim
 
 syntax on
-colorscheme dracula
+colorscheme tokyonight
 
 "xxxxxxxx REMAPS xxxxxxxx
 

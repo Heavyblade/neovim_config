@@ -13,28 +13,32 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'preservim/nerdcommenter'
     Plug 'mhinz/vim-startify'
     Plug 'mileszs/ack.vim'
-    Plug 'tpope/vim-fugitive'
     Plug 'simeji/winresizer'
     Plug 't9md/vim-choosewin'
     Plug 'tpope/vim-commentary'
     Plug 'haya14busa/incsearch.vim'
     Plug 'easymotion/vim-easymotion'
 
+    " Git
+    Plug 'cohama/agit.vim'
+    Plug 'airblade/vim-gitgutter'
+    Plug 'tpope/vim-fugitive'
+
     " UI
     Plug 'Yggdroot/indentLine'
-    Plug 'airblade/vim-gitgutter'
     Plug 'itchyny/lightline.vim'
     Plug 'ryanoasis/vim-devicons'
 
     " Colors
     Plug 'dracula/vim'
-    Plug 'nanotech/jellybeans.vim'
+    Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
     " Languages
     Plug 'vim-ruby/vim-ruby'
     Plug 'tpope/vim-rails'
     Plug 'fatih/vim-go'
     Plug 'elzr/vim-json'
+    Plug 'neoclide/vim-jsx-improve'
     
     " Gist vim
     Plug 'mattn/vim-gist'
