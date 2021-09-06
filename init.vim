@@ -21,6 +21,12 @@ set clipboard=unnamedplus
 set ttyfast
 let mapleader=","
 
+" Folding
+set foldmethod=indent   
+set foldnestmax=10
+set nofoldenable
+set foldlevel=2
+
 "xxxxxxxx SOURCE EXTRAS xxxxxxxx
 source $HOME/.config/nvim/vim-plug/plugins.vim
 source $HOME/.config/nvim/after/telescope.nvim.vim
