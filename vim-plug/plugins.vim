@@ -47,7 +47,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     "Telescope
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
-    Plug 'nvim-telescope/telescope-fzy-native.nvim'
+    Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+
 
     " Intellisense
     Plug 'neovim/nvim-lspconfig'
