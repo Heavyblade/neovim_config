@@ -83,3 +83,6 @@ let g:choosewin_overlay_enable = 1
 " NERDTreee
 let NERDTreeShowHidden=1
 
+" White space to trigger on save
+let g:better_whitespace_enabled=1
+let g:strip_whitespace_on_save=1

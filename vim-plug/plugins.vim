@@ -18,6 +18,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'tpope/vim-commentary'
     Plug 'haya14busa/incsearch.vim'
     Plug 'easymotion/vim-easymotion'
+    Plug 'ntpeters/vim-better-whitespace'
 
     " Git
     Plug 'cohama/agit.vim'
