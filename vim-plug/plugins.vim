@@ -40,7 +40,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'fatih/vim-go'
     Plug 'elzr/vim-json'
     Plug 'neoclide/vim-jsx-improve'
-    
+
     " Gist vim
     Plug 'mattn/vim-gist'
     Plug 'mattn/webapi-vim'
@@ -52,6 +52,5 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
 
     " Intellisense
-    Plug 'neovim/nvim-lspconfig'
-    Plug 'nvim-lua/completion-nvim'
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
