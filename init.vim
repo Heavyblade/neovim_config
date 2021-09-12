@@ -23,7 +23,6 @@ let mapleader=","
 set encoding=utf-8
 set hidden
 set nowritebackup
-set cmdheight=2 " Give more space for displaying messages.
 set updatetime=300 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 
 " Don't pass messages to |ins-completion-menu|.
@@ -93,7 +92,8 @@ nmap  -  <Plug>(choosewin)
 " White space to trigger on save
     let g:better_whitespace_enabled=1
     let g:strip_whitespace_on_save=1
-
+" Gist
+    let g:gist_post_private = 1
 
 " Coc
     " Adding needed language servers

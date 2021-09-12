@@ -19,6 +19,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'haya14busa/incsearch.vim'
     Plug 'easymotion/vim-easymotion'
     Plug 'ntpeters/vim-better-whitespace'
+    Plug 'jlanzarotta/bufexplorer'
 
     " Git
     Plug 'cohama/agit.vim'
@@ -49,7 +50,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
-
 
     " Intellisense
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
