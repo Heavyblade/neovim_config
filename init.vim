@@ -23,7 +23,7 @@ let mapleader=","
 set encoding=utf-8
 set hidden
 set nowritebackup
-set updatetime=300 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+set updatetime=3000 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
@@ -42,6 +42,7 @@ source $HOME/.config/nvim/after/telescope.nvim.vim
 
 syntax on
 colorscheme tokyonight
+hi Normal guibg=NONE ctermbg=NONE
 
 "xxxxxxxx REMAPS xxxxxxxx
 
@@ -97,7 +98,7 @@ nmap  -  <Plug>(choosewin)
 
 " Coc
     " Adding needed language servers
-    let g:coc_global_extensions = ['coc-solargraph', 'coc-go', 'coc-json', 'coc-html']
+    let g:coc_global_extensions = ['coc-solargraph', 'coc-go', 'coc-json', 'coc-html', 'coc-snippets']
 
     " Use <c-space> to trigger completion.
     if has('nvim')

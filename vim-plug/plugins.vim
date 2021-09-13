@@ -32,8 +32,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'ryanoasis/vim-devicons'
 
     " Colors
-    Plug 'dracula/vim'
     Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+    Plug 'dracula/vim', { 'as': 'dracula' }
 
     " Languages
     Plug 'vim-ruby/vim-ruby'
@@ -53,4 +53,5 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " Intellisense
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'honza/vim-snippets'
 call plug#end()
