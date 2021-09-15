@@ -98,7 +98,7 @@ nmap  -  <Plug>(choosewin)
 
 " Coc
     " Adding needed language servers
-    let g:coc_global_extensions = ['coc-solargraph', 'coc-go', 'coc-json', 'coc-html', 'coc-snippets']
+    let g:coc_global_extensions = ['coc-solargraph', 'coc-go', 'coc-json', 'coc-html', 'coc-snippets', 'coc-tsserver']
 
     " Use <c-space> to trigger completion.
     if has('nvim')
@@ -146,3 +146,6 @@ nmap  -  <Plug>(choosewin)
 
     " Add `:Format` command to format current buffer.
     command! -nargs=0 Format :call CocAction('format')
+
+" Prettier
+    let g:prettier#exec_cmd_path = "/usr/local/bin/prettier"

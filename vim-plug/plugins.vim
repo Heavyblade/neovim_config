@@ -41,6 +41,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'fatih/vim-go'
     Plug 'elzr/vim-json'
     Plug 'neoclide/vim-jsx-improve'
+    Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'branch': 'release/0.x' }
 
     " Gist vim
     Plug 'mattn/vim-gist'
