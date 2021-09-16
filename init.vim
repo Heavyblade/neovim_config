@@ -149,3 +149,6 @@ nmap  -  <Plug>(choosewin)
 
 " Prettier
     let g:prettier#exec_cmd_path = "/usr/local/bin/prettier"
+
+" JsDoc
+    let g:jsdoc_lehre_path = "/usr/local/bin/lehre"
