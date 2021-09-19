@@ -58,6 +58,7 @@ noremap <Leader>tb :Telescope buffers<cr>
 noremap <Leader>tt :Telescope current_buffer_tags<cr>
 noremap <Leader>tc :Telescope git_branches<cr>
 noremap <Leader>nt :NERDTreeToggle<cr>
+noremap <Leader>af :AgitFile<cr>
 
 "xxxxxxxx CONFIGURATIONS xxxxxxxx
 
