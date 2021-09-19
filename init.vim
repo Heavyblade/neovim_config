@@ -48,12 +48,16 @@ hi Normal guibg=NONE ctermbg=NONE
 
 map <F4> :tabnew<cr>
 map <F5> :WinResizerStartResize<cr>
-map <F6> :ALEToggle<cr>
 map <F2> :NERDTreeToggle<cr>
 map <C-w> :bd<cr>
 map <C-p> :Telescope find_files<cr>
 nnoremap <Leader>gs :Git<cr>
 nmap  -  <Plug>(choosewin)
+noremap <Leader>r :WinResizerStartResize<cr>
+noremap <Leader>tb :Telescope buffers<cr>
+noremap <Leader>tt :Telescope current_buffer_tags<cr>
+noremap <Leader>tc :Telescope git_branches<cr>
+noremap <Leader>nt :NERDTreeToggle<cr>
 
 "xxxxxxxx CONFIGURATIONS xxxxxxxx
 

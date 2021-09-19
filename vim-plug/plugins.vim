@@ -8,18 +8,16 @@ endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
     " General
-    Plug 'scrooloose/NERDTree'
     Plug 'jiangmiao/auto-pairs'
     Plug 'preservim/nerdcommenter'
+    Plug 'tpope/vim-commentary'
     Plug 'mhinz/vim-startify'
     Plug 'mileszs/ack.vim'
     Plug 'simeji/winresizer'
     Plug 't9md/vim-choosewin'
-    Plug 'tpope/vim-commentary'
     Plug 'haya14busa/incsearch.vim'
     Plug 'easymotion/vim-easymotion'
     Plug 'ntpeters/vim-better-whitespace'
-    Plug 'jlanzarotta/bufexplorer'
 
     " Git
     Plug 'cohama/agit.vim'
@@ -30,6 +28,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'Yggdroot/indentLine'
     Plug 'itchyny/lightline.vim'
     Plug 'ryanoasis/vim-devicons'
+    Plug 'scrooloose/NERDTree'
 
     " Colors
     Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
