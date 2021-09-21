@@ -141,6 +141,12 @@ noremap <Leader>af :AgitFile<cr>
       endif
     endfunction
 
+    " Highlight the symbol and its references when holding the cursor.
+    autocmd CursorHold * silent call CocActionAsync('highlight')
+
+    " Symbol renaming.
+    nmap <leader>rn <Plug>(coc-rename)
+
     augroup mygroup
       autocmd!
       " Setup formatexpr specified filetype(s).
@@ -157,3 +163,8 @@ noremap <Leader>af :AgitFile<cr>
 
 " JsDoc
     let g:jsdoc_lehre_path = "/usr/local/bin/lehre"
+
+" Vim-go
+    let g:go_def_mode='gopls'
+    let g:go_info_mode='gopls'
+    let g:go_doc_popup_window = 1 " Checking docs on popup
