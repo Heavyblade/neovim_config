@@ -55,4 +55,5 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Intellisense
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'honza/vim-snippets'
+    Plug 'ludovicchabant/vim-gutentags'
 call plug#end()
