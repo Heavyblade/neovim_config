@@ -6,7 +6,7 @@ set relativenumber
 set nu
 set noerrorbells
 set nowrap "matiene las lineas largas ocultando lo que no se ve
-set smartcase
+set ignorecase
 set noswapfile
 set nobackup
 set undodir=$HOME/.vim/undodir
@@ -103,7 +103,7 @@ noremap <Leader>af :AgitFile<cr>
 
 " Coc
     " Adding needed language servers
-    let g:coc_global_extensions = ['coc-solargraph', 'coc-go', 'coc-json', 'coc-html', 'coc-snippets', 'coc-tsserver']
+    let g:coc_global_extensions = ['coc-solargraph', 'coc-go', 'coc-json', 'coc-html', 'coc-snippets', 'coc-tsserver', 'coc-xml']
 
     " Use <c-space> to trigger completion.
     if has('nvim')
