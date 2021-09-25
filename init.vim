@@ -38,11 +38,12 @@ let g:tokyonight_style="night"
 "xxxxxxxx SOURCE EXTRAS xxxxxxxx
 source $HOME/.config/nvim/vim-plug/plugins.vim
 source $HOME/.config/nvim/after/telescope.nvim.vim
+source $HOME/.config/nvim/after/treesitter.nvim.vim
 "source $HOME/.config/nvim/after/lsp_config.nvim.vim
 
 syntax on
 colorscheme tokyonight
-hi Normal guibg=NONE ctermbg=NONE
+"hi Normal guibg=NONE ctermbg=NONE
 
 "xxxxxxxx REMAPS xxxxxxxx
 
