@@ -23,10 +23,11 @@ let mapleader=","
 set encoding=utf-8
 set hidden
 set nowritebackup
-set updatetime=3000 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+set updatetime=1000 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
+
 " Folding
 set foldmethod=indent
 set foldnestmax=10
@@ -39,14 +40,12 @@ let g:tokyonight_style="night"
 source $HOME/.config/nvim/vim-plug/plugins.vim
 source $HOME/.config/nvim/after/telescope.nvim.vim
 source $HOME/.config/nvim/after/treesitter.nvim.vim
-"source $HOME/.config/nvim/after/lsp_config.nvim.vim
 
 syntax on
 colorscheme tokyonight
 "hi Normal guibg=NONE ctermbg=NONE
 
 "xxxxxxxx REMAPS xxxxxxxx
-
 map <F4> :tabnew<cr>
 map <F5> :WinResizerStartResize<cr>
 map <F2> :NERDTreeToggle<cr>
@@ -54,12 +53,13 @@ map <C-w> :bd<cr>
 map <C-p> :Telescope find_files<cr>
 nnoremap <Leader>gs :Git<cr>
 nmap  -  <Plug>(choosewin)
-noremap <Leader>r :WinResizerStartResize<cr>
+noremap <Leader>rr :WinResizerStartResize<cr>
+noremap <Leader>nt :NERDTreeToggle<cr>
+noremap <Leader>af :AgitFile<cr>
 noremap <Leader>tb :Telescope buffers<cr>
 noremap <Leader>tt :Telescope current_buffer_tags<cr>
 noremap <Leader>tc :Telescope git_branches<cr>
-noremap <Leader>nt :NERDTreeToggle<cr>
-noremap <Leader>af :AgitFile<cr>
+noremap <Leader>tg :Telescope live_grep<cr>
 
 "xxxxxxxx CONFIGURATIONS xxxxxxxx
 
@@ -88,7 +88,6 @@ noremap <Leader>af :AgitFile<cr>
     nnoremap <silent> [q :cprevious<CR>
     nnoremap <silent> ]q :cnext<CR>
 " }}}
-
 
 " vim-choosewin
     let g:choosewin_overlay_enable = 1
@@ -159,6 +158,16 @@ noremap <Leader>af :AgitFile<cr>
     " Add `:Format` command to format current buffer.
     command! -nargs=0 Format :call CocAction('format')
 
+    " use <tab> for trigger completion and navigate to the next complete item
+    function! s:check_back_space() abort
+      let col = col('.') - 1
+      return !col || getline('.')[col - 1]  =~ '\s'
+    endfunction
+
+    inoremap <silent><expr> <Tab>
+          \ pumvisible() ? "\<C-n>" :
+          \ <SID>check_back_space() ? "\<Tab>" :
+          \ coc#refresh()
 " Prettier
     let g:prettier#exec_cmd_path = "/usr/local/bin/prettier"
 
