@@ -2,8 +2,7 @@ set expandtab
 set smartindent
 set tabstop=4 softtabstop=4
 set shiftwidth=4
-set relativenumber
-set nu
+set number
 set noerrorbells
 set nowrap "matiene las lineas largas ocultando lo que no se ve
 set ignorecase
@@ -60,6 +59,8 @@ noremap <Leader>tb :Telescope buffers<cr>
 noremap <Leader>tt :Telescope current_buffer_tags<cr>
 noremap <Leader>tc :Telescope git_branches<cr>
 noremap <Leader>tg :Telescope live_grep<cr>
+noremap <Leader>gw :HopWord<cr>
+noremap <Leader>gl :HopLine<cr>
 
 "xxxxxxxx CONFIGURATIONS xxxxxxxx
 

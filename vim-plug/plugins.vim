@@ -11,12 +11,12 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'jiangmiao/auto-pairs'
     Plug 'preservim/nerdcommenter'
     Plug 'tpope/vim-commentary'
-    Plug 'mhinz/vim-startify'
     Plug 'mileszs/ack.vim'
     Plug 'simeji/winresizer'
     Plug 't9md/vim-choosewin'
     Plug 'haya14busa/incsearch.vim'
     Plug 'ntpeters/vim-better-whitespace'
+    Plug 'phaazon/hop.nvim'
 
     " Git
     Plug 'cohama/agit.vim'
