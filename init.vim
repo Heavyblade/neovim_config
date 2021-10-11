@@ -2,7 +2,8 @@ set expandtab
 set smartindent
 set tabstop=4 softtabstop=4
 set shiftwidth=4
-set number
+set relativenumber
+set nu
 set noerrorbells
 set nowrap "matiene las lineas largas ocultando lo que no se ve
 set ignorecase
@@ -18,7 +19,6 @@ set signcolumn=yes
 set mouse=a
 set clipboard=unnamedplus
 set ttyfast
-let mapleader=","
 set encoding=utf-8
 set hidden
 set nowritebackup
@@ -45,6 +45,10 @@ colorscheme tokyonight
 "hi Normal guibg=NONE ctermbg=NONE
 
 "xxxxxxxx REMAPS xxxxxxxx
+"Disabling macro recording
+nnoremap <SPACE> <Nop>
+let mapleader=" "
+map q <Nop>
 map <F4> :tabnew<cr>
 map <F5> :WinResizerStartResize<cr>
 map <F2> :NERDTreeToggle<cr>
