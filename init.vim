@@ -63,8 +63,8 @@ noremap <Leader>tb :Telescope buffers<cr>
 noremap <Leader>tt :Telescope current_buffer_tags<cr>
 noremap <Leader>tc :Telescope git_branches<cr>
 noremap <Leader>tg :Telescope live_grep<cr>
-noremap <Leader>gw :HopWord<cr>
-noremap <Leader>gl :HopLine<cr>
+nmap <silent> gl :HopLine<cr>
+nmap <silent> gw :HopWord<cr>
 
 "xxxxxxxx CONFIGURATIONS xxxxxxxx
 
