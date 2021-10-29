@@ -65,6 +65,7 @@ noremap <Leader>tc :Telescope git_branches<cr>
 noremap <Leader>tg :Telescope live_grep<cr>
 nmap <silent> gl :HopLine<cr>
 nmap <silent> gw :HopWord<cr>
+noremap <Leader>rt :FloatermNew bundle exec ruby -Itest % -n <cword><cr>
 
 "xxxxxxxx CONFIGURATIONS xxxxxxxx
 
@@ -183,3 +184,20 @@ nmap <silent> gw :HopWord<cr>
     let g:go_def_mode='gopls'
     let g:go_info_mode='gopls'
     let g:go_doc_popup_window = 1 " Checking docs on popup
+
+" LightLine
+    let g:lightline = {
+          \ 'component_function': {
+          \   'filename': 'LightlineFilename',
+          \ }
+          \ }
+
+    function! LightlineFilename()
+      let root = fnamemodify(get(b:, 'git_dir'), ':h')
+      let path = expand('%:p')
+      if path[:len(root)-1] ==# root
+        return path[len(root)+1:]
+      endif
+      return expand('%')
+    endfunction
+
