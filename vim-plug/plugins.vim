@@ -41,6 +41,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'neoclide/vim-jsx-improve'
     Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'branch': 'release/0.x' }
     Plug 'heavenshell/vim-jsdoc'
+    Plug 'vim-test/vim-test'
     Plug 'voldikss/vim-floaterm'
 
     " Gist vim
