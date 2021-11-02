@@ -201,3 +201,6 @@ noremap <Leader>rt :FloatermNew bundle exec ruby -Itest % -n <cword><cr>
       return expand('%')
     endfunction
 
+" Vim-test
+    let test#strategy = "floaterm"
+
