@@ -23,6 +23,7 @@ set encoding=utf-8
 set hidden
 set nowritebackup
 set updatetime=1000 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+set cursorline
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
@@ -39,6 +40,7 @@ let g:tokyonight_style="night"
 source $HOME/.config/nvim/vim-plug/plugins.vim
 source $HOME/.config/nvim/after/telescope.nvim.vim
 source $HOME/.config/nvim/after/treesitter.nvim.vim
+source $HOME/.config/nvim/after/hop.nvim.vim
 
 syntax on
 colorscheme tokyonight
