@@ -55,6 +55,7 @@ nnoremap <Leader>gs :Git<cr>
 nmap  -  <Plug>(choosewin)
 noremap <Leader>rr :WinResizerStartResize<cr>
 noremap <Leader>nt :NERDTreeToggle<cr>
+noremap <leader>nf :NERDTreeFind<cr>
 noremap <Leader>af :AgitFile<cr>
 noremap <Leader>tb :Telescope buffers<cr>
 noremap <Leader>tt :Telescope current_buffer_tags<cr>
