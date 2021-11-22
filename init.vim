@@ -5,7 +5,7 @@ set shiftwidth=4
 set relativenumber
 set nu
 set noerrorbells
-set nowrap "matiene las lineas largas ocultando lo que no se ve
+set nowrap "keeps longer lines hidden when they exceed the visible area
 set ignorecase
 set noswapfile
 set nobackup
@@ -24,9 +24,7 @@ set hidden
 set nowritebackup
 set updatetime=1000 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 set cursorline
-
-" Don't pass messages to |ins-completion-menu|.
-set shortmess+=c
+set shortmess+=c " Don't pass messages to |ins-completion-menu|.
 
 " Folding
 set foldmethod=indent
@@ -44,15 +42,12 @@ source $HOME/.config/nvim/after/hop.nvim.vim
 
 syntax on
 colorscheme tokyonight
-"hi Normal guibg=NONE ctermbg=NONE
 
 "xxxxxxxx REMAPS xxxxxxxx
-"Disabling macro recording
 nnoremap <SPACE> <Nop>
 let mapleader=" "
 map q <Nop>
 map <F4> :tabnew<cr>
-map <F5> :WinResizerStartResize<cr>
 map <F2> :NERDTreeToggle<cr>
 map <C-w> :bd<cr>
 map <C-p> :Telescope find_files<cr>
@@ -65,14 +60,13 @@ noremap <Leader>tb :Telescope buffers<cr>
 noremap <Leader>tt :Telescope current_buffer_tags<cr>
 noremap <Leader>tc :Telescope git_branches<cr>
 noremap <Leader>tg :Telescope live_grep<cr>
-nmap <silent> gl :HopLine<cr>
-nmap <silent> gw :HopWord<cr>
+noremap <silent>gl :HopLine<cr>
+noremap <silent>gw :HopWord<cr>
 noremap <Leader>rt :FloatermNew bundle exec ruby -Itest % -n <cword><cr>
 
 "xxxxxxxx CONFIGURATIONS xxxxxxxx
 
-" ack.vim --- {{{
-
+" ack.vim
     " Use ripgrep for searching ⚡️
     " Options include:
     " --vimgrep -> Needed to parse the rg response properly for ack.vim
@@ -95,7 +89,6 @@ noremap <Leader>rt :FloatermNew bundle exec ruby -Itest % -n <cword><cr>
     " Navigate quickfix list with ease
     nnoremap <silent> [q :cprevious<CR>
     nnoremap <silent> ]q :cnext<CR>
-" }}}
 
 " vim-choosewin
     let g:choosewin_overlay_enable = 1
@@ -106,6 +99,7 @@ noremap <Leader>rt :FloatermNew bundle exec ruby -Itest % -n <cword><cr>
 " White space to trigger on save
     let g:better_whitespace_enabled=1
     let g:strip_whitespace_on_save=1
+
 " Gist
     let g:gist_post_private = 1
 
