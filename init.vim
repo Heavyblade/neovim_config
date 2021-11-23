@@ -59,11 +59,13 @@ noremap <leader>nf :NERDTreeFind<cr>
 noremap <Leader>af :AgitFile<cr>
 noremap <Leader>tb :Telescope buffers<cr>
 noremap <Leader>tt :Telescope current_buffer_tags<cr>
-noremap <Leader>tc :Telescope git_branches<cr>
 noremap <Leader>tg :Telescope live_grep<cr>
+noremap <Leader>tc :Telescope git_bcommits<cr>
 noremap <silent>gl :HopLine<cr>
 noremap <silent>gw :HopWord<cr>
 noremap <Leader>rt :FloatermNew bundle exec ruby -Itest % -n <cword><cr>
+noremap <Leader>hm :lua require("harpoon.mark").add_file()<cr>
+noremap <Leader>hg :lua require("harpoon.ui").toggle_quick_menu()<cr>
 
 "xxxxxxxx CONFIGURATIONS xxxxxxxx
 
@@ -205,3 +207,6 @@ noremap <Leader>rt :FloatermNew bundle exec ruby -Itest % -n <cword><cr>
     " Ensure that opening a file sets the repo root as the vim
     " vim root, so Telescope and other plugins work properly
     let g:startify_change_to_vcs_root = 1
+
+" Harpoon
+

@@ -18,6 +18,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'ntpeters/vim-better-whitespace'
     Plug 'phaazon/hop.nvim'
     Plug 'mhinz/vim-startify'
+    Plug 'ThePrimeagen/harpoon'
 
     " Git
     Plug 'cohama/agit.vim'
