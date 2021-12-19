@@ -19,6 +19,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'phaazon/hop.nvim'
     Plug 'mhinz/vim-startify'
     Plug 'ThePrimeagen/harpoon'
+    Plug 'tpope/vim-surround'
 
     " Git
     Plug 'cohama/agit.vim'
