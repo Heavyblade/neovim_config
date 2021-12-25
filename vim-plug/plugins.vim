@@ -13,7 +13,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'tpope/vim-commentary'
     Plug 'mileszs/ack.vim'
     Plug 'simeji/winresizer'
-    Plug 't9md/vim-choosewin'
     Plug 'haya14busa/incsearch.vim'
     Plug 'ntpeters/vim-better-whitespace'
     Plug 'phaazon/hop.nvim'

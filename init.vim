@@ -49,10 +49,9 @@ let mapleader=" "
 map q <Nop>
 map <F4> :tabnew<cr>
 map <F2> :NERDTreeToggle<cr>
-map <C-w> :bd<cr>
+"map <C-w> :bd<cr>
 map <C-p> :Telescope find_files<cr>
 nnoremap <Leader>gs :Git<cr>
-nmap  -  <Plug>(choosewin)
 noremap <Leader>rr :WinResizerStartResize<cr>
 noremap <Leader>nt :NERDTreeToggle<cr>
 noremap <leader>nf :NERDTreeFind<cr>
@@ -66,6 +65,14 @@ noremap <silent>gw :HopWord<cr>
 noremap <Leader>rt :FloatermNew bundle exec ruby -Itest % -n <cword><cr>
 noremap <Leader>hm :lua require("harpoon.mark").add_file()<cr>
 noremap <Leader>hg :lua require("harpoon.ui").toggle_quick_menu()<cr>
+noremap <Leader>hn :lua require("harpoon.ui").nav_next()<cr>
+noremap <Leader>hp :lua require("harpoon.ui").nav_prev()<cr>
+
+" Use ctrl-[hjkl] to select the active split!
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-j> :wincmd j<CR>
+nmap <silent> <c-h> :wincmd h<CR>
+nmap <silent> <c-l> :wincmd l<CR>
 
 "xxxxxxxx CONFIGURATIONS xxxxxxxx
 
@@ -207,6 +214,4 @@ noremap <Leader>hg :lua require("harpoon.ui").toggle_quick_menu()<cr>
     " Ensure that opening a file sets the repo root as the vim
     " vim root, so Telescope and other plugins work properly
     let g:startify_change_to_vcs_root = 1
-
-" Harpoon
 
