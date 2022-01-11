@@ -49,7 +49,7 @@ let mapleader=" "
 map q <Nop>
 map <F4> :tabnew<cr>
 map <F2> :NERDTreeToggle<cr>
-"map <C-w> :bd<cr>
+map <C-w> :bd<cr>
 map <C-p> :Telescope find_files<cr>
 nnoremap <Leader>gs :Git<cr>
 noremap <Leader>rr :WinResizerStartResize<cr>
@@ -109,6 +109,7 @@ nmap <silent> <c-l> :wincmd l<CR>
 " White space to trigger on save
     let g:better_whitespace_enabled=1
     let g:strip_whitespace_on_save=1
+    let g:strip_whitespace_confirm=0 "avoid unnecessary confirmation
 
 " Gist
     let g:gist_post_private = 1
