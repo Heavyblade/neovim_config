@@ -1,6 +1,13 @@
 {
-  "solargraph.diagnostics": true,
-  "solargraph.autoformat": true,
-  "solargraph.formatting": true,
-  "solargraph.hover": true
+    "solargraph.diagnostics": true,
+    "solargraph.autoformat": true,
+    "solargraph.formatting": true,
+    "solargraph.hover": true,
+    "html.filetypes": [
+        "html",
+        "handlebars",
+        "htmldjango",
+        "blade",
+        "erb"
+    ]
 }

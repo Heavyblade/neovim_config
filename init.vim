@@ -9,8 +9,10 @@ set nowrap "keeps longer lines hidden when they exceed the visible area
 set ignorecase
 set noswapfile
 set nobackup
-set undodir=$HOME/.vim/undodir
+set undodir=~/.vim/undodir
 set undofile
+set undolevels=1000
+set undoreload=10000
 set incsearch
 set termguicolors
 set scrolloff=8
@@ -60,6 +62,7 @@ noremap <Leader>tb :Telescope buffers<cr>
 noremap <Leader>tt :Telescope current_buffer_tags<cr>
 noremap <Leader>tg :Telescope live_grep<cr>
 noremap <Leader>tc :Telescope git_bcommits<cr>
+noremap <Leader>ts :Telescope git_status<cr>
 noremap <silent>gl :HopLine<cr>
 noremap <silent>gw :HopWord<cr>
 noremap <Leader>rt :FloatermNew bundle exec ruby -Itest % -n <cword><cr>
