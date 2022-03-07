@@ -1,81 +1,15 @@
-set expandtab
-set smartindent
-set tabstop=4 softtabstop=4
-set shiftwidth=4
-set relativenumber
-set nu
-set noerrorbells
-set nowrap "keeps longer lines hidden when they exceed the visible area
-set ignorecase
-set noswapfile
-set nobackup
-set undodir=~/.vim/undodir
-set undofile
-set undolevels=1000
-set undoreload=10000
-set incsearch
-set termguicolors
-set scrolloff=8
-set completeopt=menuone,noinsert,noselect
-set signcolumn=yes
-set mouse=a
-set clipboard=unnamedplus
-set ttyfast
-set encoding=utf-8
-set hidden
-set nowritebackup
-set updatetime=1000 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
-set cursorline
-set shortmess+=c " Don't pass messages to |ins-completion-menu|.
-
-" Folding
-set foldmethod=indent
-set foldnestmax=10
-set nofoldenable
-set foldlevel=2
-
-let g:tokyonight_style="night"
+lua require('basic')
 
 "xxxxxxxx SOURCE EXTRAS xxxxxxxx
 source $HOME/.config/nvim/vim-plug/plugins.vim
-source $HOME/.config/nvim/after/telescope.nvim.vim
-source $HOME/.config/nvim/after/treesitter.nvim.vim
-source $HOME/.config/nvim/after/hop.nvim.vim
+lua require('initialize.telescope')
+lua require('initialize.treesitter')
+lua require('initialize.hop')
 
 syntax on
 colorscheme tokyonight
 
-"xxxxxxxx REMAPS xxxxxxxx
-nnoremap <SPACE> <Nop>
-let mapleader=" "
-map q <Nop>
-map <F4> :tabnew<cr>
-map <F2> :NERDTreeToggle<cr>
-map <C-w> :bd<cr>
-map <C-p> :Telescope find_files<cr>
-nnoremap <Leader>gs :Git<cr>
-noremap <Leader>rr :WinResizerStartResize<cr>
-noremap <Leader>nt :NERDTreeToggle<cr>
-noremap <leader>nf :NERDTreeFind<cr>
-noremap <Leader>af :AgitFile<cr>
-noremap <Leader>tb :Telescope buffers<cr>
-noremap <Leader>tt :Telescope current_buffer_tags<cr>
-noremap <Leader>tg :Telescope live_grep<cr>
-noremap <Leader>tc :Telescope git_bcommits<cr>
-noremap <Leader>ts :Telescope git_status<cr>
-noremap <silent>gl :HopLine<cr>
-noremap <silent>gw :HopWord<cr>
-noremap <Leader>rt :FloatermNew bundle exec ruby -Itest % -n <cword><cr>
-noremap <Leader>hm :lua require("harpoon.mark").add_file()<cr>
-noremap <Leader>hg :lua require("harpoon.ui").toggle_quick_menu()<cr>
-noremap <Leader>hn :lua require("harpoon.ui").nav_next()<cr>
-noremap <Leader>hp :lua require("harpoon.ui").nav_prev()<cr>
-
-" Use ctrl-[hjkl] to select the active split!
-nmap <silent> <c-k> :wincmd k<CR>
-nmap <silent> <c-j> :wincmd j<CR>
-nmap <silent> <c-h> :wincmd h<CR>
-nmap <silent> <c-l> :wincmd l<CR>
+lua require('maps')
 
 "xxxxxxxx CONFIGURATIONS xxxxxxxx
 
@@ -103,9 +37,6 @@ nmap <silent> <c-l> :wincmd l<CR>
     nnoremap <silent> [q :cprevious<CR>
     nnoremap <silent> ]q :cnext<CR>
 
-" vim-choosewin
-    let g:choosewin_overlay_enable = 1
-
 " NERDTreee
     let NERDTreeShowHidden=1
 
@@ -119,7 +50,7 @@ nmap <silent> <c-l> :wincmd l<CR>
 
 " Coc
     " Adding needed language servers
-    let g:coc_global_extensions = ['coc-solargraph', 'coc-go', 'coc-json', 'coc-html', 'coc-snippets', 'coc-tsserver', 'coc-xml']
+    let g:coc_global_extensions = ['coc-solargraph', 'coc-go', 'coc-json', 'coc-html', 'coc-snippets', 'coc-tsserver', 'coc-xml', 'coc-lua']
 
     " Use <c-space> to trigger completion.
     if has('nvim')
