@@ -5,6 +5,7 @@ source $HOME/.config/nvim/vim-plug/plugins.vim
 lua require('initialize.telescope')
 lua require('initialize.treesitter')
 lua require('initialize.hop')
+lua require('initialize.lualine')
 
 syntax on
 colorscheme tokyonight
@@ -81,38 +82,3 @@ lua require('configurations')
           \ pumvisible() ? "\<C-n>" :
           \ <SID>check_back_space() ? "\<Tab>" :
           \ coc#refresh()
-" Prettier
-    let g:prettier#exec_cmd_path = "/usr/local/bin/prettier"
-
-" JsDoc
-    let g:jsdoc_lehre_path = "/usr/local/bin/lehre"
-
-" Vim-go
-    let g:go_def_mode='gopls'
-    let g:go_info_mode='gopls'
-    let g:go_doc_popup_window = 1 " Checking docs on popup
-
-" LightLine
-    let g:lightline = {
-          \ 'component_function': {
-          \   'filename': 'LightlineFilename',
-          \ }
-          \ }
-
-    function! LightlineFilename()
-      let root = fnamemodify(get(b:, 'git_dir'), ':h')
-      let path = expand('%:p')
-      if path[:len(root)-1] ==# root
-        return path[len(root)+1:]
-      endif
-      return expand('%')
-    endfunction
-
-" Vim-test
-    let test#strategy = 'floaterm'
-
-" Vim startify
-    " Ensure that opening a file sets the repo root as the vim
-    " vim root, so Telescope and other plugins work properly
-    let g:startify_change_to_vcs_root = 1
-

@@ -21,12 +21,31 @@
     map("n", "]q", ":cnext<cr>", {noremap = true, silent = true})
 
 -- NERDTreee
-    vim.g['NERDTreeShowHidden'] = 1
+   vim.g['NERDTreeShowHidden'] = 1
 
 -- White space to trigger on save
-    vim.g['better_whitespace_enabled'] = 1
-    vim.g['strip_whitespace_on_save'] = 1
-    vim.g['strip_whitespace_confirm'] = 0 -- avoid unnecessary confirmation
+   vim.g['better_whitespace_enabled'] = 1
+   vim.g['strip_whitespace_on_save'] = 1
+   vim.g['strip_whitespace_confirm'] = 0 -- avoid unnecessary confirmation
 
 -- Gist
-    vim.g['gist_post_private'] = 1
+   vim.g['gist_post_private'] = 1
+
+-- Prettier
+   vim.g['prettier#exec_cmd_path'] = "/usr/local/bin/prettier"
+
+-- JsDoc
+   vim.g['jsdoc_lehre_path'] = "/usr/local/bin/lehre"
+
+-- Vim-go
+   vim.g['go_def_mode'] = "gopls"
+   vim.g['go_info_mode'] = "gopls"
+   vim.g['go_doc_popup_window'] = 1 -- Checking docs on popup
+
+-- Vim-test
+   vim.g['test#strategy'] = 'floaterm'
+
+-- Vim startify
+   -- Ensure that opening a file sets the repo root as the vim
+   -- vim root, so Telescope and other plugins work properly
+   vim.g['startify_change_to_vcs_root'] = 1

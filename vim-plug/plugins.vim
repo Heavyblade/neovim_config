@@ -16,7 +16,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'haya14busa/incsearch.vim'
     Plug 'ntpeters/vim-better-whitespace'
     Plug 'phaazon/hop.nvim'
-    Plug 'mhinz/vim-startify'
     Plug 'ThePrimeagen/harpoon'
     Plug 'tpope/vim-surround'
 
@@ -27,7 +26,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " UI
     Plug 'Yggdroot/indentLine'
-    Plug 'itchyny/lightline.vim'
+    Plug 'nvim-lualine/lualine.nvim'
     Plug 'ryanoasis/vim-devicons'
     Plug 'scrooloose/NERDTree'
 
