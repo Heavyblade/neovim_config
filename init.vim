@@ -1,7 +1,7 @@
 lua require('basic')
 
 "xxxxxxxx SOURCE EXTRAS xxxxxxxx
-source $HOME/.config/nvim/vim-plug/plugins.vim
+lua require('plugins')
 lua require('initialize.telescope')
 lua require('initialize.treesitter')
 lua require('initialize.hop')
