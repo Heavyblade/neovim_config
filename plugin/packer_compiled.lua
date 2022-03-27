@@ -89,11 +89,6 @@ _G.packer_plugins = {
     path = "/Users/cvazquez/.local/share/nvim/site/pack/packer/start/auto-pairs",
     url = "https://github.com/jiangmiao/auto-pairs"
   },
-  ["coc.nvim"] = {
-    loaded = true,
-    path = "/Users/cvazquez/.local/share/nvim/site/pack/packer/start/coc.nvim",
-    url = "https://github.com/neoclide/coc.nvim"
-  },
   dracula = {
     loaded = true,
     path = "/Users/cvazquez/.local/share/nvim/site/pack/packer/start/dracula",
@@ -128,6 +123,30 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/cvazquez/.local/share/nvim/site/pack/packer/start/nerdcommenter",
     url = "https://github.com/preservim/nerdcommenter"
+  },
+  ["nvim-lsp-installer"] = {
+    load_after = {
+      ["nvim-lspconfig"] = true
+    },
+    loaded = false,
+    needs_bufread = false,
+    path = "/Users/cvazquez/.local/share/nvim/site/pack/packer/opt/nvim-lsp-installer",
+    url = "https://github.com/williamboman/nvim-lsp-installer"
+  },
+  ["nvim-lspconfig"] = {
+    after = { "nvim-lsp-installer" },
+    config = { "\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15config.lsp\frequire\0" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/Users/cvazquez/.local/share/nvim/site/pack/packer/opt/nvim-lspconfig",
+    url = "https://github.com/neovim/nvim-lspconfig",
+    wants = { "nvim-lsp-installer" }
+  },
+  ["nvim-notify"] = {
+    loaded = true,
+    path = "/Users/cvazquez/.local/share/nvim/site/pack/packer/start/nvim-notify",
+    url = "https://github.com/rcarriga/nvim-notify"
   },
   ["nvim-treesitter"] = {
     loaded = true,
@@ -199,11 +218,6 @@ _G.packer_plugins = {
     path = "/Users/cvazquez/.local/share/nvim/site/pack/packer/start/vim-go",
     url = "https://github.com/fatih/vim-go"
   },
-  ["vim-gutentags"] = {
-    loaded = true,
-    path = "/Users/cvazquez/.local/share/nvim/site/pack/packer/start/vim-gutentags",
-    url = "https://github.com/ludovicchabant/vim-gutentags"
-  },
   ["vim-jsdoc"] = {
     loaded = true,
     path = "/Users/cvazquez/.local/share/nvim/site/pack/packer/start/vim-jsdoc",
@@ -234,11 +248,6 @@ _G.packer_plugins = {
     path = "/Users/cvazquez/.local/share/nvim/site/pack/packer/start/vim-ruby",
     url = "https://github.com/vim-ruby/vim-ruby"
   },
-  ["vim-snippets"] = {
-    loaded = true,
-    path = "/Users/cvazquez/.local/share/nvim/site/pack/packer/start/vim-snippets",
-    url = "https://github.com/honza/vim-snippets"
-  },
   ["vim-surround"] = {
     loaded = true,
     path = "/Users/cvazquez/.local/share/nvim/site/pack/packer/start/vim-surround",
@@ -254,6 +263,11 @@ _G.packer_plugins = {
     path = "/Users/cvazquez/.local/share/nvim/site/pack/packer/start/webapi-vim",
     url = "https://github.com/mattn/webapi-vim"
   },
+  ["which-key.nvim"] = {
+    loaded = true,
+    path = "/Users/cvazquez/.local/share/nvim/site/pack/packer/start/which-key.nvim",
+    url = "https://github.com/folke/which-key.nvim"
+  },
   winresizer = {
     loaded = true,
     path = "/Users/cvazquez/.local/share/nvim/site/pack/packer/start/winresizer",
@@ -262,6 +276,13 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+vim.cmd [[augroup packer_load_aucmds]]
+vim.cmd [[au!]]
+  -- Event lazy-loads
+time([[Defining lazy-load event autocommands]], true)
+vim.cmd [[au BufReadPre * ++once lua require("packer.load")({'nvim-lspconfig'}, { event = "BufReadPre *" }, _G.packer_plugins)]]
+time([[Defining lazy-load event autocommands]], false)
+vim.cmd("augroup END")
 if should_profile then save_profiles() end
 
 end)

@@ -68,15 +68,25 @@ return require('packer').startup(function(use)
       run = 'make'
   }
 
-  -- Intellisense
+  -- LSP
   use {
-      'neoclide/coc.nvim',
-       branch = 'release'
+    "neovim/nvim-lspconfig",
+    opt = true,
+    event = "BufReadPre",
+    wants = { "nvim-lsp-installer" },
+    config = function()
+      require("config.lsp").setup()
+    end,
+    requires = {
+      "williamboman/nvim-lsp-installer",
+    },
   }
-  use 'honza/vim-snippets'
-  use 'ludovicchabant/vim-gutentags'
+
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
   }
+
+  use 'rcarriga/nvim-notify'
+  use 'folke/which-key.nvim'
 end)
