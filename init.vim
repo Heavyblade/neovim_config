@@ -6,7 +6,7 @@ lua require('initialize.telescope')
 lua require('initialize.treesitter')
 lua require('initialize.hop')
 lua require('initialize.lualine')
-lua require('initialize.lsp')
+lua require('config.lsp')
 
 syntax on
 colorscheme tokyonight
