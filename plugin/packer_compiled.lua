@@ -143,11 +143,6 @@ _G.packer_plugins = {
     url = "https://github.com/neovim/nvim-lspconfig",
     wants = { "nvim-lsp-installer" }
   },
-  ["nvim-notify"] = {
-    loaded = true,
-    path = "/Users/cvazquez/.local/share/nvim/site/pack/packer/start/nvim-notify",
-    url = "https://github.com/rcarriga/nvim-notify"
-  },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "/Users/cvazquez/.local/share/nvim/site/pack/packer/start/nvim-treesitter",

@@ -1,5 +1,3 @@
-vim.notify = require("notify")
-
 _G.dump = function(...)
   print(vim.inspect(...))
 end

@@ -87,6 +87,5 @@ return require('packer').startup(function(use)
     run = ':TSUpdate'
   }
 
-  use 'rcarriga/nvim-notify'
   use 'folke/which-key.nvim'
 end)
