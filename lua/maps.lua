@@ -4,8 +4,6 @@ vim.g.mapleader = " "
 
 map("n", "<SPACE>", "", {})
 map("n", "q", "", {})
-map("n", "F4", ":tabnew<cr>", {})
-map("n", "F2", ":NERDTreeToggle<cr>", {})
 map("n", "<C-w>", ":bd<cr>", {})
 map("n", "<C-p>", ":Telescope find_files<cr>", {})
 map("n", "<Leader>gs", ":Git<cr>", {noremap = true})
@@ -31,4 +29,3 @@ map("n", "<c-k>", ":wincmd k<CR>", {silent = true})
 map("n", "<c-j>", ":wincmd j<CR>", {silent = true})
 map("n", "<c-h>", ":wincmd h<CR>", {silent = true})
 map("n", "<c-l>", ":wincmd l<CR>", {silent = true})
-map("n", "K", ":Lspsaga hover_doc<cr>", {noremap = true, silent = true})
