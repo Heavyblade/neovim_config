@@ -88,7 +88,7 @@ function M.setup()
       -- { name = "calc" },
     },
     documentation = {
-      border = { "?", "?", "?", "?", "?", "?", "?", "?" },
+      border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
       winhighlight = "NormalFloat:NormalFloat,FloatBorder:TelescopeBorder",
     },
   }
