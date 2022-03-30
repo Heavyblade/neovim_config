@@ -15,11 +15,6 @@
     -- Don't jump to first match
     vim.cmd 'cnoreabbrev Ack Ack!'
 
-    local map = vim.api.nvim_set_keymap
-    map("n", "<Leader>/", ":Ack!<Space>", {noremap = true, silent = true})
-    map("n", "[q", ":cprevious<cr>", {noremap = true, silent = true})
-    map("n", "]q", ":cnext<cr>", {noremap = true, silent = true})
-
 -- NERDTreee
    vim.g['NERDTreeShowHidden'] = 1
 
@@ -45,7 +40,3 @@
 -- Vim-test
    vim.g['test#strategy'] = 'floaterm'
 
--- Vim startify
-   -- Ensure that opening a file sets the repo root as the vim
-   -- vim root, so Telescope and other plugins work properly
-   vim.g['startify_change_to_vcs_root'] = 1

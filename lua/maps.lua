@@ -14,6 +14,9 @@ map("n", "<Leader>nt", ":NERDTreeToggle<cr>", {noremap = true})
 map("n", "<leader>nf", ":NERDTreeFind<cr>", {noremap = true})
 map("n", "<Leader>af", ":AgitFile<cr>", {noremap = true})
 map("n", "<Leader>rt", ":FloatermNew bundle exec ruby -Itest % -n <cword><cr>", {noremap = true})
+map("n", "<Leader>/", ":Ack!<Space>", {noremap = true, silent = true})
+map("n", "[q", ":cprevious<cr>", {noremap = true, silent = true})
+map("n", "]q", ":cnext<cr>", {noremap = true, silent = true})
 
 -- HopLine
 local keymap_g = {
@@ -44,7 +47,7 @@ local keymap_h = {
   h = {
     name = "Harpoon",
     g = { harpoon_ui.toggle_quick_menu, "Harpoon menu" },
-    m = { harpoon_ui.add_file, "Harpoon mark" },
+    m = { require("harpoon.mark").add_file, "Harpoon mark" },
     n = { harpoon_ui.nav_next, "Harpoon Next" },
     p = { harpoon_ui.nav_prev, "Harpoon Prev" },
   }
