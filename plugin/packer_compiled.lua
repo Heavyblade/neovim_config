@@ -215,7 +215,7 @@ _G.packer_plugins = {
     url = "https://github.com/preservim/nerdcommenter"
   },
   ["nvim-cmp"] = {
-    after = { "cmp-buffer", "cmp-cmdline", "cmp-nvim-lsp", "cmp-nvim-lua", "cmp_luasnip", "cmp-treesitter", "cmp-path", "LuaSnip", "friendly-snippets" },
+    after = { "cmp-cmdline", "cmp-nvim-lsp", "cmp-nvim-lua", "friendly-snippets", "cmp-treesitter", "cmp_luasnip", "LuaSnip", "cmp-buffer", "cmp-path" },
     config = { "\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15config.cmp\frequire\0" },
     loaded = false,
     needs_bufread = false,
@@ -380,8 +380,8 @@ vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)
-vim.cmd [[au BufReadPre * ++once lua require("packer.load")({'nvim-lspconfig'}, { event = "BufReadPre *" }, _G.packer_plugins)]]
 vim.cmd [[au InsertEnter * ++once lua require("packer.load")({'nvim-cmp'}, { event = "InsertEnter *" }, _G.packer_plugins)]]
+vim.cmd [[au BufReadPre * ++once lua require("packer.load")({'nvim-lspconfig'}, { event = "BufReadPre *" }, _G.packer_plugins)]]
 time([[Defining lazy-load event autocommands]], false)
 vim.cmd("augroup END")
 if should_profile then save_profiles() end
