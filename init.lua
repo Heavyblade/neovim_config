@@ -7,6 +7,6 @@ require('config.lsp')
 vim.cmd("syntax on")
 vim.cmd('colorscheme tokyonight')
 
-require('maps')
+require('keymaps')
 require('configurations')
 
