@@ -8,5 +8,5 @@ vim.cmd("syntax on")
 vim.cmd('colorscheme tokyonight')
 
 require('keymaps')
-require('configurations')
+require('plugin_flags')
 
