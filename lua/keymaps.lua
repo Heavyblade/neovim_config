@@ -59,3 +59,6 @@ map("n", "<c-k>", ":wincmd k<CR>", {silent = true})
 map("n", "<c-j>", ":wincmd j<CR>", {silent = true})
 map("n", "<c-h>", ":wincmd h<CR>", {silent = true})
 map("n", "<c-l>", ":wincmd l<CR>", {silent = true})
+
+vim.cmd("autocmd CursorHold * lua vim.diagnostic.open_float()")
+--vim.api.nvim_create_autocmd("CursorHold", {pattern = "*", command = "lua vim.diagnostic.open_float()"})
