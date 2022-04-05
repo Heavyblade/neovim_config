@@ -21,17 +21,37 @@ local function on_attach(client, bufnr)
 
   -- Configure key mappings
   require("config.lsp.keymaps").setup(client, bufnr)
+
+  print("LSP Server Ready")
 end
 
-local opts = {
-  on_attach = on_attach,
-  flags = {
-    debounce_text_changes = 150,
-  },
-}
+local function getOptions()
+  local handlers = {
+    ["textDocument/publishDiagnostics"] = vim.lsp.with(
+      vim.lsp.diagnostic.on_publish_diagnostics, {
+        virtual_text = false,
+        underline = true,
+        signs = true,
+        update_in_insert = false,
+      }
+    )
+  }
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+
+  local opts = {
+    on_attach = on_attach,
+    handlers = handlers,
+    flags = {
+      debounce_text_changes = 150,
+    },
+    capabilities = capabilities,
+  }
+
+  return opts
+end
 
 function M.setup()
-  require("config.lsp.installer").setup(servers, opts)
+  require("config.lsp.installer").setup(servers, getOptions())
   require("config.lsp.solargraph").setup(on_attach)
 end
 
