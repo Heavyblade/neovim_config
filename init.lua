@@ -1,7 +1,7 @@
 require('config.vim_options')
 
 require('plugins')
-require('initialize')
+require('config.initialize')
 require('config.lsp')
 
 vim.cmd("syntax on")
