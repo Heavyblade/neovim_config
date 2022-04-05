@@ -215,7 +215,7 @@ _G.packer_plugins = {
     url = "https://github.com/preservim/nerdcommenter"
   },
   ["nvim-cmp"] = {
-    after = { "cmp-cmdline", "cmp-nvim-lsp", "cmp-nvim-lua", "friendly-snippets", "cmp-treesitter", "cmp_luasnip", "LuaSnip", "cmp-buffer", "cmp-path" },
+    after = { "cmp-cmdline", "cmp-nvim-lsp", "cmp-path", "cmp-treesitter", "cmp_luasnip", "LuaSnip", "cmp-nvim-lua", "cmp-buffer", "friendly-snippets" },
     config = { "\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15config.cmp\frequire\0" },
     loaded = false,
     needs_bufread = false,
@@ -272,6 +272,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/cvazquez/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
     url = "https://github.com/folke/tokyonight.nvim"
+  },
+  ["trouble.nvim"] = {
+    loaded = true,
+    path = "/Users/cvazquez/.local/share/nvim/site/pack/packer/start/trouble.nvim",
+    url = "https://github.com/folke/trouble.nvim"
   },
   ["vim-better-whitespace"] = {
     loaded = true,
