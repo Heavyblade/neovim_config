@@ -37,6 +37,7 @@ local keymap_t = {
     g = { "<cmd>:Telescope live_grep<CR>", "Telescope Grep" },
     c = { "<cmd>:Telescope git_bcommits<CR>", "Telescope Commits" },
     s = { "<cmd>:Telescope git_status<CR>", "Telescope Status" },
+    d = { "<cmd>:TroubleToggle<CR>", "Trouble Toggle" },
   }
 }
 whichkey.register(keymap_t, { prefix = "<leader>", noremap = true })
