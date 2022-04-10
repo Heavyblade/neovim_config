@@ -92,13 +92,6 @@ function M.setup()
       winhighlight = "NormalFloat:NormalFloat,FloatBorder:TelescopeBorder",
     },
   }
-
-  -- Use buffer source for `/`
-  cmp.setup.cmdline("/", {
-    sources = {
-      { name = "buffer" },
-    },
-  })
 end
 
 return M

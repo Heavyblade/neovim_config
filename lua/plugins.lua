@@ -47,11 +47,6 @@ return require('packer').startup(function(use)
   use 'fatih/vim-go'
   use 'elzr/vim-json'
   use 'neoclide/vim-jsx-improve'
-  use {
-      'prettier/vim-prettier',
-      run = 'yarn install',
-      branch = 'release/0.x'
-  }
   use 'heavenshell/vim-jsdoc'
   use 'vim-test/vim-test'
   use 'voldikss/vim-floaterm'
