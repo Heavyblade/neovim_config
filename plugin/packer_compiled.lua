@@ -110,16 +110,6 @@ _G.packer_plugins = {
     path = "/Users/cvazquez/.local/share/nvim/site/pack/packer/opt/cmp-buffer",
     url = "https://github.com/hrsh7th/cmp-buffer"
   },
-  ["cmp-cmdline"] = {
-    after_files = { "/Users/cvazquez/.local/share/nvim/site/pack/packer/opt/cmp-cmdline/after/plugin/cmp_cmdline.lua" },
-    load_after = {
-      ["nvim-cmp"] = true
-    },
-    loaded = false,
-    needs_bufread = false,
-    path = "/Users/cvazquez/.local/share/nvim/site/pack/packer/opt/cmp-cmdline",
-    url = "https://github.com/hrsh7th/cmp-cmdline"
-  },
   ["cmp-nvim-lsp"] = {
     after_files = { "/Users/cvazquez/.local/share/nvim/site/pack/packer/opt/cmp-nvim-lsp/after/plugin/cmp_nvim_lsp.lua" },
     load_after = {
@@ -215,7 +205,7 @@ _G.packer_plugins = {
     url = "https://github.com/preservim/nerdcommenter"
   },
   ["nvim-cmp"] = {
-    after = { "cmp-buffer", "LuaSnip", "cmp-cmdline", "cmp-nvim-lsp", "friendly-snippets", "cmp-nvim-lua", "cmp-path", "cmp-treesitter", "cmp_luasnip" },
+    after = { "cmp-buffer", "LuaSnip", "cmp-nvim-lsp", "friendly-snippets", "cmp-nvim-lua", "cmp-treesitter", "cmp_luasnip", "cmp-path" },
     config = { "\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15config.cmp\frequire\0" },
     loaded = false,
     needs_bufread = false,
