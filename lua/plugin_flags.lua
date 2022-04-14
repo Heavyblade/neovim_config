@@ -40,4 +40,5 @@
 -- Vim-test
    vim.g['test#strategy'] = 'floaterm'
 
+-- Tokyio Night
    vim.g.tokyonight_colors = {bg = "#16161e"}
