@@ -36,10 +36,6 @@ return require('packer').startup(function(use)
       'folke/tokyonight.nvim',
       branch = 'main'
   }
-  use {
-      'dracula/vim',
-      as = 'dracula'
-  }
 
   -- Languages
   use 'vim-ruby/vim-ruby'
