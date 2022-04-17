@@ -6,7 +6,7 @@ vim.g.mapleader = " "
 -- General
 map("n", "<SPACE>", "", {})
 map("n", "q", "", {})
-map("n", "<C-w>", ":bd<cr>", {})
+-- map("n", "<C-w>", ":bd<cr>", {})
 map("n", "<C-p>", ":Telescope find_files<cr>", {})
 map("n", "<Leader>gs", ":Git<cr>", {noremap = true})
 map("n", "<Leader>rr", ":WinResizerStartResize<cr>", {noremap = true})

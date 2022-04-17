@@ -26,9 +26,6 @@
 -- Gist
    vim.g['gist_post_private'] = 1
 
--- Prettier
-   vim.g['prettier#exec_cmd_path'] = "/usr/local/bin/prettier"
-
 -- JsDoc
    vim.g['jsdoc_lehre_path'] = "/usr/local/bin/lehre"
 
@@ -42,3 +39,6 @@
 
 -- Tokyio Night
    vim.g.tokyonight_colors = {bg = "#16161e"}
+
+-- Floatterm
+   vim.g.floaterm_autoclose = 0
