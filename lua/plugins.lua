@@ -7,8 +7,12 @@ return require('packer').startup(function(use)
 
   -- General
   use 'jiangmiao/auto-pairs'
-  use 'preservim/nerdcommenter'
-  use 'tpope/vim-commentary'
+  use {
+      'numToStr/Comment.nvim',
+      config = function()
+          require('Comment').setup()
+      end
+  }
   use 'mileszs/ack.vim'
   use 'simeji/winresizer'
   use 'haya14busa/incsearch.vim'
