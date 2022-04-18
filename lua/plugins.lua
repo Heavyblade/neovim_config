@@ -24,6 +24,12 @@ return require('packer').startup(function(use)
   use 'ThePrimeagen/harpoon'
   use 'tpope/vim-surround'
 
+  -- Colors
+  use {
+      'folke/tokyonight.nvim',
+      branch = 'main'
+  }
+
   -- Git
   use 'cohama/agit.vim'
   use 'airblade/vim-gitgutter'
@@ -34,12 +40,6 @@ return require('packer').startup(function(use)
   use 'nvim-lualine/lualine.nvim'
   use 'ryanoasis/vim-devicons'
   use 'scrooloose/NERDTree'
-
-  -- Colors
-  use {
-      'folke/tokyonight.nvim',
-      branch = 'main'
-  }
 
   -- Languages
   use 'vim-ruby/vim-ruby'
