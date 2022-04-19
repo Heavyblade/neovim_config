@@ -42,12 +42,9 @@ return require('packer').startup(function(use)
   use 'scrooloose/NERDTree'
 
   -- Languages
-  use 'vim-ruby/vim-ruby'
-  use 'tpope/vim-rails'
   use 'fatih/vim-go'
   use 'elzr/vim-json'
   use 'neoclide/vim-jsx-improve'
-  use 'heavenshell/vim-jsdoc'
   use 'vim-test/vim-test'
   use 'voldikss/vim-floaterm'
 
