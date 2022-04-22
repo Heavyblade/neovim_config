@@ -39,6 +39,7 @@
 
 -- Tokyio Night
    vim.g.tokyonight_colors = {bg = "#16161e"}
+   vim.g.tokyonight_transparent = true
 
 -- Floatterm
    vim.g.floaterm_autoclose = 0

@@ -79,6 +79,8 @@ return require('packer').startup(function(use)
     run = ':TSUpdate'
   }
 
+  use { 'tami5/lspsaga.nvim' }
+
   use {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
