@@ -111,4 +111,6 @@ return require('packer').startup(function(use)
   use 'folke/which-key.nvim'
   use 'ludovicchabant/vim-gutentags'
   use 'folke/trouble.nvim'
+  use "ahmedkhalf/project.nvim"
+
 end)

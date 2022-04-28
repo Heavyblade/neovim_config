@@ -1,3 +1,4 @@
+require("config.initialize.project_config")
 require('config.initialize.telescope')
 require('config.initialize.treesitter')
 require('config.initialize.hop')
