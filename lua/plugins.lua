@@ -59,6 +59,7 @@ return require('packer').startup(function(use)
       'nvim-telescope/telescope-fzf-native.nvim',
       run = 'make'
   }
+  use "ahmedkhalf/project.nvim"
 
   -- LSP
   use {
@@ -111,6 +112,4 @@ return require('packer').startup(function(use)
   use 'folke/which-key.nvim'
   use 'ludovicchabant/vim-gutentags'
   use 'folke/trouble.nvim'
-  use "ahmedkhalf/project.nvim"
-
 end)
