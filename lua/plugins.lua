@@ -23,6 +23,10 @@ return require('packer').startup(function(use)
     }
   use 'ThePrimeagen/harpoon'
   use 'tpope/vim-surround'
+  use {
+      'goolord/alpha-nvim',
+      requires = { 'kyazdani42/nvim-web-devicons' },
+  }
 
   -- Colors
   use {
@@ -47,6 +51,7 @@ return require('packer').startup(function(use)
   use 'neoclide/vim-jsx-improve'
   use 'vim-test/vim-test'
   use 'voldikss/vim-floaterm'
+  use 'tpope/vim-rails'
 
   -- Gist vim
   use 'mattn/vim-gist'

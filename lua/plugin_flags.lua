@@ -14,6 +14,7 @@
 
     -- Don't jump to first match
     vim.cmd 'cnoreabbrev Ack Ack!'
+    vim.cmd 'cnoreabbrev FT FloatermNew'
 
 -- NERDTreee
    vim.g['NERDTreeShowHidden'] = 1
