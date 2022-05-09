@@ -3,22 +3,27 @@ local map = vim.api.nvim_set_keymap
 
 vim.g.mapleader = " "
 
+local opts = { noremap = true, silent = true }
+local noremap = { noremap = true }
+
 -- General
 map("n", "<SPACE>", "", {})
 map("n", "q", "", {})
--- map("n", "<C-w>", ":bd<cr>", {})
 map("n", "<C-p>", ":Telescope find_files<cr>", {})
-map("n", "<Leader>gs", ":Git<cr>", {noremap = true})
-map("n", "<Leader>rr", ":WinResizerStartResize<cr>", {noremap = true})
-map("n", "<Leader>nt", ":NERDTreeToggle<cr>", {noremap = true})
-map("n", "<leader>nf", ":NERDTreeFind<cr>", {noremap = true})
-map("n", "<Leader>af", ":AgitFile<cr>", {noremap = true})
-map("n", "<Leader>rt", ":FloatermNew bundle exec ruby -Itest % -n <cword><cr>", {noremap = true})
-map("n", "<Leader>rs", ":FloatermNew ruby %<cr>", {noremap = true})
-map("n", "<Leader>/", ":Ack!<Space>", {noremap = true, silent = true})
-map("n", "[q", ":cprevious<cr>", {noremap = true, silent = true})
-map("n", "]q", ":cnext<cr>", {noremap = true, silent = true})
-map("n", "<Leader>bp", "orequire 'pry'<cr>binding.pry<Esc>", {noremap = true})
+map("n", "<Leader>gs", ":Git<cr>", noremap)
+map("n", "<Leader>rr", ":WinResizerStartResize<cr>", noremap)
+map("n", "<Leader>nt", ":NERDTreeToggle<cr>", noremap)
+map("n", "<leader>nf", ":NERDTreeFind<cr>", noremap)
+map("n", "<Leader>af", ":AgitFile<cr>", noremap)
+map("n", "<Leader>rt", ":FloatermNew bundle exec ruby -Itest % -n <cword><cr>", noremap)
+map("n", "<Leader>rs", ":FloatermNew ruby %<cr>", noremap)
+map("n", "<Leader>/", ":Ack!<Space>", opts)
+map("n", "[q", ":cprevious<cr>", opts)
+map("n", "]q", ":cnext<cr>", opts)
+map("n", "<Leader>bp", "orequire 'pry'<cr>binding.pry<Esc>", noremap)
+map("n", "<Leader><Space>", ":nohlsearch<CR>", opts)
+map("t", "<Esc>", "<C-\\><C-n>", opts)
+vim.cmd("autocmd CursorHold * lua vim.diagnostic.open_float()")
 
 -- HopLine
 local keymap_g = {
@@ -75,5 +80,3 @@ map("n", "<c-j>", ":wincmd j<CR>", {silent = true})
 map("n", "<c-h>", ":wincmd h<CR>", {silent = true})
 map("n", "<c-l>", ":wincmd l<CR>", {silent = true})
 
-vim.cmd("autocmd CursorHold * lua vim.diagnostic.open_float()")
---vim.api.nvim_create_autocmd("CursorHold", {pattern = "*", command = "lua vim.diagnostic.open_float()"})
