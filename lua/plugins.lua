@@ -23,10 +23,6 @@ return require('packer').startup(function(use)
     }
   use 'ThePrimeagen/harpoon'
   use 'tpope/vim-surround'
-  use {
-      'goolord/alpha-nvim',
-      requires = { 'kyazdani42/nvim-web-devicons' },
-  }
 
   -- Colors
   use {
@@ -116,5 +112,8 @@ return require('packer').startup(function(use)
 
   use 'folke/which-key.nvim'
   use 'ludovicchabant/vim-gutentags'
-  use 'folke/trouble.nvim'
+  use {
+      'folke/trouble.nvim',
+      requires = { 'kyazdani42/nvim-web-devicons' },
+  }
 end)
