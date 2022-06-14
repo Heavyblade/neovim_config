@@ -16,7 +16,6 @@ return require('packer').startup(function(use)
   use 'mileszs/ack.vim'
   use 'simeji/winresizer'
   use 'haya14busa/incsearch.vim'
-  use 'ntpeters/vim-better-whitespace'
   use {
       'phaazon/hop.nvim',
       branch = 'v1'
@@ -66,7 +65,7 @@ return require('packer').startup(function(use)
   use {
     "neovim/nvim-lspconfig",
     opt = true,
-    event = "BufReadPre",
+    event = "BufReadPost",
     wants = { "nvim-lsp-installer" },
     config = function()
       require("config.lsp").setup()

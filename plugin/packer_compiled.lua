@@ -206,7 +206,7 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
   ["nvim-cmp"] = {
-    after = { "cmp-buffer", "friendly-snippets", "cmp-nvim-lsp", "cmp-nvim-lua", "cmp-treesitter", "cmp_luasnip", "cmp-path", "LuaSnip" },
+    after = { "cmp-nvim-lsp", "cmp-treesitter", "LuaSnip", "cmp_luasnip", "friendly-snippets", "cmp-path", "cmp-nvim-lua", "cmp-buffer" },
     config = { "\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15config.cmp\frequire\0" },
     loaded = false,
     needs_bufread = false,
@@ -278,11 +278,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/cvazquez/.local/share/nvim/site/pack/packer/start/trouble.nvim",
     url = "https://github.com/folke/trouble.nvim"
-  },
-  ["vim-better-whitespace"] = {
-    loaded = true,
-    path = "/Users/cvazquez/.local/share/nvim/site/pack/packer/start/vim-better-whitespace",
-    url = "https://github.com/ntpeters/vim-better-whitespace"
   },
   ["vim-devicons"] = {
     loaded = true,
@@ -371,7 +366,7 @@ vim.cmd [[au!]]
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)
 vim.cmd [[au InsertEnter * ++once lua require("packer.load")({'nvim-cmp'}, { event = "InsertEnter *" }, _G.packer_plugins)]]
-vim.cmd [[au BufReadPre * ++once lua require("packer.load")({'nvim-lspconfig'}, { event = "BufReadPre *" }, _G.packer_plugins)]]
+vim.cmd [[au BufReadPost * ++once lua require("packer.load")({'nvim-lspconfig'}, { event = "BufReadPost *" }, _G.packer_plugins)]]
 time([[Defining lazy-load event autocommands]], false)
 vim.cmd("augroup END")
 if should_profile then save_profiles() end

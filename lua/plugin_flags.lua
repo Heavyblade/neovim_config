@@ -19,11 +19,6 @@
 -- NERDTreee
    vim.g['NERDTreeShowHidden'] = 1
 
--- White space to trigger on save
-   vim.g['better_whitespace_enabled'] = 1
-   vim.g['strip_whitespace_on_save'] = 1
-   vim.g['strip_whitespace_confirm'] = 0 -- avoid unnecessary confirmation
-
 -- Gist
    vim.g['gist_post_private'] = 1
 

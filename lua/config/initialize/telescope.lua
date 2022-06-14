@@ -7,7 +7,23 @@ require('telescope').setup {
       case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
                                        -- the default case_mode is "smart_case"
     }
-  }
+  },
+  vimgrep_arguments = {
+     "rg",
+     "--color=never",
+     "--no-heading",
+     "--with-filename",
+     "--line-number",
+     "--column",
+     "--smart-case",
+  },
+  winblend = 0,
+  border = {},
+  borderchars = { "?", "?", "?", "?", "?", "?", "?", "?" },
+  color_devicons = true,
+  use_less = true,
+  set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
+  extensions_list = { "themes", "terms" },
 }
 
 -- To get fzf loaded and working with telescope, you need to call
