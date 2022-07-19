@@ -79,4 +79,4 @@ map("n", "<c-k>", ":wincmd k<CR>", {silent = true})
 map("n", "<c-j>", ":wincmd j<CR>", {silent = true})
 map("n", "<c-h>", ":wincmd h<CR>", {silent = true})
 map("n", "<c-l>", ":wincmd l<CR>", {silent = true})
-
+map("n", "<c-n>", ":lua require('harpoon.ui').nav_next()<CR>", {silent = true})
