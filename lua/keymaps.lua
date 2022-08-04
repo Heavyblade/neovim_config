@@ -44,7 +44,6 @@ local keymap_t = {
     g = { "<cmd>:Telescope live_grep<CR>", "Telescope Grep" },
     c = { "<cmd>:Telescope git_bcommits<CR>", "Telescope Commits" },
     s = { "<cmd>:Telescope git_status<CR>", "Telescope Status" },
-    p = { "<cmd>:Telescope projects<CR>", "Telescope project" },
     d = { "<cmd>:TroubleToggle<CR>", "Trouble Toggle" },
   }
 }
