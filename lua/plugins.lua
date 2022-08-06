@@ -114,4 +114,12 @@ return require('packer').startup(function(use)
       'folke/trouble.nvim',
       requires = { 'kyazdani42/nvim-web-devicons' },
   }
+
+  use {
+      "nvim-neorg/neorg",
+      config = function()
+        require("config.initialize.norg").setup()
+      end,
+      requires = "nvim-lua/plenary.nvim",
+  }
 end)
