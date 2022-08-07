@@ -18,6 +18,7 @@
 
 -- NERDTreee
    vim.g['NERDTreeShowHidden'] = 1
+   vim.g['NERDTreeQuitOnOpen'] = 1
 
 -- Gist
    vim.g['gist_post_private'] = 1
