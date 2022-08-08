@@ -73,6 +73,17 @@ local keymap_r = {
 }
 whichkey.register(keymap_r, { prefix = "<leader>", noremap = true })
 
+-- Neorg
+local keymap_o = {
+  o = {
+    name = "Neorg",
+    h = { "<cmd>:Neorg workspace home<CR>", "Home Org" },
+    w = { "<cmd>:Neorg workspace work<CR>", "Worl Org" },
+    g = { "<cmd>:Neorg gtd views<CR>", "GTD Org" },
+  }
+}
+whichkey.register(keymap_o, { prefix = "<leader>", noremap = true })
+
 -- Use ctrl-[hjkl] to select the active split!
 map("n", "<c-k>", ":wincmd k<CR>", {silent = true})
 map("n", "<c-j>", ":wincmd j<CR>", {silent = true})

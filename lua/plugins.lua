@@ -83,8 +83,6 @@ return require('packer').startup(function(use)
 
   use {
     "hrsh7th/nvim-cmp",
-    event = "InsertEnter",
-    opt = true,
     config = function()
       require("config.cmp").setup()
     end,
