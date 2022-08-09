@@ -11,6 +11,7 @@ function M.setup()
           workspace = 'tasks'
          }
       },
+      ["core.norg.qol.toc"] = {},
       ["core.norg.completion"] = {
          config = {
              engine = "nvim-cmp"
