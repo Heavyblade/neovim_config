@@ -8,7 +8,7 @@ function M.setup()
       ["core.gtd.base"] = {
          config = { -- Note that this table is optional and doesn't need to be provided
              -- Configuration here
-          workspace = 'tasks'
+          workspace = 'work'
          }
       },
       ["core.norg.qol.toc"] = {},
