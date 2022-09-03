@@ -77,10 +77,9 @@ whichkey.register(keymap_r, { prefix = "<leader>", noremap = true })
 local keymap_o = {
   o = {
     name = "Neorg",
-    h = { "<cmd>:Neorg workspace home<CR>", "Home Org" },
     w = { "<cmd>:Neorg workspace work<CR>", "Work Org" },
     t = { "<cmd>:Neorg workspace tasks<CR>", "Tasks Org" },
-    g = { "<cmd>:Neorg gtd views<CR>", "GTD Org" },
+    v = { "<cmd>:Neorg gtd views<CR>", "GTD Org" },
     c = { "<cmd>:Neorg toc split<CR>", "Neorg Table of Contents" },
   }
 }

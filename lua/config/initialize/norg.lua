@@ -6,9 +6,8 @@ function M.setup()
       ["core.defaults"] = {},
       ["core.norg.concealer"] = {},
       ["core.gtd.base"] = {
-         config = { -- Note that this table is optional and doesn't need to be provided
-             -- Configuration here
-          workspace = 'work'
+         config = {
+          workspace = 'tasks'
          }
       },
       ["core.norg.qol.toc"] = {},
@@ -17,11 +16,17 @@ function M.setup()
              engine = "nvim-cmp"
          }
       },
+      ["core.export"] = { config = { } },
+      ["core.export.markdown"] = { config = { } },
+      ["core.presenter"] = {
+        config = {
+          zen_mode = "truezen"
+        }
+      },
       ["core.norg.dirman"] = {
         config = {
           workspaces = {
             work = "~/notes/work",
-            home = "~/notes/home",
             tasks = "~/notes/tasks",
           },
         },

@@ -32,7 +32,7 @@
    vim.g['go_doc_popup_window'] = 1 -- Checking docs on popup
 
 -- Vim-test
-   vim.g['test#strategy'] = 'floaterm'
+   vim.g['test#strategy'] = 'neovim'
 
 -- Tokyio Night
    vim.g.tokyonight_colors = {bg = "#16161e"}

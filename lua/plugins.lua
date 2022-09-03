@@ -6,7 +6,8 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- General
-  use 'jiangmiao/auto-pairs'
+  use 'windwp/nvim-autopairs'
+
   use {
       'numToStr/Comment.nvim',
       config = function()
@@ -118,6 +119,11 @@ return require('packer').startup(function(use)
       config = function()
         require("config.initialize.norg").setup()
       end,
-      requires = "nvim-lua/plenary.nvim",
+      requires =
+      {
+        "nvim-lua/plenary.nvim",
+        "Pocco81/true-zen.nvim",
+      },
+      tag = "0.0.12", -- remove after installing nvim 0.8+
   }
 end)

@@ -20,9 +20,9 @@ function M.setup()
     formatting = {
       format = function(entry, vim_item)
         vim_item.menu = ({
+          luasnip = "[Snip]",
           nvim_lsp = "[LSP]",
           buffer = "[Buffer]",
-          luasnip = "[Snip]",
           nvim_lua = "[Lua]",
           treesitter = "[Treesitter]",
           path = "[Path]",
@@ -78,10 +78,10 @@ function M.setup()
       }),
     },
     sources = {
+      { name = "luasnip" },
       { name = "nvim_lsp" },
       { name = "treesitter" },
       { name = "buffer" },
-      { name = "luasnip" },
       { name = "nvim_lua" },
       { name = "path" },
       { name = "neorg" },
