@@ -6,6 +6,6 @@ require('config.initialize')
 require('config.lsp')
 
 vim.cmd("syntax on")
-vim.cmd('colorscheme tokyonight')
+vim.cmd('colorscheme kanagawa')
 
 require('keymaps')

@@ -29,6 +29,7 @@ return require('packer').startup(function(use)
       'folke/tokyonight.nvim',
       branch = 'main'
   }
+  use "rebelot/kanagawa.nvim"
 
   -- Git
   use 'cohama/agit.vim'
