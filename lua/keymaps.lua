@@ -10,7 +10,6 @@ local noremap = { noremap = true }
 map("n", "<SPACE>", "", {})
 map("n", "q", "", {})
 map("n", "<C-p>", ":Telescope find_files<cr>", {})
-map("n", "<Leader>gs", ":Git<cr>", noremap)
 map("n", "<Leader>rr", ":WinResizerStartResize<cr>", noremap)
 map("n", "<Leader>nt", ":NERDTreeToggle<cr>", noremap)
 map("n", "<leader>nf", ":NERDTreeFind<cr>", noremap)
@@ -31,6 +30,8 @@ local keymap_g = {
     name = "HopLine",
     l = { "<cmd>:HopLine<CR>", "HopLine Line" },
     w = { "<cmd>:HopWord<CR>", "HopLine Word" },
+    s = { "<cmd>:Git<CR>", "Git Status" },
+    a = { "<cmd>:GitGutterStageHunk<CR>", "Git Add chunk" },
   }
 }
 whichkey.register(keymap_g, { noremap = true, silent = true })
