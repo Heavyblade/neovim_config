@@ -14,6 +14,7 @@ map("n", "<Leader>rr", ":WinResizerStartResize<cr>", noremap)
 map("n", "<Leader>nt", ":NERDTreeToggle<cr>", noremap)
 map("n", "<leader>nf", ":NERDTreeFind<cr>", noremap)
 map("n", "<Leader>af", ":AgitFile<cr>", noremap)
+map("n", "<Leader>gs", ":Git<cr>", noremap)
 map("n", "<Leader>rt", ":FloatermNew bundle exec ruby -Itest % -n <cword><cr>", noremap)
 map("n", "<Leader>rs", ":FloatermNew ruby %<cr>", noremap)
 map("n", "<Leader>/", ":Ack!<Space>", opts)
@@ -30,7 +31,6 @@ local keymap_g = {
     name = "HopLine",
     l = { "<cmd>:HopLine<CR>", "HopLine Line" },
     w = { "<cmd>:HopWord<CR>", "HopLine Word" },
-    s = { "<cmd>:Git<CR>", "Git Status" },
     a = { "<cmd>:GitGutterStageHunk<CR>", "Git Add chunk" },
   }
 }
@@ -41,7 +41,7 @@ local keymap_t = {
   t = {
     name = "Telescope",
     b = { "<cmd>:Telescope buffers<CR>", "Telescope Buffers" },
-    t = { "<cmd>:Telescope current_buffer_tags<CR>", "Telescope Tags" },
+    t = { "<cmd>:Telescope lsp_document_symbols<CR>", "Telescope Tags" },
     g = { "<cmd>:Telescope live_grep<CR>", "Telescope Grep" },
     c = { "<cmd>:Telescope git_bcommits<CR>", "Telescope Commits" },
     s = { "<cmd>:Telescope git_status<CR>", "Telescope Status" },

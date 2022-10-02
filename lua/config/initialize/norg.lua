@@ -7,7 +7,7 @@ function M.setup()
       ["core.norg.concealer"] = {},
       ["core.gtd.base"] = {
          config = {
-          workspace = 'tasks'
+          workspace = 'work'
          }
       },
       ["core.norg.qol.toc"] = {},
@@ -26,8 +26,7 @@ function M.setup()
       ["core.norg.dirman"] = {
         config = {
           workspaces = {
-            work = "~/notes/work",
-            tasks = "~/notes/tasks",
+            work = "~/notes",
           },
         },
       },
