@@ -1,3 +1,5 @@
+local navic = require("nvim-navic")
+
 local M = {}
 
 local servers = {
@@ -15,6 +17,9 @@ local function on_attach(client, bufnr)
   -- See `:help omnifunc` and `:help ins-completion` for more information.
   vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
+  if client.server_capabilities.documentSymbolProvider then
+    navic.attach(client, bufnr)
+  end
   -- Use LSP as the handler for formatexpr.
   -- See `:help formatexpr` for more information.
   vim.api.nvim_buf_set_option(0, "formatexpr", "v:lua.vim.lsp.formatexpr()")

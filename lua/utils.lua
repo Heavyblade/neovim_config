@@ -10,6 +10,10 @@ _G.prequire = function(...)
   return nil
 end
 
+_G.P = function(value)
+  print(vim.inspect(value))
+end
+
 local M = {}
 
 function M.t(str)

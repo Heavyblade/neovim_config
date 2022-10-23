@@ -7,7 +7,6 @@ return require('packer').startup(function(use)
 
   -- General
   use 'windwp/nvim-autopairs'
-
   use {
       'numToStr/Comment.nvim',
       config = function()
@@ -41,7 +40,10 @@ return require('packer').startup(function(use)
   use 'nvim-lualine/lualine.nvim'
   use 'ryanoasis/vim-devicons'
   use 'scrooloose/NERDTree'
-
+  use {
+    'SmiteshP/nvim-navic',
+    requires = 'neovim/nvim-lspconfig'
+  }
   -- Languages
   use 'fatih/vim-go'
   use 'elzr/vim-json'
