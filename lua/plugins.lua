@@ -38,8 +38,12 @@ return require('packer').startup(function(use)
   -- UI
   use 'Yggdroot/indentLine'
   use 'nvim-lualine/lualine.nvim'
-  use 'ryanoasis/vim-devicons'
-  use 'scrooloose/NERDTree'
+  use {
+    'nvim-tree/nvim-tree.lua',
+    requires = {
+      'nvim-tree/nvim-web-devicons',
+    },
+  }
   use {
     'SmiteshP/nvim-navic',
     requires = 'neovim/nvim-lspconfig'
@@ -126,7 +130,8 @@ return require('packer').startup(function(use)
       {
         "nvim-lua/plenary.nvim",
         "Pocco81/true-zen.nvim",
-      },
-      tag = "0.0.12", -- remove after installing nvim 0.8+
+      }
   }
+
+  use "~/rails/stackmap"
 end)
