@@ -14,6 +14,7 @@ Some plugins had dependencies on system tools:
 - fzf
 - ripgrep
 - tree-sitter
+- gcc (gcc-12 in particular installed with homebrew)
 
 Some LSP servers are defined (they are going to be auto installed by Lsp client):
 
@@ -28,3 +29,12 @@ Some LSP servers are defined (they are going to be auto installed by Lsp client)
 Some plugins like NerdTree and Trouble display icons on the screen and Need a nerd font compatible, ensure to install one on your terminal.
 
 check [Nerd Fonts website](https://www.nerdfonts.com/)
+
+
+## Neorg Notes
+ ### Lsp
+ On MacOS you need gcc-12 To make it work, for that you need:
+
+ 1) brew install gcc
+ 2) alias alias echo "gcc='gcc-12'" >> ~/.zshrc
+ 3) run install => CC=gcc-12 nvim -c "TSInstall norg" 

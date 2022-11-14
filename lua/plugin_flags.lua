@@ -14,6 +14,7 @@
 
     -- Don't jump to first match
     vim.cmd 'cnoreabbrev Ack Ack!'
+    vim.cmd 'cnoreabbrev Te Telescope'
     vim.cmd 'cnoreabbrev FT FloatermNew'
 
 -- NERDTreee
