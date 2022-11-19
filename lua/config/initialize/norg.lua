@@ -6,18 +6,18 @@ function M.setup()
       ["core.defaults"] = {},
       ["core.norg.concealer"] = {},
       ["core.gtd.base"] = {
-         config = {
+        config = {
           workspace = 'work'
-         }
+        }
       },
       ["core.norg.qol.toc"] = {},
       ["core.norg.completion"] = {
-         config = {
-             engine = "nvim-cmp"
-         }
+        config = {
+          engine = "nvim-cmp"
+        }
       },
-      ["core.export"] = { config = { } },
-      ["core.export.markdown"] = { config = { } },
+      ["core.export"] = { config = {} },
+      ["core.export.markdown"] = { config = {} },
       ["core.presenter"] = {
         config = {
           zen_mode = "truezen"
@@ -26,7 +26,7 @@ function M.setup()
       ["core.norg.dirman"] = {
         config = {
           workspaces = {
-            work = "~/notes",
+            work = "~/notes/tasks",
           },
         },
       },
