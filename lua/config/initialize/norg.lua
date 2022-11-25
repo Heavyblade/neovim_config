@@ -23,6 +23,7 @@ function M.setup()
           zen_mode = "truezen"
         }
       },
+      ['core.integrations.treesitter'] = {},
       ["core.norg.dirman"] = {
         config = {
           workspaces = {

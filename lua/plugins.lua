@@ -8,25 +8,25 @@ return require('packer').startup(function(use)
   -- General
   use 'windwp/nvim-autopairs'
   use {
-      'numToStr/Comment.nvim',
-      config = function()
-          require('Comment').setup()
-      end
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup()
+    end
   }
   use 'mileszs/ack.vim'
   use 'simeji/winresizer'
   use 'haya14busa/incsearch.vim'
   use {
-      'phaazon/hop.nvim',
-      branch = 'v1'
-    }
+    'phaazon/hop.nvim',
+    branch = 'v1'
+  }
   use 'ThePrimeagen/harpoon'
   use 'tpope/vim-surround'
 
   -- Colors
   use {
-      'folke/tokyonight.nvim',
-      branch = 'main'
+    'folke/tokyonight.nvim',
+    branch = 'main'
   }
   use "rebelot/kanagawa.nvim"
 
@@ -64,8 +64,8 @@ return require('packer').startup(function(use)
   use 'nvim-lua/plenary.nvim'
   use 'nvim-telescope/telescope.nvim'
   use {
-      'nvim-telescope/telescope-fzf-native.nvim',
-      run = 'make'
+    'nvim-telescope/telescope-fzf-native.nvim',
+    run = 'make'
   }
 
   -- LSP
@@ -117,20 +117,22 @@ return require('packer').startup(function(use)
   use 'folke/which-key.nvim'
   use 'ludovicchabant/vim-gutentags'
   use {
-      'folke/trouble.nvim',
-      requires = { 'kyazdani42/nvim-web-devicons' },
+    'folke/trouble.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons' },
   }
 
   use {
-      "nvim-neorg/neorg",
-      config = function()
-        require("config.initialize.norg").setup()
-      end,
-      requires =
-      {
-        "nvim-lua/plenary.nvim",
-        "Pocco81/true-zen.nvim",
-      }
+    "nvim-neorg/neorg",
+    config = function()
+      require("config.initialize.norg").setup()
+    end,
+    after = "nvim-treesitter",
+    requires =
+    {
+      "nvim-lua/plenary.nvim",
+      "Pocco81/true-zen.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    }
   }
 
   use "~/rails/stackmap"
