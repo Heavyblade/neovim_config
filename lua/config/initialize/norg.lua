@@ -4,6 +4,7 @@ function M.setup()
   require("neorg").setup {
     load = {
       ["core.defaults"] = {},
+      ['core.integrations.treesitter'] = {},
       ["core.norg.concealer"] = {},
       ["core.gtd.base"] = {
         config = {
@@ -23,7 +24,6 @@ function M.setup()
           zen_mode = "truezen"
         }
       },
-      ['core.integrations.treesitter'] = {},
       ["core.norg.dirman"] = {
         config = {
           workspaces = {
