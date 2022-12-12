@@ -85,9 +85,12 @@ return require('packer').startup(function(use)
 
   use {
     'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate'
+    run = ':TSUpdate',
+    config = function()
+      require("config.initialize.treesitter")
+    end,
+    requires = { "nvim-treesitter/playground" }
   }
-  use { 'nvim-treesitter/playground' }
 
   use { 'tami5/lspsaga.nvim' }
 
