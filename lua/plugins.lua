@@ -47,7 +47,10 @@ return require('packer').startup(function(use)
   }
   use {
     'SmiteshP/nvim-navic',
-    requires = 'neovim/nvim-lspconfig'
+    config = function()
+      require('config.initialize.navic')
+    end,
+    requires = 'neovim/nvim-lspconfig',
   }
   -- Languages
   use 'fatih/vim-go'
