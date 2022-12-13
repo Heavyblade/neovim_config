@@ -62,11 +62,16 @@ return require('packer').startup(function(use)
   use 'mattn/webapi-vim'
 
   -- Telescope
-  use 'nvim-lua/plenary.nvim'
-  use 'nvim-telescope/telescope.nvim'
   use {
-    'nvim-telescope/telescope-fzf-native.nvim',
-    run = 'make'
+    'nvim-telescope/telescope.nvim',
+    config = function()
+      require('config.initialize.telescope')
+    end,
+    requires = {
+      { 'nvim-lua/plenary.nvim' },
+      { 'nvim-treesitter/nvim-treesitter' },
+      { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+    }
   }
 
   -- LSP
