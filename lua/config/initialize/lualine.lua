@@ -1,7 +1,7 @@
 require('lualine').setup {
   options = {
     icons_enabled = true,
-    theme = 'tokyonight',
+    theme = 'palenight',
     disabled_filetypes = {},
     always_divide_middle = true,
     globalstatus = false,

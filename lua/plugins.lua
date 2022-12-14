@@ -20,7 +20,7 @@ return require('packer').startup(function(use)
     'phaazon/hop.nvim',
     branch = 'v1',
     config = function()
-      require 'hop'.setup()
+      require('hop').setup()
     end
   }
   use 'ThePrimeagen/harpoon'
@@ -41,7 +41,12 @@ return require('packer').startup(function(use)
 
   -- UI
   use 'Yggdroot/indentLine'
-  use 'nvim-lualine/lualine.nvim'
+  use {
+    'nvim-lualine/lualine.nvim',
+    config = function()
+      require('config.initialize.lualine')
+    end
+  }
   use {
     'nvim-tree/nvim-tree.lua',
     requires = {
