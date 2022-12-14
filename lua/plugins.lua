@@ -139,6 +139,9 @@ return require('packer').startup(function(use)
   use 'ludovicchabant/vim-gutentags'
   use {
     'folke/trouble.nvim',
+    config = function()
+      require('trouble').setup {}
+    end,
     requires = { 'kyazdani42/nvim-web-devicons' },
   }
 

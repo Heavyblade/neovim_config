@@ -1,4 +1,3 @@
-require('config.initialize.trouble')
 require('config.initialize.saga')
 require('config.initialize.autopairs')
 require('config.initialize.kanagawa')
