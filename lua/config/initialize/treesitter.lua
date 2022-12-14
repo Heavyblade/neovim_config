@@ -1,22 +1,3 @@
-require('nvim-treesitter.configs').setup {
-    highlight = {
-        enable = true,
-        disable = {},
-    },
-    indent = {
-        enable = true,
-        disable = {},
-    },
-    ensure_installed = {
-        "ruby",
-        "go",
-        "javascript",
-        "html",
-        "tsx",
-        "norg",
-        "lua",
-    },
-}
 local parser_configs = require "nvim-treesitter.parsers".get_parser_configs()
 parser_configs.tsx.filetype_to_parsername = { "javascript", "typescript.tsx" }
 
@@ -44,4 +25,24 @@ parser_configs.norg_table = {
     branch = 'main',
   },
   maintainers = {'@nvim-neorg'},
+}
+
+require('nvim-treesitter.configs').setup {
+    highlight = {
+        enable = true,
+        disable = {},
+    },
+    indent = {
+        enable = true,
+        disable = {},
+    },
+    ensure_installed = {
+        "ruby",
+        "go",
+        "javascript",
+        "html",
+        "tsx",
+        "norg",
+        "lua",
+    },
 }

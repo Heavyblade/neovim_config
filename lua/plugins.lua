@@ -18,7 +18,10 @@ return require('packer').startup(function(use)
   use 'haya14busa/incsearch.vim'
   use {
     'phaazon/hop.nvim',
-    branch = 'v1'
+    branch = 'v1',
+    config = function()
+      require 'hop'.setup()
+    end
   }
   use 'ThePrimeagen/harpoon'
   use 'tpope/vim-surround'
@@ -136,6 +139,7 @@ return require('packer').startup(function(use)
 
   use {
     "nvim-neorg/neorg",
+    run = ":Neorg sync-parsers",
     config = function()
       require("config.initialize.norg").setup()
     end,
