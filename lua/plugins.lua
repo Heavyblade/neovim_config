@@ -6,7 +6,14 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- General
-  use 'windwp/nvim-autopairs'
+  use {
+    'windwp/nvim-autopairs',
+    config = function()
+      require("nvim-autopairs").setup {
+        disable_filetype = { "TelescopePrompt", "norg" }
+      }
+    end
+  }
   use {
     'numToStr/Comment.nvim',
     config = function()
@@ -49,6 +56,9 @@ return require('packer').startup(function(use)
   }
   use {
     'nvim-tree/nvim-tree.lua',
+    config = function()
+      require('config.initialize.nvim_tree')
+    end,
     requires = {
       'nvim-tree/nvim-web-devicons',
     },
@@ -108,7 +118,12 @@ return require('packer').startup(function(use)
     requires = { "nvim-treesitter/playground" }
   }
 
-  use { 'tami5/lspsaga.nvim' }
+  use {
+    'tami5/lspsaga.nvim',
+    config = function()
+      require('lspsaga').init_lsp_saga()
+    end
+  }
 
   use {
     "hrsh7th/nvim-cmp",
