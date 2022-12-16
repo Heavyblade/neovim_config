@@ -15,17 +15,10 @@
     -- Don't jump to first match
     vim.cmd 'cnoreabbrev Ack Ack!'
     vim.cmd 'cnoreabbrev Te Telescope'
-    vim.cmd 'cnoreabbrev FT FloatermNew'
-
--- NERDTreee
-   vim.g['NERDTreeShowHidden'] = 1
-   vim.g['NERDTreeQuitOnOpen'] = 1
+    vim.cmd 'cnoreabbrev Ft FloatermNew'
 
 -- Gist
    vim.g['gist_post_private'] = 1
-
--- JsDoc
-   vim.g['jsdoc_lehre_path'] = "/usr/local/bin/lehre"
 
 -- Vim-go
    vim.g['go_def_mode'] = "gopls"
