@@ -26,7 +26,6 @@ function M.setup()
           nvim_lua = "[Lua]",
           treesitter = "[Treesitter]",
           path = "[Path]",
-          neorg = "[NEORG]",
         })[entry.source.name]
         return vim_item
       end,
@@ -84,7 +83,6 @@ function M.setup()
       { name = "buffer" },
       { name = "nvim_lua" },
       { name = "path" },
-      { name = "neorg" },
       -- { name = "spell" },
       -- { name = "emoji" },
       -- { name = "calc" },

@@ -160,20 +160,6 @@ return require('packer').startup(function(use)
     requires = { 'kyazdani42/nvim-web-devicons' },
   }
 
-  use {
-    "nvim-neorg/neorg",
-    run = ":Neorg sync-parsers",
-    config = function()
-      require("config.initialize.norg").setup()
-    end,
-    after = "nvim-treesitter",
-    requires =
-    {
-      "nvim-lua/plenary.nvim",
-      "Pocco81/true-zen.nvim",
-      "nvim-treesitter/nvim-treesitter",
-    }
-  }
-
   use "~/rails/stackmap"
+  use "Pocco81/true-zen.nvim"
 end)

@@ -75,18 +75,6 @@ local keymap_r = {
 }
 whichkey.register(keymap_r, { prefix = "<leader>", noremap = true })
 
--- Neorg
-local keymap_o = {
-  o = {
-    name = "Neorg",
-    w = { "<cmd>:Neorg workspace work<CR>", "Work Org" },
-    t = { "<cmd>:Neorg workspace tasks<CR>", "Tasks Org" },
-    v = { "<cmd>:Neorg gtd views<CR>", "GTD Org" },
-    c = { "<cmd>:Neorg toc split<CR>", "Neorg Table of Contents" },
-  }
-}
-whichkey.register(keymap_o, { prefix = "<leader>", noremap = true })
-
 -- Use ctrl-[hjkl] to select the active split!
 map("n", "<c-k>", ":wincmd k<CR>", {silent = true})
 map("n", "<c-j>", ":wincmd j<CR>", {silent = true})
