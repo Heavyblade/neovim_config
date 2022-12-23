@@ -75,7 +75,6 @@ return require('packer').startup(function(use)
   use 'neoclide/vim-jsx-improve'
   use 'vim-test/vim-test'
   use 'voldikss/vim-floaterm'
-  use 'tpope/vim-rails'
 
   -- Gist vim
   use 'mattn/vim-gist'
@@ -160,5 +159,4 @@ return require('packer').startup(function(use)
   }
 
   use "~/rails/stackmap"
-  use "Pocco81/true-zen.nvim"
 end)
