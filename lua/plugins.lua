@@ -22,7 +22,6 @@ return require('packer').startup(function(use)
   }
   use 'mileszs/ack.vim'
   use 'simeji/winresizer'
-  use 'haya14busa/incsearch.vim'
   use {
     'phaazon/hop.nvim',
     branch = 'v1',
