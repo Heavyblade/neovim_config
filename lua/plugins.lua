@@ -24,7 +24,6 @@ return require('packer').startup(function(use)
   use 'simeji/winresizer'
   use {
     'phaazon/hop.nvim',
-    branch = 'v1',
     config = function()
       require('hop').setup()
     end
@@ -72,7 +71,6 @@ return require('packer').startup(function(use)
   -- Languages
   use 'fatih/vim-go'
   use 'elzr/vim-json'
-  use 'neoclide/vim-jsx-improve'
   use 'vim-test/vim-test'
   use 'voldikss/vim-floaterm'
 
@@ -159,4 +157,15 @@ return require('packer').startup(function(use)
   }
 
   use "~/rails/stackmap"
+  use {
+    'pwntester/octo.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope.nvim',
+      'kyazdani42/nvim-web-devicons',
+    },
+    config = function()
+      require "octo".setup()
+    end
+  }
 end)

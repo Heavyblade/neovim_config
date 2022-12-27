@@ -75,9 +75,22 @@ local keymap_r = {
 }
 whichkey.register(keymap_r, { prefix = "<leader>", noremap = true })
 
+-- Github
+local keymap_o = {
+  g = {
+    name = "Github",
+    p = { "<cmd>:Octo search author:Heavyblade is:pr is:open<CR>", "My open PRs" },
+    r = { function()
+      local last_two_months = os.date("%Y-%m-%d", os.time() - (2 * 30 * 24 * 60 * 60))
+      vim.cmd("Octo search user-review-requested:@me is:pr is:open created:>=" .. last_two_months)
+    end, "PRs to Review" },
+  }
+}
+whichkey.register(keymap_o, { prefix = "<leader>", noremap = true })
+
 -- Use ctrl-[hjkl] to select the active split!
-map("n", "<c-k>", ":wincmd k<CR>", {silent = true})
-map("n", "<c-j>", ":wincmd j<CR>", {silent = true})
-map("n", "<c-h>", ":wincmd h<CR>", {silent = true})
-map("n", "<c-l>", ":wincmd l<CR>", {silent = true})
-map("n", "<c-n>", ":lua require('harpoon.ui').nav_next()<CR>", {silent = true})
+map("n", "<c-k>", ":wincmd k<CR>", { silent = true })
+map("n", "<c-j>", ":wincmd j<CR>", { silent = true })
+map("n", "<c-h>", ":wincmd h<CR>", { silent = true })
+map("n", "<c-l>", ":wincmd l<CR>", { silent = true })
+map("n", "<c-n>", ":lua require('harpoon.ui').nav_next()<CR>", { silent = true })
