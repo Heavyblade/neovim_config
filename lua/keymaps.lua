@@ -1,4 +1,5 @@
 local whichkey = require "which-key"
+local utils = require "utils"
 local map = vim.api.nvim_set_keymap
 
 vim.g.mapleader = " "
@@ -79,7 +80,13 @@ whichkey.register(keymap_r, { prefix = "<leader>", noremap = true })
 local keymap_o = {
   g = {
     name = "Github",
-    p = { "<cmd>:Octo search author:Heavyblade is:pr is:open<CR>", "My open PRs" },
+    p = { function()
+      local members = { "Heavyblade", "gasb150", "jherreraa", "sinourain", "Sainterman", "javierpedrozaing " }
+
+      utils.picker("Team Members", members, function(selected)
+        vim.cmd("Octo search author:" .. selected[1] .. " is:pr is:open")
+      end)
+    end, "My open PRs" },
     r = { function()
       local last_two_months = os.date("%Y-%m-%d", os.time() - (2 * 30 * 24 * 60 * 60))
       vim.cmd("Octo search user-review-requested:@me is:pr is:open created:>=" .. last_two_months)
