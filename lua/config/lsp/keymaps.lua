@@ -25,9 +25,8 @@ local function keymappings(client, bufnr)
       i = { "<cmd>LspInfo<CR>", "Lsp Info" },
     },
   }
-  if client.server_capabilities.document_formatting then
-    keymap_l.l.f = { "<cmd>lua vim.lsp.buf.formatting()<CR>", "Format Document" }
-  end
+
+  keymap_l.l.f = { "<cmd>lua vim.lsp.buf.format({async = true})<CR>", "Format Document" }
 
   local keymap_g = {
     name = "Goto",
