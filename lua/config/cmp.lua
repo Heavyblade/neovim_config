@@ -37,6 +37,7 @@ function M.setup()
       ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
       ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
       ["<C-e>"] = cmp.mapping { i = cmp.mapping.close(), c = cmp.mapping.close() },
+      ["<Escape>"] = cmp.mapping { i = cmp.mapping.close(), c = cmp.mapping.close() },
       ["<CR>"] = cmp.mapping {
         i = cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Replace, select = false },
         c = function(fallback)
@@ -87,7 +88,7 @@ function M.setup()
       -- { name = "emoji" },
       -- { name = "calc" },
     },
-    window ={
+    window = {
       completion = { -- rounded border; thin-style scrollbar
         border = 'rounded',
         scrollbar = '?',
@@ -99,6 +100,28 @@ function M.setup()
       },
     },
   }
+
+  cmp.setup.cmdline(':', {
+    mapping = cmp.mapping.preset.cmdline(),
+    completion = { autocomplete = false },
+    sources = cmp.config.sources({
+      { name = 'path' }
+    }, {
+      {
+        name = 'cmdline',
+        option = {
+          ignore_cmds = { 'Man', '!' }
+        }
+      }
+    })
+  })
+
+  cmp.setup.cmdline('/', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = {
+      { name = 'buffer' }
+    }
+  })
 end
 
 return M
