@@ -72,7 +72,11 @@ return require('packer').startup(function(use)
   use 'fatih/vim-go'
   use 'elzr/vim-json'
   use 'vim-test/vim-test'
-  use 'voldikss/vim-floaterm'
+  use { "akinsho/toggleterm.nvim", tag = '*', config = function()
+    require("toggleterm").setup {
+      open_mapping = [[<c-\>]],
+    }
+  end }
 
   -- Gist vim
   use 'mattn/vim-gist'
@@ -169,4 +173,5 @@ return require('packer').startup(function(use)
       require "octo".setup()
     end
   }
+
 end)
