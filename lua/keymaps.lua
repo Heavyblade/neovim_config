@@ -82,9 +82,10 @@ local keymap_o = {
     name = "Github",
     p = { function()
       local members = { "Heavyblade", "gasb150", "jherreraa", "sinourain", "Sainterman", "javierpedrozaing " }
+      local last_two_months = os.date("%Y-%m-%d", os.time() - (2 * 30 * 24 * 60 * 60))
 
       utils.picker("Team Members", members, function(selected)
-        vim.cmd("Octo search author:" .. selected[1] .. " is:pr is:open")
+        vim.cmd("Octo search author:" .. selected[1] .. " is:pr is:open created:>=" .. last_two_months)
       end)
     end, "My open PRs" },
     r = { function()
