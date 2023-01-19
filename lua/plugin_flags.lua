@@ -34,3 +34,4 @@
 
 -- Floatterm
    vim.g.floaterm_autoclose = 0
+   vim.g.floaterm_autoinsert = false

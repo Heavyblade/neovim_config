@@ -72,11 +72,7 @@ return require('packer').startup(function(use)
   use 'fatih/vim-go'
   use 'elzr/vim-json'
   use 'vim-test/vim-test'
-  use { "akinsho/toggleterm.nvim", tag = '*', config = function()
-    require("toggleterm").setup {
-      open_mapping = [[<c-\>]],
-    }
-  end }
+  use 'voldikss/vim-floaterm'
 
   -- Gist vim
   use 'mattn/vim-gist'

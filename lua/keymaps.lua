@@ -11,13 +11,15 @@ local noremap = { noremap = true }
 map("n", "<SPACE>", "", {})
 map("n", "q", "", {})
 map("n", "<C-p>", ":Telescope find_files<cr>", {})
+map("t", "<C-\\>", ":FloatermToggle<cr>", {})
+map("n", "<C-\\>", ":FloatermToggle<cr>", {})
 map("n", "<Leader>rr", ":WinResizerStartResize<cr>", noremap)
 map("n", "<Leader>nt", ":NvimTreeToggle<cr>", noremap)
 map("n", "<leader>nf", ":NvimTreeFindFile<cr>", noremap)
 map("n", "<Leader>af", ":AgitFile<cr>", noremap)
 map("n", "<Leader>gs", ":Git<cr>", noremap)
-map("n", "<Leader>rt", ":TermExec cmd=\"bundle exec ruby -Itest % -n <cword>\"<cr>", noremap)
-map("n", "<Leader>rs", ":TermExec cmd=\"ruby %\"<cr>", noremap)
+map("n", "<Leader>rt", ":FloatermNew bundle exec ruby -Itest % -n <cword><cr>", noremap)
+map("n", "<Leader>rs", ":FloatermNew ruby %<cr>", noremap)
 map("n", "<Leader>/", ":Ack!<Space>", opts)
 map("n", "[q", ":cprevious<cr>", opts)
 map("n", "]q", ":cnext<cr>", opts)
@@ -72,6 +74,13 @@ local keymap_r = {
     c = { "<cmd>:Econtroller<CR>", "Rails Controller" },
     m = { "<cmd>:Emodel<CR>", "Rails Model" },
     v = { "<cmd>:Eview<CR>", "Rails View" },
+    b = { function()
+      local buf = vim.api.nvim_get_current_buf()
+      local cursor = vim.api.nvim_win_get_cursor(0)
+
+      vim.api.nvim_buf_set_lines(buf, cursor[1], cursor[1], true, { "```ruby", "", "```" })
+      vim.api.nvim_win_set_cursor(0, { cursor[1] + 2, 0 })
+    end, "Ruby block md" }
   }
 }
 whichkey.register(keymap_r, { prefix = "<leader>", noremap = true })
@@ -81,7 +90,7 @@ local keymap_o = {
   g = {
     name = "Github",
     p = { function()
-      local members = { "Heavyblade", "gasb150", "jherreraa", "sinourain", "Sainterman", "javierpedrozaing " }
+      local members = { "Heavyblade", "gasb150", "jherreraa", "sinourain", "Sainterman", "javierpedrozaing ", "edgarv09" }
       local last_two_months = os.date("%Y-%m-%d", os.time() - (2 * 30 * 24 * 60 * 60))
 
       utils.picker("Team Members", members, function(selected)
