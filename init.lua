@@ -1,3 +1,5 @@
+vim.b['did_ftplugin'] = 1
+
 require('config.vim_options')
 require('plugin_flags')
 require('plugins')
