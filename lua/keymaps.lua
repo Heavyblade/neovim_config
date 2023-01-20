@@ -101,6 +101,20 @@ local keymap_o = {
       local last_two_months = os.date("%Y-%m-%d", os.time() - (2 * 30 * 24 * 60 * 60))
       vim.cmd("Octo search user-review-requested:@me is:pr is:open created:>=" .. last_two_months)
     end, "PRs to Review" },
+    t = { function()
+
+      local members = { "Heavyblade", "gasb150", "jherreraa", "sinourain", "Sainterman", "javierpedrozaing ", "edgarv09" }
+      local projects = { "activemerchant/active_merchant", "spreedly/docs", "spreedly/core", "spreedly/iframe" }
+
+      local members_string = utils.concatenate_table(members, "author:")
+      local projects_string = utils.concatenate_table(projects, "repo:")
+
+      local last_two_months = os.date("%Y-%m-%d", os.time() - (2 * 30 * 24 * 60 * 60))
+
+      print("Octo search " .. members_string .. projects_string .. "is:pr is:open created:>=" .. last_two_months)
+
+      vim.cmd("Octo search " .. members_string .. projects_string .. "is:pr is:open created:>=" .. last_two_months)
+    end, "Team Prs" }
   }
 }
 whichkey.register(keymap_o, { prefix = "<leader>", noremap = true })

@@ -64,4 +64,14 @@ function M.picker(title, options, callback)
   }):find()
 end
 
+function M.concatenate_table(table, prefix)
+  local members_string = ""
+
+  for k, value in ipairs(table) do
+    members_string = members_string .. prefix .. value .. " "
+  end
+
+  return members_string
+end
+
 return M
