@@ -2,7 +2,6 @@
 local bg_color = "#100e17"
 
 require('kanagawa').setup({
-  transparent = false,
+  transparent = true,
   colors = {sumiInk1 = bg_color, sumiInk0 = bg_color }
-
 })

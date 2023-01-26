@@ -10,6 +10,7 @@ local servers = {
   tsserver = {},
   vimls = {},
   solargraph = {},
+  marksman = {},
 }
 
 local function on_attach(client, bufnr)

@@ -35,6 +35,7 @@ local keymap_g = {
     l = { "<cmd>:HopLine<CR>", "HopLine Line" },
     w = { "<cmd>:HopWord<CR>", "HopLine Word" },
     a = { "<cmd>:GitGutterStageHunk<CR>", "Git Add chunk" },
+    b = { "<cmd>:Git blame<CR>", "Git blame" },
   }
 }
 whichkey.register(keymap_g, { noremap = true, silent = true })
@@ -125,3 +126,4 @@ map("n", "<c-j>", ":wincmd j<CR>", { silent = true })
 map("n", "<c-h>", ":wincmd h<CR>", { silent = true })
 map("n", "<c-l>", ":wincmd l<CR>", { silent = true })
 map("n", "<c-n>", ":lua require('harpoon.ui').nav_next()<CR>", { silent = true })
+

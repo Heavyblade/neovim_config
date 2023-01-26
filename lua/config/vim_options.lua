@@ -39,3 +39,8 @@ set.foldlevel = 2
 
 -- Set tokyonight background
 vim.g.tokyonight_style = "night"
+
+-- Telescope and Harpoon Background color
+vim.api.nvim_set_hl(0, 'HarpoonWindow', { link = 'Normal' })
+vim.api.nvim_set_hl(0, 'HarpoonBorder', { link = 'Normal' })
+vim.api.nvim_set_hl(0, 'TelescopeBorder', { link = 'Normal' })
