@@ -29,3 +29,4 @@ require('telescope').setup {
 -- To get fzf loaded and working with telescope, you need to call
 -- load_extension, somewhere after setup function:
 require('telescope').load_extension('fzf')
+vim.cmd("highlight TelescopeBorder guifg=#54546d guibg=#0d0d0d")

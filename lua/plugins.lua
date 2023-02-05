@@ -20,7 +20,6 @@ return require('packer').startup(function(use)
       require('Comment').setup()
     end
   }
-  use 'mileszs/ack.vim'
   use 'simeji/winresizer'
   use {
     'phaazon/hop.nvim',
@@ -183,5 +182,4 @@ return require('packer').startup(function(use)
       "nvim-telescope/telescope.nvim"
     }
   })
-
 end)

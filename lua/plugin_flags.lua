@@ -13,7 +13,6 @@
     vim.g['ack_use_cword_for_empty_search'] = 1
 
     -- Don't jump to first match
-    vim.cmd 'cnoreabbrev Ack Ack!'
     vim.cmd 'cnoreabbrev Te Telescope'
     vim.cmd 'cnoreabbrev Ft FloatermNew'
 
