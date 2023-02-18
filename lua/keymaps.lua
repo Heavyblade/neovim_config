@@ -23,7 +23,7 @@ map("n", "<Leader>rt", ":FloatermNew bundle exec ruby -Itest % -n <cword><cr>", 
 map("n", "<Leader>rs", ":FloatermNew ruby %<cr>", noremap)
 map("n", "[q", ":cprevious<cr>", opts)
 map("n", "]q", ":cnext<cr>", opts)
-map("n", "<Leader>bp", "orequire 'pry'<cr>binding.pry<Esc>", noremap)
+map("n", "<Leader>bp", "orequire 'pry'; binding.pry<Esc>", noremap)
 map("n", "<Leader><Space>", ":nohlsearch<CR>", opts)
 map("t", "<Esc>", "<C-\\><C-n>", opts)
 vim.cmd("autocmd CursorHold * lua vim.diagnostic.open_float()")

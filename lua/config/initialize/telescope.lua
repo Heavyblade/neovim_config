@@ -1,21 +1,21 @@
 require('telescope').setup {
   extensions = {
     fzf = {
-      fuzzy = true,                    -- false will only do exact matching
+      fuzzy = true, -- false will only do exact matching
       override_generic_sorter = false, -- override the generic sorter
-      override_file_sorter = true,     -- override the file sorter
-      case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
-                                       -- the default case_mode is "smart_case"
+      override_file_sorter = true, -- override the file sorter
+      case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+      -- the default case_mode is "smart_case"
     }
   },
   vimgrep_arguments = {
-     "rg",
-     "--color=never",
-     "--no-heading",
-     "--with-filename",
-     "--line-number",
-     "--column",
-     "--smart-case",
+    "rg",
+    "--color=never",
+    "--no-heading",
+    "--with-filename",
+    "--line-number",
+    "--column",
+    "--smart-case",
   },
   winblend = 0,
   border = {},
@@ -29,4 +29,4 @@ require('telescope').setup {
 -- To get fzf loaded and working with telescope, you need to call
 -- load_extension, somewhere after setup function:
 require('telescope').load_extension('fzf')
-vim.cmd("highlight TelescopeBorder guifg=#54546d guibg=#0d0d0d")
+vim.api.nvim_set_hl(0, 'TelescopeBorder', { fg = "#54546d", bg = "#0d0d0d", blend = 50 })

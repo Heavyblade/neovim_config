@@ -36,7 +36,6 @@ return require('packer').startup(function(use)
     branch = 'main'
   }
   use "rebelot/kanagawa.nvim"
-  use { "catppuccin/nvim", as = "catppuccin" }
 
   -- Git
   use 'cohama/agit.vim'
