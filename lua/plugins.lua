@@ -94,12 +94,18 @@ return require('packer').startup(function(use)
     "neovim/nvim-lspconfig",
     opt = true,
     event = "BufReadPost",
-    wants = { "nvim-lsp-installer" },
+    wants = {
+      "mason.nvim",
+      "mason-lspconfig.nvim",
+      "mason-tool-installer.nvim",
+    },
     config = function()
       require("config.lsp").setup()
     end,
     requires = {
-      "williamboman/nvim-lsp-installer",
+      "williamboman/mason.nvim",
+      "williamboman/mason-lspconfig.nvim",
+      "WhoIsSethDaniel/mason-tool-installer.nvim",
     },
   }
 

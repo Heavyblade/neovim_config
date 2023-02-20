@@ -6,7 +6,7 @@ local servers = {
   gopls = {},
   html = {},
   jsonls = {},
-  sumneko_lua = {},
+  lua_ls = {},
   tsserver = {},
   vimls = {},
   solargraph = {},
@@ -57,8 +57,21 @@ local function getOptions()
 end
 
 function M.setup()
+  require("mason").setup({ })
+  require("mason-lspconfig").setup {
+    ensure_installed = vim.tbl_keys(servers),
+    automatic_installation = false,
+  }
+
   require("config.lsp.installer").setup(servers, getOptions())
-  require("config.lsp.solargraph").setup(on_attach)
+  -- require("config.lsp.solargraph").setup(on_attach)
+
+  -- require("mason-tool-installer").setup {
+  --   ensure_installed = { "gopls", "html-lsp", "json-lsp", "lua-language-server", "typescript-language-server", "vim-language-server", "solargraph" },
+  --   auto_update = false,
+  --   run_on_start = true,
+  -- }
+  --
 end
 
 return M
