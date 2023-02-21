@@ -1,5 +1,3 @@
-local navic = require("nvim-navic")
-
 local M = {}
 
 local servers = {
@@ -13,65 +11,13 @@ local servers = {
   marksman = {},
 }
 
-local function on_attach(client, bufnr)
-  -- Enable completion triggered by <C-X><C-O>
-  -- See `:help omnifunc` and `:help ins-completion` for more information.
-  vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-
-  if client.server_capabilities.documentSymbolProvider then
-    navic.attach(client, bufnr)
-  end
-  -- Use LSP as the handler for formatexpr.
-  -- See `:help formatexpr` for more information.
-  vim.api.nvim_buf_set_option(0, "formatexpr", "v:lua.vim.lsp.formatexpr()")
-
-  -- Configure key mappings
-  require("config.lsp.keymaps").setup(client, bufnr)
-
-  print("LSP Server Ready")
-end
-
-local function getOptions()
-  local handlers = {
-    ["textDocument/publishDiagnostics"] = vim.lsp.with(
-      vim.lsp.diagnostic.on_publish_diagnostics, {
-        virtual_text = false,
-        underline = true,
-        signs = true,
-        update_in_insert = false,
-      }
-    )
-  }
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
-
-  local opts = {
-    on_attach = on_attach,
-    handlers = handlers,
-    flags = {
-      debounce_text_changes = 150,
-    },
-    capabilities = capabilities,
-  }
-
-  return opts
-end
-
 function M.setup()
-  require("mason").setup({ })
+  require("mason").setup({})
   require("mason-lspconfig").setup {
     ensure_installed = vim.tbl_keys(servers),
     automatic_installation = false,
   }
-
-  require("config.lsp.installer").setup(servers, getOptions())
-  -- require("config.lsp.solargraph").setup(on_attach)
-
-  -- require("mason-tool-installer").setup {
-  --   ensure_installed = { "gopls", "html-lsp", "json-lsp", "lua-language-server", "typescript-language-server", "vim-language-server", "solargraph" },
-  --   auto_update = false,
-  --   run_on_start = true,
-  -- }
-  --
+  require("config.lsp.installer").setup(servers)
 end
 
 return M
