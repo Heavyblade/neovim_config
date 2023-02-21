@@ -38,3 +38,25 @@ check [Nerd Fonts website](https://www.nerdfonts.com/)
  1) brew install gcc
  2) alias alias echo "gcc='gcc-12'" >> ~/.zshrc
  3) run install => CC=gcc-12 nvim -c "TSInstall norg" 
+
+## LSP
+
+### Solargraph
+
+To solargraph work properly with Rubocop is important to set a `.solargraph.yml` file on your home like:
+
+```yaml
+  include:
+  - "**/*.rb"
+  exclude:
+  - spec/**/*
+  - test/**/*
+  - vendor/**/*
+  - ".bundle/**/*"
+  require: []
+  domains: []
+  reporters:
+  - rubocop
+  - require_not_found
+  max_files: 5000
+```
