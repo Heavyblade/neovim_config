@@ -52,8 +52,6 @@ function M.setup(servers)
     local opts = vim.tbl_deep_extend("force", options, servers[server_name] or {})
     config_lsp[server_name].setup(opts)
   end
-
-  require("config.lsp.solargraph").setup(on_attach)
 end
 
 return M

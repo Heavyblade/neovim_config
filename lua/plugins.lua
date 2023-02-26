@@ -93,7 +93,7 @@ return require('packer').startup(function(use)
   use {
     "neovim/nvim-lspconfig",
     opt = true,
-    event = "BufReadPost",
+    event = "BufReadPre",
     wants = {
       "mason.nvim",
       "mason-lspconfig.nvim",
