@@ -3,5 +3,13 @@ local bg_color = "#100e17"
 
 require('kanagawa').setup({
   transparent = true,
-  colors = {sumiInk1 = bg_color, sumiInk0 = bg_color }
+  theme = "wave",
+  colors = {
+    palette = {},
+    theme = { wave = { sumiInk1 = bg_color, sumiInk0 = bg_color } }
+  },
+  background = {
+    dark = "wave",
+    light = "lotus"
+  },
 })

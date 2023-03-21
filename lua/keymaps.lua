@@ -112,8 +112,6 @@ local keymap_o = {
 
       local last_two_months = os.date("%Y-%m-%d", os.time() - (2 * 30 * 24 * 60 * 60))
 
-      print("Octo search " .. members_string .. projects_string .. "is:pr is:open created:>=" .. last_two_months)
-
       vim.cmd("Octo search " .. members_string .. projects_string .. "is:pr is:open created:>=" .. last_two_months)
     end, "Team Prs" }
   }
