@@ -5,7 +5,7 @@ local whichkey = require "which-key"
 local keymap = vim.api.nvim_set_keymap
 local buf_keymap = vim.api.nvim_buf_set_keymap
 
-local function keymappings(client, bufnr)
+local function keymappings(bufnr)
   local opts = { noremap = true, silent = true }
 
   -- Key mappings
@@ -40,8 +40,8 @@ local function keymappings(client, bufnr)
   whichkey.register(keymap_g, { buffer = bufnr, prefix = "g" })
 end
 
-function M.setup(client, bufnr)
-  keymappings(client, bufnr)
+function M.setup(bufnr)
+  keymappings(bufnr)
 end
 
 return M
