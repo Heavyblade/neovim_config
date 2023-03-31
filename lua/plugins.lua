@@ -29,11 +29,23 @@ return require('packer').startup(function(use)
   }
   use 'ThePrimeagen/harpoon'
   use 'tpope/vim-surround'
+  use {
+    "lukas-reineke/indent-blankline.nvim",
+    config = function()
+      require("indent_blankline").setup {}
+    end
+  }
 
   -- Colors
   use {
     'folke/tokyonight.nvim',
-    branch = 'main'
+    branch = 'main',
+    config = function()
+      require("tokyonight").setup({
+        style = "night",
+        transparent = true,
+      })
+    end
   }
   use "rebelot/kanagawa.nvim"
 
@@ -43,7 +55,6 @@ return require('packer').startup(function(use)
   use 'tpope/vim-fugitive'
 
   -- UI
-  use 'Yggdroot/indentLine'
   use {
     'nvim-lualine/lualine.nvim',
     config = function()
@@ -172,19 +183,16 @@ return require('packer').startup(function(use)
     end
   }
 
-  use({
-    "jackMort/ChatGPT.nvim",
+  use {
+    'glepnir/dashboard-nvim',
+    event = 'VimEnter',
     config = function()
-      require("chatgpt").setup({
-        -- optional configuration
-      })
+      require('dashboard').setup {
+        -- config
+      }
     end,
-    requires = {
-      "MunifTanjim/nui.nvim",
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim"
-    }
-  })
+    requires = { 'nvim-tree/nvim-web-devicons' }
+  }
 
   use({
     "Pocco81/true-zen.nvim",
