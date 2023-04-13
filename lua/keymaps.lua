@@ -51,6 +51,7 @@ local keymap_t = {
     s = { "<cmd>:Telescope git_status<CR>", "Telescope Status" },
     d = { "<cmd>:TroubleToggle<CR>", "Trouble Toggle" },
     z = { "<cmd>:TZFocus<CR>", "True Zen Focus" },
+    w = { "<cmd>:Telescope workspaces<CR>", "Telescope Workspaces" },
   }
 }
 whichkey.register(keymap_t, { prefix = "<leader>", noremap = true })
@@ -87,7 +88,7 @@ local keymap_r = {
 whichkey.register(keymap_r, { prefix = "<leader>", noremap = true })
 
 -- Github
-local keymap_o = {
+local keymap_g = {
   g = {
     name = "Github",
     p = { function()
@@ -116,7 +117,7 @@ local keymap_o = {
     end, "Team Prs" }
   }
 }
-whichkey.register(keymap_o, { prefix = "<leader>", noremap = true })
+whichkey.register(keymap_g, { prefix = "<leader>", noremap = true })
 
 -- Use ctrl-[hjkl] to select the active split!
 map("n", "<c-k>", ":wincmd k<CR>", { silent = true })

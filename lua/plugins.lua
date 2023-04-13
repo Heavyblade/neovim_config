@@ -192,4 +192,11 @@ return require('packer').startup(function(use)
       }
     end,
   })
+
+  use({
+    "natecraddock/workspaces.nvim",
+    config = function()
+      require("workspaces").setup()
+    end,
+  })
 end)
