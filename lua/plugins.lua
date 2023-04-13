@@ -183,17 +183,6 @@ return require('packer').startup(function(use)
     end
   }
 
-  use {
-    'glepnir/dashboard-nvim',
-    event = 'VimEnter',
-    config = function()
-      require('dashboard').setup {
-        -- config
-      }
-    end,
-    requires = { 'nvim-tree/nvim-web-devicons' }
-  }
-
   use({
     "Pocco81/true-zen.nvim",
     config = function()
