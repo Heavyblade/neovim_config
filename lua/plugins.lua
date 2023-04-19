@@ -196,7 +196,12 @@ return require('packer').startup(function(use)
   use({
     "natecraddock/workspaces.nvim",
     config = function()
-      require("workspaces").setup()
+      require("workspaces").setup({
+        cd_type = "global",
+        hooks = {
+          open = { "Telescope find_files" },
+        }
+      })
     end,
   })
 end)
