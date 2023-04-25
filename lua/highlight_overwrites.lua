@@ -5,5 +5,7 @@ vim.api.nvim_set_hl(0, 'TelescopeBorder', { fg = "#54546d", bg = "NONE", blend =
 
 -- Base
 vim.api.nvim_set_hl(0, 'FloatermBorder', { fg = "#54546d", bg = "NONE", blend = 50 })
+vim.api.nvim_set_hl(0, 'FloatBorder', { fg = "#54546d", bg = "NONE", blend = 50 })
 vim.api.nvim_set_hl(0, 'LineNr', { fg = "#54546d", blend = 50 })
 vim.api.nvim_set_hl(0, 'SignColumn', { fg = "#54546d", blend = 50 })
+
