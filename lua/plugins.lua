@@ -53,6 +53,7 @@ return require('packer').startup(function(use)
   use 'cohama/agit.vim'
   use 'airblade/vim-gitgutter'
   use 'tpope/vim-fugitive'
+  use "sindrets/diffview.nvim"
 
   -- UI
   use {
