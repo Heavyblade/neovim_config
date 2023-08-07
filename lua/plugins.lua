@@ -51,7 +51,7 @@ return require('packer').startup(function(use)
 
   -- Git
   use 'cohama/agit.vim'
-  use 'airblade/vim-gitgutter'
+  use { 'airblade/vim-gitgutter', branch = 'main' }
   use 'tpope/vim-fugitive'
   use "sindrets/diffview.nvim"
 
