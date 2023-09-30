@@ -32,7 +32,7 @@ return require('packer').startup(function(use)
   use {
     "lukas-reineke/indent-blankline.nvim",
     config = function()
-      require("indent_blankline").setup {}
+      require("ibl").setup()
     end
   }
 
@@ -204,4 +204,12 @@ return require('packer').startup(function(use)
   })
 
   use "github/copilot.vim"
+
+  use {
+    "rest-nvim/rest.nvim",
+    requires = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require("config.initialize.rest")
+    end
+  }
 end)

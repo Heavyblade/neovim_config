@@ -26,6 +26,15 @@ map("n", "]q", ":cnext<cr>", opts)
 map("n", "<Leader>bp", "orequire 'pry'; binding.pry<Esc>", noremap)
 map("n", "<Leader><Space>", ":nohlsearch<CR>", opts)
 map("t", "<Esc>", "<C-\\><C-n>", opts)
+map("n", "<Leader>cp", ":let @+ = expand('%:p\')<cr>", opts)
+
+-- Use ctrl-[hjkl] to select the active split!
+map("n", "<c-k>", ":wincmd k<CR>", { silent = true })
+map("n", "<c-j>", ":wincmd j<CR>", { silent = true })
+map("n", "<c-h>", ":wincmd h<CR>", { silent = true })
+map("n", "<c-l>", ":wincmd l<CR>", { silent = true })
+map("n", "<c-n>", ":lua require('harpoon.ui').nav_next()<CR>", { silent = true })
+
 vim.cmd("autocmd CursorHold * lua vim.diagnostic.open_float()")
 
 -- HopLine
@@ -72,10 +81,12 @@ whichkey.register(keymap_h, { prefix = "<leader>", noremap = true })
 -- RoR
 local keymap_r = {
   r = {
-    name = "Rails",
-    c = { "<cmd>:Econtroller<CR>", "Rails Controller" },
-    m = { "<cmd>:Emodel<CR>", "Rails Model" },
-    v = { "<cmd>:Eview<CR>", "Rails View" },
+    name = "Ruby / Rest",
+    x = { require("rest-nvim").run, "Rest Run" },
+    p = { function()
+      require("rest-nvim").run(true)
+    end, "Rest Preview" },
+    l = { require("rest-nvim").last, "Rest Last" },
     b = { function()
       local buf = vim.api.nvim_get_current_buf()
       local cursor = vim.api.nvim_win_get_cursor(0)
@@ -104,8 +115,7 @@ local keymap_g = {
       vim.cmd("Octo search user-review-requested:@me is:pr is:open created:>=" .. last_two_months)
     end, "PRs to Review" },
     t = { function()
-
-      local members = { "Heavyblade", "gasb150", "jherreraa", "sinourain", "Sainterman", "javierpedrozaing ", "edgarv09" }
+      local members = { "Heavyblade", "gasb150", "jherreraa", "sinourain", "javierpedrozaing ", "edgarv09" }
       local projects = { "activemerchant/active_merchant", "spreedly/docs", "spreedly/core", "spreedly/iframe" }
 
       local members_string = utils.concatenate_table(members, "author:")
@@ -118,11 +128,3 @@ local keymap_g = {
   }
 }
 whichkey.register(keymap_g, { prefix = "<leader>", noremap = true })
-
--- Use ctrl-[hjkl] to select the active split!
-map("n", "<c-k>", ":wincmd k<CR>", { silent = true })
-map("n", "<c-j>", ":wincmd j<CR>", { silent = true })
-map("n", "<c-h>", ":wincmd h<CR>", { silent = true })
-map("n", "<c-l>", ":wincmd l<CR>", { silent = true })
-map("n", "<c-n>", ":lua require('harpoon.ui').nav_next()<CR>", { silent = true })
-

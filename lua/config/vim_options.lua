@@ -38,5 +38,5 @@ set.foldenable = false
 set.foldlevel = 2
 
 -- Set tokyonight background
-vim.g.tokyonight_style = "night"
+-- vim.g.tokyonight_style = "night"
 
