@@ -21,6 +21,17 @@ local function on_attach(client, bufnr)
 end
 
 local function getOptions()
+  local border = {
+    { "╭", "FloatBorder" },
+    { "─", "FloatBorder" },
+    { "╮", "FloatBorder" },
+    { "│", "FloatBorder" },
+    { "╯", "FloatBorder" },
+    { "─", "FloatBorder" },
+    { "╰", "FloatBorder" },
+    { "│", "FloatBorder" },
+  }
+
   local handlers = {
     ["textDocument/publishDiagnostics"] = vim.lsp.with(
       vim.lsp.diagnostic.on_publish_diagnostics, {
@@ -29,7 +40,9 @@ local function getOptions()
       signs = true,
       update_in_insert = false,
     }
-    )
+    ),
+    ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
+    ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
   }
   local capabilities = vim.lsp.protocol.make_client_capabilities()
 
