@@ -107,14 +107,17 @@ local keymap_g = {
       local last_two_months = os.date("%Y-%m-%d", os.time() - (2 * 30 * 24 * 60 * 60))
 
       utils.picker("Team Members", members, function(selected)
+        require('octo')
         vim.cmd("Octo search author:" .. selected[1] .. " is:pr is:open created:>=" .. last_two_months)
       end)
     end, "My open PRs" },
     r = { function()
+      require('octo')
       local last_two_months = os.date("%Y-%m-%d", os.time() - (2 * 30 * 24 * 60 * 60))
       vim.cmd("Octo search user-review-requested:@me is:pr is:open created:>=" .. last_two_months)
     end, "PRs to Review" },
     t = { function()
+      require('octo')
       local members = { "Heavyblade", "gasb150", "jherreraa", "sinourain", "javierpedrozaing ", "edgarv09" }
       local projects = { "activemerchant/active_merchant", "spreedly/docs", "spreedly/core", "spreedly/iframe" }
 

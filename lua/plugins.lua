@@ -14,6 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 local plugins = {
   {
     'windwp/nvim-autopairs',
+    event = "InsertEnter",
     config = function()
       require("nvim-autopairs").setup {
         disable_filetype = { "TelescopePrompt", "norg" }
@@ -22,6 +23,7 @@ local plugins = {
   },
   {
     'numToStr/Comment.nvim',
+    event = "InsertEnter",
     config = function()
       require('Comment').setup()
     end
@@ -46,6 +48,7 @@ local plugins = {
   {
     'folke/tokyonight.nvim',
     branch = 'main',
+    lazy = true,
     config = function()
       require("tokyonight").setup({
         style = "night",
@@ -70,11 +73,12 @@ local plugins = {
       require('config.initialize.nvim_tree')
     end,
     dependencies = {
-      'nvim-tree/nvim-web-devicons',
+      'kyazdani42/nvim-web-devicons',
     },
   },
   {
     'SmiteshP/nvim-navic',
+    lazy = true,
     config = function()
       require('config.initialize.navic')
     end,
@@ -115,8 +119,7 @@ local plugins = {
     build = ':TSUpdate',
     config = function()
       require("config.initialize.treesitter")
-    end,
-    dependencies = { "nvim-treesitter/playground" }
+    end
   },
   {
     'tami5/lspsaga.nvim',
@@ -129,6 +132,7 @@ local plugins = {
     config = function()
       require("config.cmp").setup()
     end,
+    event = "InsertEnter",
     dependencies = {
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
@@ -157,6 +161,7 @@ local plugins = {
   },
   {
     'pwntester/octo.nvim',
+    lazy = true,
     dependencies = {
       'nvim-lua/plenary.nvim',
       'nvim-telescope/telescope.nvim',
@@ -164,12 +169,6 @@ local plugins = {
     },
     config = function()
       require "octo".setup()
-    end
-  },
-  {
-    "Pocco81/true-zen.nvim",
-    config = function()
-      require("true-zen").setup {}
     end
   },
   {
@@ -186,6 +185,7 @@ local plugins = {
   "github/copilot.vim",
   {
     "rest-nvim/rest.nvim",
+    ft = "http",
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
       require("config.initialize.rest")
@@ -194,4 +194,3 @@ local plugins = {
 }
 
 require("lazy").setup(plugins, {})
-
