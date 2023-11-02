@@ -53,6 +53,17 @@ local plugins = {
       require("tokyonight").setup({
         style = "night",
         transparent = true,
+        styles = {
+          -- Style to be applied to different syntax groups
+          -- Value is any valid attr-list value for `:help nvim_set_hl`
+          comments = { italic = true },
+          keywords = { italic = true },
+          functions = {},
+          variables = {},
+          -- Background styles. Can be "dark", "transparent" or "normal"
+          sidebars = "transparent", -- style for sidebars, see below
+          floats = "transparent", -- style for floating windows
+        },
       })
     end
   },
@@ -162,13 +173,14 @@ local plugins = {
   {
     'pwntester/octo.nvim',
     lazy = true,
+    branch = 'fix_429',
     dependencies = {
       'nvim-lua/plenary.nvim',
       'nvim-telescope/telescope.nvim',
       'kyazdani42/nvim-web-devicons',
     },
     config = function()
-      require "octo".setup()
+      require("octo").setup()
     end
   },
   {

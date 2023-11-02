@@ -59,7 +59,6 @@ local keymap_t = {
     c = { "<cmd>:Telescope git_bcommits<CR>", "Telescope Commits" },
     s = { "<cmd>:Telescope git_status<CR>", "Telescope Status" },
     d = { "<cmd>:TroubleToggle<CR>", "Trouble Toggle" },
-    z = { "<cmd>:TZFocus<CR>", "True Zen Focus" },
     w = { "<cmd>:Telescope workspaces<CR>", "Telescope Workspaces" },
   }
 }
