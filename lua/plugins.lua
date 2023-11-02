@@ -31,12 +31,16 @@ local plugins = {
   'simeji/winresizer',
   {
     'phaazon/hop.nvim',
+    event = "InsertEnter",
     config = function()
       require('hop').setup()
     end
   },
   'ThePrimeagen/harpoon',
-  'tpope/vim-surround',
+  {
+    'tpope/vim-surround',
+    event = "InsertEnter"
+  },
   {
     "lukas-reineke/indent-blankline.nvim",
     config = function()
@@ -54,15 +58,8 @@ local plugins = {
         style = "night",
         transparent = true,
         styles = {
-          -- Style to be applied to different syntax groups
-          -- Value is any valid attr-list value for `:help nvim_set_hl`
-          comments = { italic = true },
-          keywords = { italic = true },
-          functions = {},
-          variables = {},
-          -- Background styles. Can be "dark", "transparent" or "normal"
-          sidebars = "transparent", -- style for sidebars, see below
-          floats = "transparent", -- style for floating windows
+          sidebars = "transparent",
+          floats = "transparent",
         },
       })
     end
@@ -71,7 +68,10 @@ local plugins = {
   'cohama/agit.vim',
   { 'airblade/vim-gitgutter', branch = 'main' },
   'tpope/vim-fugitive',
-  "sindrets/diffview.nvim",
+  {
+    "sindrets/diffview.nvim",
+    cmd = "DiffviewOpen"
+  },
   {
     'nvim-lualine/lualine.nvim',
     config = function()
@@ -95,8 +95,14 @@ local plugins = {
     end,
     dependencies = 'neovim/nvim-lspconfig',
   },
-  'fatih/vim-go',
-  'elzr/vim-json',
+  {
+    'fatih/vim-go',
+    ft = 'go',
+  },
+  {
+    'elzr/vim-json',
+    ft = 'json',
+  },
   'vim-test/vim-test',
   'voldikss/vim-floaterm',
   'mattn/vim-gist',
@@ -202,7 +208,20 @@ local plugins = {
     config = function()
       require("config.initialize.rest")
     end
+  },
+  {
+    "jackMort/ChatGPT.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("chatgpt").setup()
+    end,
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim"
+    }
   }
+
 }
 
 require("lazy").setup(plugins, {})
