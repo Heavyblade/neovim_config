@@ -30,10 +30,8 @@ require('config.vim_options')
 require('plugin_flags')
 require('plugins')
 
-vim.cmd.colorscheme "catppuccin-mocha"
-
--- require('config.initialize.kanagawa')
--- vim.cmd('colorscheme kanagawa-wave')
+require('config.initialize.kanagawa')
+vim.cmd('colorscheme kanagawa-wave')
 require('highlight_overwrites')
 
 vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
