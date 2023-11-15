@@ -29,7 +29,7 @@ local servers = {
 function M.setup()
   require("mason").setup({})
   require("mason-lspconfig").setup {
-    ensure_installed = vim.tbl_keys(servers),
+    -- ensure_installed = vim.tbl_keys(servers),
     automatic_installation = false,
   }
   require("config.lsp.configurer").setup(servers)

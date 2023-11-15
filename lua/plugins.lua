@@ -32,6 +32,7 @@ local plugins = {
   {
     'phaazon/hop.nvim',
     event = "InsertEnter",
+    lazy = true,
     config = function()
       require('hop').setup()
     end
@@ -46,6 +47,15 @@ local plugins = {
     config = function()
       require("ibl").setup({
         indent = { char = "│" },
+      })
+    end
+  },
+  { "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+    config = function()
+      require("catppuccin").setup({
+        transparent_background = true,
       })
     end
   },
@@ -103,12 +113,16 @@ local plugins = {
     'elzr/vim-json',
     ft = 'json',
   },
-  'vim-test/vim-test',
+  {
+    'vim-test/vim-test',
+    ft = 'ruby',
+  },
   'voldikss/vim-floaterm',
   'mattn/vim-gist',
   'mattn/webapi-vim',
   {
     'nvim-telescope/telescope.nvim',
+    cmd = "Telescope",
     config = function()
       require('config.initialize.telescope')
     end,
@@ -171,6 +185,7 @@ local plugins = {
   'folke/which-key.nvim',
   {
     'folke/trouble.nvim',
+    cmd = "TroubleToggle",
     config = function()
       require('trouble').setup {}
     end,
@@ -178,7 +193,6 @@ local plugins = {
   },
   {
     'pwntester/octo.nvim',
-    lazy = true,
     branch = 'fix_429',
     dependencies = {
       'nvim-lua/plenary.nvim',
@@ -221,7 +235,6 @@ local plugins = {
       "nvim-telescope/telescope.nvim"
     }
   }
-
 }
 
 require("lazy").setup(plugins, {})

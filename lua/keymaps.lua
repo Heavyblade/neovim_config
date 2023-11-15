@@ -37,18 +37,6 @@ map("n", "<c-n>", ":lua require('harpoon.ui').nav_next()<CR>", { silent = true }
 
 vim.cmd("autocmd CursorHold * lua vim.diagnostic.open_float()")
 
--- HopLine
-local keymap_g = {
-  g = {
-    name = "HopLine",
-    l = { "<cmd>:HopLine<CR>", "HopLine Line" },
-    w = { "<cmd>:HopWord<CR>", "HopLine Word" },
-    a = { "<cmd>:GitGutterStageHunk<CR>", "Git Add chunk" },
-    b = { "<cmd>:Git blame<CR>", "Git blame" },
-  }
-}
-whichkey.register(keymap_g, { noremap = true, silent = true })
-
 -- Telescope
 local keymap_t = {
   t = {
@@ -101,22 +89,23 @@ whichkey.register(keymap_r, { prefix = "<leader>", noremap = true })
 local keymap_g = {
   g = {
     name = "Github",
+    l = { "<cmd>:HopLine<CR>", "HopLine Line" },
+    w = { "<cmd>:HopWord<CR>", "HopLine Word" },
+    a = { "<cmd>:GitGutterStageHunk<CR>", "Git Add chunk" },
+    b = { "<cmd>:Git blame<CR>", "Git blame" },
     p = { function()
       local members = { "Heavyblade", "gasb150", "jherreraa", "sinourain", "Sainterman", "javierpedrozaing ", "edgarv09" }
       local last_two_months = os.date("%Y-%m-%d", os.time() - (2 * 30 * 24 * 60 * 60))
 
       utils.picker("Team Members", members, function(selected)
-        require('octo')
         vim.cmd("Octo search author:" .. selected[1] .. " is:pr is:open created:>=" .. last_two_months)
       end)
     end, "My open PRs" },
     r = { function()
-      require('octo')
       local last_two_months = os.date("%Y-%m-%d", os.time() - (2 * 30 * 24 * 60 * 60))
       vim.cmd("Octo search user-review-requested:@me is:pr is:open created:>=" .. last_two_months)
     end, "PRs to Review" },
     t = { function()
-      require('octo')
       local members = { "Heavyblade", "gasb150", "jherreraa", "sinourain", "javierpedrozaing ", "edgarv09" }
       local projects = { "activemerchant/active_merchant", "spreedly/docs", "spreedly/core", "spreedly/iframe" }
 

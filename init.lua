@@ -29,9 +29,11 @@ vim.b['did_ftplugin'] = 1
 require('config.vim_options')
 require('plugin_flags')
 require('plugins')
-require('config.initialize.kanagawa')
 
-vim.cmd('colorscheme kanagawa-wave')
+vim.cmd.colorscheme "catppuccin-mocha"
+
+-- require('config.initialize.kanagawa')
+-- vim.cmd('colorscheme kanagawa-wave')
 require('highlight_overwrites')
 
 vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
