@@ -6,7 +6,10 @@ require('kanagawa').setup({
   theme = "wave",
   colors = {
     palette = {},
-    theme = { wave = { sumiInk1 = bg_color, sumiInk0 = bg_color } }
+    theme = {
+      wave = { sumiInk1 = bg_color, sumiInk0 = bg_color },
+      all = { ui = { bg_gutter = "none" } }
+    }
   },
   background = {
     dark = "wave",
