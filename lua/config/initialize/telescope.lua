@@ -26,7 +26,7 @@ require('telescope').setup {
   extensions_list = { "themes", "terms" },
   defaults = {
     file_ignore_patterns = {
-      "vendor/"
+      "^vendor/"
     }
   }
 }

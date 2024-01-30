@@ -23,7 +23,8 @@ local plugins = {
   },
   {
     'numToStr/Comment.nvim',
-    event = "InsertEnter",
+    event = "BufEnter",
+    lazy = true,
     config = function()
       require('Comment').setup()
     end
@@ -31,7 +32,7 @@ local plugins = {
   'simeji/winresizer',
   {
     'phaazon/hop.nvim',
-    event = "InsertEnter",
+    event = "BufEnter",
     lazy = true,
     config = function()
       require('hop').setup()
@@ -50,8 +51,10 @@ local plugins = {
       })
     end
   },
-  { "catppuccin/nvim",
+  {
+    "catppuccin/nvim",
     name = "catppuccin",
+    lazy = true,
     priority = 1000,
     config = function()
       require("catppuccin").setup({
@@ -63,6 +66,7 @@ local plugins = {
     'folke/tokyonight.nvim',
     branch = 'main',
     lazy = true,
+    priority = 1000,
     config = function()
       require("tokyonight").setup({
         style = "night",
@@ -75,7 +79,10 @@ local plugins = {
     end
   },
   "rebelot/kanagawa.nvim",
-  'cohama/agit.vim',
+  {
+    "cohama/agit.vim",
+    cmd = "AgitFile",
+  },
   { 'airblade/vim-gitgutter', branch = 'main' },
   'tpope/vim-fugitive',
   {
@@ -118,8 +125,12 @@ local plugins = {
     ft = 'ruby',
   },
   'voldikss/vim-floaterm',
-  'mattn/vim-gist',
-  'mattn/webapi-vim',
+  {
+    'mattn/vim-gist',
+    lazy = true,
+    cmd = 'Gist',
+    dependencies = 'mattn/webapi-vim',
+  },
   {
     'nvim-telescope/telescope.nvim',
     cmd = "Telescope",
@@ -193,6 +204,8 @@ local plugins = {
   },
   {
     'pwntester/octo.nvim',
+    lazy = true,
+    cmd = "Octo",
     dependencies = {
       'nvim-lua/plenary.nvim',
       'nvim-telescope/telescope.nvim',
@@ -213,7 +226,7 @@ local plugins = {
       })
     end
   },
-  "github/copilot.vim",
+  { "github/copilot.vim" },
   {
     "rest-nvim/rest.nvim",
     ft = "http",
