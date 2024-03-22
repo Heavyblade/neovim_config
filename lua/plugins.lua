@@ -229,6 +229,7 @@ local plugins = {
   { "github/copilot.vim" },
   {
     "rest-nvim/rest.nvim",
+    version = "1.2.1",
     ft = "http",
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
