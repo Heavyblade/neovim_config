@@ -36,23 +36,26 @@ map("n", "<c-n>", ":lua require('harpoon.ui').nav_next()<CR>", { silent = true }
 
 vim.cmd("autocmd CursorHold * lua vim.diagnostic.open_float()")
 
+function copyPath(copy_full)
+  return function()
+    local buff = vim.api.nvim_get_current_buf()
+    local full_path = vim.api.nvim_buf_get_name(buff)
+
+    if copy_full then
+      vim.fn.setreg("*", full_path)
+    else
+      local relative = require("harpoon.utils").normalize_path(full_path)
+      vim.fn.setreg("*", relative)
+    end
+  end
+end
+
 -- Copy
 local keymap_c = {
   c = {
     name = "Copy",
-    p = { function()
-      local buff = vim.api.nvim_get_current_buf()
-      local full_path = vim.api.nvim_buf_get_name(buff)
-      local relative = require("harpoon.utils").normalize_path(full_path)
-
-      vim.fn.setreg("*", relative)
-    end, "Copy Path" },
-    P = { function()
-      local buff = vim.api.nvim_get_current_buf()
-      local full_path = vim.api.nvim_buf_get_name(buff)
-
-      vim.fn.setreg("*", full_path)
-    end, "Copy Full Path" }
+    p = { copyPath(false), "Copy Path" },
+    P = { copyPath(true), "Copy Full Path" }
   }
 }
 whichkey.register(keymap_c, { prefix = "<leader>", noremap = true })
