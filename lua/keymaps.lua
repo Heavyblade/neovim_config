@@ -26,7 +26,6 @@ map("n", "]q", ":cnext<cr>", opts)
 map("n", "<Leader>bp", "orequire 'pry'; binding.pry<Esc>", noremap)
 map("n", "<Leader><Space>", ":nohlsearch<CR>", opts)
 map("t", "<Esc>", "<C-\\><C-n>", opts)
-map("n", "<Leader>cp", ":let @+ = expand('%:p\')<cr>", opts)
 
 -- Use ctrl-[hjkl] to select the active split!
 map("n", "<c-k>", ":wincmd k<CR>", { silent = true })
@@ -36,6 +35,27 @@ map("n", "<c-l>", ":wincmd l<CR>", { silent = true })
 map("n", "<c-n>", ":lua require('harpoon.ui').nav_next()<CR>", { silent = true })
 
 vim.cmd("autocmd CursorHold * lua vim.diagnostic.open_float()")
+
+-- Copy
+local keymap_c = {
+  c = {
+    name = "Copy",
+    p = { function()
+      local buff = vim.api.nvim_get_current_buf()
+      local full_path = vim.api.nvim_buf_get_name(buff)
+      local relative = require("harpoon.utils").normalize_path(full_path)
+
+      vim.fn.setreg("*", relative)
+    end, "Copy Path" },
+    P = { function()
+      local buff = vim.api.nvim_get_current_buf()
+      local full_path = vim.api.nvim_buf_get_name(buff)
+
+      vim.fn.setreg("*", full_path)
+    end, "Copy Full Path" }
+  }
+}
+whichkey.register(keymap_c, { prefix = "<leader>", noremap = true })
 
 -- Telescope
 local keymap_t = {
