@@ -29,6 +29,12 @@ local plugins = {
       require('Comment').setup()
     end
   },
+  {
+    'goolord/alpha-nvim',
+    config = function()
+      require 'alpha'.setup(require 'alpha.themes.dashboard'.config)
+    end
+  },
   'simeji/winresizer',
   {
     'phaazon/hop.nvim',

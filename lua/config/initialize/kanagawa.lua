@@ -12,7 +12,7 @@ require('kanagawa').setup({
     }
   },
   background = {
-    dark = "wave",
+    dark = "dragon",
     light = "lotus"
   },
 })

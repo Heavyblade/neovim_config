@@ -74,4 +74,15 @@ function M.concatenate_table(table, prefix)
   return members_string
 end
 
+function M.create_quickfix_list(files)
+  local quickfix_list = {}
+
+  for _, file in ipairs(files) do
+    table.insert(quickfix_list, { filename = file.filename, lnum = file.line })
+  end
+
+  vim.api.nvim_call_function('setqflist', { quickfix_list })
+  vim.api.nvim_command('copen')
+end
+
 return M

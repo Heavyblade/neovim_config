@@ -33,6 +33,7 @@ map("n", "<c-j>", ":wincmd j<CR>", { silent = true })
 map("n", "<c-h>", ":wincmd h<CR>", { silent = true })
 map("n", "<c-l>", ":wincmd l<CR>", { silent = true })
 map("n", "<c-n>", ":lua require('harpoon.ui').nav_next()<CR>", { silent = true })
+map("n", "<c-b>", ":bnext<CR>", { silent = true })
 
 vim.cmd("autocmd CursorHold * lua vim.diagnostic.open_float()")
 
@@ -55,7 +56,8 @@ local keymap_c = {
   c = {
     name = "Copy",
     p = { copyPath(false), "Copy Path" },
-    P = { copyPath(true), "Copy Full Path" }
+    P = { copyPath(true), "Copy Full Path" },
+    g = { "<cmd>:ChatGPT<CR>", "ChatGPT" },
   }
 }
 whichkey.register(keymap_c, { prefix = "<leader>", noremap = true })
@@ -69,7 +71,7 @@ local keymap_t = {
     g = { "<cmd>:Telescope live_grep<CR>", "Telescope Grep" },
     c = { "<cmd>:Telescope git_bcommits<CR>", "Telescope Commits" },
     s = { "<cmd>:Telescope git_status<CR>", "Telescope Status" },
-    d = { "<cmd>:TroubleToggle<CR>", "Trouble Toggle" },
+    d = { "<cmd>:Trouble diagnostics toggle filter.buf=0<cr>", "Trouble Toggle" },
     w = { "<cmd>:Telescope workspaces<CR>", "Telescope Workspaces" },
   }
 }
@@ -112,8 +114,7 @@ whichkey.register(keymap_r, { prefix = "<leader>", noremap = true })
 local keymap_g = {
   g = {
     name = "Github",
-    l = { "<cmd>:HopLine<CR>", "HopLine Line" },
-    w = { "<cmd>:HopWord<CR>", "HopLine Word" },
+    l = { "<cmd>:Git log -- %<CR>", "Git log current file" },
     a = { "<cmd>:GitGutterStageHunk<CR>", "Git Add chunk" },
     b = { "<cmd>:Git blame<CR>", "Git blame" },
     p = { function()
@@ -124,12 +125,9 @@ local keymap_g = {
         vim.cmd("Octo search author:" .. selected[1] .. " is:pr is:open created:>=" .. last_two_months)
       end)
     end, "My open PRs" },
-    r = { function()
-      local last_two_months = os.date("%Y-%m-%d", os.time() - (2 * 30 * 24 * 60 * 60))
-      vim.cmd("Octo search user-review-requested:@me is:pr is:open created:>=" .. last_two_months)
-    end, "PRs to Review" },
     t = { function()
-      local members = { "Heavyblade", "gasb150", "jherreraa", "sinourain", "javierpedrozaing ", "edgarv09" }
+      require('octo')
+      local members = { "Heavyblade", "gasb150", "javierpedrozaing ", "edgarv09" }
       local projects = { "activemerchant/active_merchant", "spreedly/docs", "spreedly/core", "spreedly/iframe" }
 
       local members_string = utils.concatenate_table(members, "author:")
@@ -138,7 +136,13 @@ local keymap_g = {
       local last_two_months = os.date("%Y-%m-%d", os.time() - (2 * 30 * 24 * 60 * 60))
 
       vim.cmd("Octo search " .. members_string .. projects_string .. "is:pr is:open created:>=" .. last_two_months)
-    end, "Team Prs" }
-  }
+    end, "Team Prs" },
+    r = { function()
+      local last_two_months = os.date("%Y-%m-%d", os.time() - (2 * 30 * 24 * 60 * 60))
+      vim.cmd("Octo search user-review-requested:@me is:pr is:open created:>=" .. last_two_months)
+    end, "PRs to Review" },
+    y = { function() require "gitlinker".get_buf_range_url('n', {}) end, "Copy remote url" }
+  },
+
 }
 whichkey.register(keymap_g, { prefix = "<leader>", noremap = true })
