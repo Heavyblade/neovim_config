@@ -22,14 +22,6 @@ local plugins = {
     end
   },
   {
-    'numToStr/Comment.nvim',
-    event = "BufEnter",
-    lazy = true,
-    config = function()
-      require('Comment').setup()
-    end
-  },
-  {
     'goolord/alpha-nvim',
     config = function()
       require 'alpha'.setup(require 'alpha.themes.dashboard'.config)
@@ -68,22 +60,6 @@ local plugins = {
       })
     end
   },
-  {
-    'folke/tokyonight.nvim',
-    branch = 'main',
-    lazy = true,
-    priority = 1000,
-    config = function()
-      require("tokyonight").setup({
-        style = "night",
-        transparent = true,
-        styles = {
-          sidebars = "transparent",
-          floats = "transparent",
-        },
-      })
-    end
-  },
   "rebelot/kanagawa.nvim",
   {
     "cohama/agit.vim",
@@ -91,10 +67,6 @@ local plugins = {
   },
   { 'airblade/vim-gitgutter', branch = 'main' },
   'tpope/vim-fugitive',
-  {
-    "sindrets/diffview.nvim",
-    cmd = "DiffviewOpen"
-  },
   {
     'nvim-lualine/lualine.nvim',
     config = function()
@@ -219,17 +191,6 @@ local plugins = {
     },
     config = function()
       require("octo").setup()
-    end
-  },
-  {
-    "natecraddock/workspaces.nvim",
-    config = function()
-      require("workspaces").setup({
-        cd_type = "global",
-        hooks = {
-          open = { "Telescope find_files" },
-        }
-      })
     end
   },
   { "github/copilot.vim" },
