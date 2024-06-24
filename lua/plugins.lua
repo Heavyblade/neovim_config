@@ -11,6 +11,11 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+function useCopilot()
+  local currentDirectory = vim.fn.getcwd()
+  return currentDirectory ~= "/Users/cvazquez/rails/spreedly/core"
+end
+
 local plugins = {
   {
     'windwp/nvim-autopairs',
@@ -193,7 +198,10 @@ local plugins = {
       require("octo").setup()
     end
   },
-  { "github/copilot.vim" },
+  {
+    "github/copilot.vim",
+    enabled = useCopilot(),
+  },
   {
     "rest-nvim/rest.nvim",
     version = "1.2.1",
