@@ -9,6 +9,7 @@ local servers = {
   jsonls = {},
   lua_ls = {},
   tsserver = {},
+  bashls = {},
   vimls = {},
   pyright = {},
   solargraph = {
