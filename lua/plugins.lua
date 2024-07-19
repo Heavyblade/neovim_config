@@ -11,9 +11,11 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-function useCopilot()
+function canUseCopilot()
   local currentDirectory = vim.fn.getcwd()
-  return currentDirectory ~= "/Users/cvazquez/rails/spreedly/core"
+
+  return currentDirectory ~= "/Users/cvazquez/rails/spreedly/core" or
+  currentDirectory ~= "/Users/cvazquez/rails/spreedly/id"
 end
 
 local plugins = {
@@ -200,7 +202,7 @@ local plugins = {
   },
   {
     "github/copilot.vim",
-    enabled = useCopilot(),
+    enabled = canUseCopilot(),
   },
   {
     "rest-nvim/rest.nvim",
@@ -222,6 +224,17 @@ local plugins = {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope.nvim"
     }
+  },
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    branch = "canary",
+    dependencies = {
+      { "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
+      { "nvim-lua/plenary.nvim" },  -- for curl, log wrapper
+    },
+    opts = {
+      debug = true, -- Enable debugging
+    },
   }
 }
 
