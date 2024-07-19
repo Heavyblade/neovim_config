@@ -53,79 +53,96 @@ end
 
 -- Copy
 local keymap_c = {
-  c = {
-    name = "Copy",
-    p = { copyPath(false), "Copy Path" },
-    P = { copyPath(true), "Copy Full Path" },
-    g = { "<cmd>:ChatGPT<CR>", "ChatGPT" },
-  }
+  { "<leader>c",  group = "Copy",      remap = false },
+  { "<leader>cP", copyPath(true),      desc = "Copy Full Path", remap = false },
+  { "<leader>cg", "<cmd>:ChatGPT<CR>", desc = "ChatGPT",        remap = false },
+  { "<leader>cp", copyPath(false),     desc = "Copy Path",      remap = false },
 }
-whichkey.register(keymap_c, { prefix = "<leader>", noremap = true })
+
+whichkey.add(keymap_c)
 
 -- Telescope
 local keymap_t = {
-  t = {
-    name = "Telescope",
-    b = { "<cmd>:Telescope buffers<CR>", "Telescope Buffers" },
-    t = { "<cmd>:Telescope lsp_document_symbols<CR>", "Telescope Tags" },
-    g = { "<cmd>:Telescope live_grep<CR>", "Telescope Grep" },
-    c = { "<cmd>:Telescope git_bcommits<CR>", "Telescope Commits" },
-    s = { "<cmd>:Telescope git_status<CR>", "Telescope Status" },
-    d = { "<cmd>:Trouble diagnostics toggle filter.buf=0<cr>", "Trouble Toggle" },
-    w = { "<cmd>:Telescope workspaces<CR>", "Telescope Workspaces" },
-  }
+  { "<leader>t",  group = "Telescope",                                 remap = false },
+  { "<leader>tb", "<cmd>:Telescope buffers<CR>",                       desc = "Telescope Buffers",    remap = false },
+  { "<leader>tc", "<cmd>:Telescope git_bcommits<CR>",                  desc = "Telescope Commits",    remap = false },
+  { "<leader>td", "<cmd>:Trouble diagnostics toggle filter.buf=0<cr>", desc = "Trouble Toggle",       remap = false },
+  { "<leader>tg", "<cmd>:Telescope live_grep<CR>",                     desc = "Telescope Grep",       remap = false },
+  { "<leader>ts", "<cmd>:Telescope git_status<CR>",                    desc = "Telescope Status",     remap = false },
+  { "<leader>tt", "<cmd>:Telescope lsp_document_symbols<CR>",          desc = "Telescope Tags",       remap = false },
+  { "<leader>tw", "<cmd>:Telescope workspaces<CR>",                    desc = "Telescope Workspaces", remap = false },
 }
-whichkey.register(keymap_t, { prefix = "<leader>", noremap = true })
+whichkey.add(keymap_t)
 
 -- Harpoon
 local harpoon_ui = require("harpoon.ui")
 local keymap_h = {
-  h = {
-    name = "Harpoon",
-    g = { harpoon_ui.toggle_quick_menu, "Harpoon menu" },
-    m = { require("harpoon.mark").add_file, "Harpoon mark" },
-    n = { harpoon_ui.nav_next, "Harpoon Next" },
-    p = { harpoon_ui.nav_prev, "Harpoon Prev" },
-  }
+  { "<leader>h",  group = "Harpoon",                remap = false },
+  { "<leader>hg", harpoon_ui.toggle_quick_menu,     desc = "Harpoon menu", remap = false },
+  { "<leader>hm", require("harpoon.mark").add_file, desc = "Harpoon mark", remap = false },
+  { "<leader>hn", harpoon_ui.nav_next,              desc = "Harpoon Next", remap = false },
+  { "<leader>hp", harpoon_ui.nav_prev,              desc = "Harpoon Prev", remap = false },
 }
-whichkey.register(keymap_h, { prefix = "<leader>", noremap = true })
+whichkey.add(keymap_h)
 
--- RoR
 local keymap_r = {
-  r = {
-    name = "Ruby / Rest",
-    x = { require("rest-nvim").run, "Rest Run" },
-    p = { function()
-      require("rest-nvim").run(true)
-    end, "Rest Preview" },
-    l = { require("rest-nvim").last, "Rest Last" },
-    b = { function()
+  { "<leader>r",  group = "Ruby / Rest",     remap = false },
+  {
+    "<leader>rb",
+    function()
       local buf = vim.api.nvim_get_current_buf()
       local cursor = vim.api.nvim_win_get_cursor(0)
 
       vim.api.nvim_buf_set_lines(buf, cursor[1], cursor[1], true, { "```ruby", "", "```" })
       vim.api.nvim_win_set_cursor(0, { cursor[1] + 2, 0 })
-    end, "Ruby block md" }
-  }
+    end,
+    desc = "Ruby block md",
+    remap = false
+  },
+  { "<leader>rl", require("rest-nvim").last, desc = "Rest Last", remap = false },
+  {
+    "<leader>rp",
+    function()
+      require("rest-nvim").run(true)
+    end,
+    desc = "Rest Preview",
+    remap = false
+  },
+  { "<leader>rx", require("rest-nvim").run, desc = "Rest Run", remap = false },
 }
-whichkey.register(keymap_r, { prefix = "<leader>", noremap = true })
+whichkey.add(keymap_r)
 
 -- Github
 local keymap_g = {
-  g = {
-    name = "Github",
-    l = { "<cmd>:Git log -- %<CR>", "Git log current file" },
-    a = { "<cmd>:GitGutterStageHunk<CR>", "Git Add chunk" },
-    b = { "<cmd>:Git blame<CR>", "Git blame" },
-    p = { function()
+  { "<leader>g",  group = "Github",               remap = false },
+  { "<leader>ga", "<cmd>:GitGutterStageHunk<CR>", desc = "Git Add chunk",        remap = false },
+  { "<leader>gb", "<cmd>:Git blame<CR>",          desc = "Git blame",            remap = false },
+  { "<leader>gl", "<cmd>:Git log -- %<CR>",       desc = "Git log current file", remap = false },
+  {
+    "<leader>gp",
+    function()
       local members = { "Heavyblade", "gasb150", "jherreraa", "sinourain", "Sainterman", "javierpedrozaing ", "edgarv09" }
       local last_two_months = os.date("%Y-%m-%d", os.time() - (2 * 30 * 24 * 60 * 60))
 
       utils.picker("Team Members", members, function(selected)
         vim.cmd("Octo search author:" .. selected[1] .. " is:pr is:open created:>=" .. last_two_months)
       end)
-    end, "My open PRs" },
-    t = { function()
+    end,
+    desc = "My open PRs",
+    remap = false
+  },
+  {
+    "<leader>gr",
+    function()
+      local last_two_months = os.date("%Y-%m-%d", os.time() - (2 * 30 * 24 * 60 * 60))
+      vim.cmd("Octo search user-review-requested:@me is:pr is:open created:>=" .. last_two_months)
+    end,
+    desc = "PRs to Review",
+    remap = false
+  },
+  {
+    "<leader>gt",
+    function()
       require('octo')
       local members = { "Heavyblade", "gasb150", "javierpedrozaing ", "edgarv09" }
       local projects = { "activemerchant/active_merchant", "spreedly/docs", "spreedly/core", "spreedly/iframe" }
@@ -136,13 +153,10 @@ local keymap_g = {
       local last_two_months = os.date("%Y-%m-%d", os.time() - (2 * 30 * 24 * 60 * 60))
 
       vim.cmd("Octo search " .. members_string .. projects_string .. "is:pr is:open created:>=" .. last_two_months)
-    end, "Team Prs" },
-    r = { function()
-      local last_two_months = os.date("%Y-%m-%d", os.time() - (2 * 30 * 24 * 60 * 60))
-      vim.cmd("Octo search user-review-requested:@me is:pr is:open created:>=" .. last_two_months)
-    end, "PRs to Review" },
-    y = { function() require "gitlinker".get_buf_range_url('n', {}) end, "Copy remote url" }
+    end,
+    desc = "Team Prs",
+    remap = false
   },
-
 }
-whichkey.register(keymap_g, { prefix = "<leader>", noremap = true })
+
+whichkey.add(keymap_g)
