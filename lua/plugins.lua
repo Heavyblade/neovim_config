@@ -12,10 +12,12 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 function canUseCopilot()
-  local currentDirectory = vim.fn.getcwd()
+  local currentDirectory          = vim.fn.getcwd()
+
+  vim.g.copilot_workspace_folders = { currentDirectory }
 
   return currentDirectory ~= "/Users/cvazquez/rails/spreedly/core" or
-  currentDirectory ~= "/Users/cvazquez/rails/spreedly/id"
+      currentDirectory ~= "/Users/cvazquez/rails/spreedly/id"
 end
 
 local plugins = {
