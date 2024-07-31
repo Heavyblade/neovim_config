@@ -53,10 +53,12 @@ end
 
 -- Copy
 local keymap_c = {
-  { "<leader>c",  group = "Copy",      remap = false },
-  { "<leader>cP", copyPath(true),      desc = "Copy Full Path", remap = false },
-  { "<leader>cg", "<cmd>:ChatGPT<CR>", desc = "ChatGPT",        remap = false },
-  { "<leader>cp", copyPath(false),     desc = "Copy Path",      remap = false },
+  { "<leader>c",  group = "Copy",                  remap = false },
+  { "<leader>cp", copyPath(false),                 desc = "Copy Path",             remap = false },
+  { "<leader>cP", copyPath(true),                  desc = "Copy Full Path",        remap = false },
+  { "<leader>cg", "<cmd>:ChatGPT<CR>",             desc = "ChatGPT",               remap = false },
+  { "<leader>cc", "<cmd>:CopilotChatToggle<CR>",   desc = "Copilot chat toggle",   remap = false, mode = { "v", "n" } },
+  { "<leader>co", "<cmd>:CopilotChatOptimize<CR>", desc = "Copilot chat Optimize", remap = false, mode = "v" },
 }
 
 whichkey.add(keymap_c)
