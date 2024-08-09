@@ -16,7 +16,7 @@ function canUseCopilot()
 
   vim.g.copilot_workspace_folders = { currentDirectory }
 
-  return currentDirectory ~= "/Users/cvazquez/rails/spreedly/core" or
+  return currentDirectory ~= "/Users/cvazquez/rails/spreedly/core" and
       currentDirectory ~= "/Users/cvazquez/rails/spreedly/id"
 end
 
@@ -112,6 +112,7 @@ local plugins = {
     ft = 'ruby',
   },
   'voldikss/vim-floaterm',
+  { 'akinsho/toggleterm.nvim', version = "*",  config = true },
   {
     'mattn/vim-gist',
     lazy = true,
@@ -235,8 +236,9 @@ local plugins = {
       { "nvim-lua/plenary.nvim" },  -- for curl, log wrapper
     },
     opts = {
-      debug = true, -- Enable debugging
+      debug = false, -- Enable debugging
     },
+    enabled = canUseCopilot(),
   }
 }
 

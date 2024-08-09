@@ -72,7 +72,7 @@ local keymap_t = {
   { "<leader>tg", "<cmd>:Telescope live_grep<CR>",                     desc = "Telescope Grep",       remap = false },
   { "<leader>ts", "<cmd>:Telescope git_status<CR>",                    desc = "Telescope Status",     remap = false },
   { "<leader>tt", "<cmd>:Telescope lsp_document_symbols<CR>",          desc = "Telescope Tags",       remap = false },
-  { "<leader>tw", "<cmd>:Telescope workspaces<CR>",                    desc = "Telescope Workspaces", remap = false },
+  { "<leader>ti", "<cmd>:ToggleTerm<CR>",           desc = "Toggle term",          remap = false },
 }
 whichkey.add(keymap_t)
 
