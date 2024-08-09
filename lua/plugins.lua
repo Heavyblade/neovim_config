@@ -74,7 +74,7 @@ local plugins = {
     "cohama/agit.vim",
     cmd = "AgitFile",
   },
-  { 'airblade/vim-gitgutter', branch = 'main' },
+  { 'airblade/vim-gitgutter',  branch = 'main' },
   'tpope/vim-fugitive',
   {
     'nvim-lualine/lualine.nvim',
