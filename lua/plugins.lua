@@ -237,6 +237,12 @@ local plugins = {
     },
     opts = {
       debug = false, -- Enable debugging
+      window = {
+        layout = 'float',
+        title = 'Copilot Chat',
+        width = 0.7, -- fractional width of parent, or absolute width in columns when > 1
+        height = 0.7,
+      }
     },
     enabled = canUseCopilot(),
   }
