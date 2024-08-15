@@ -51,6 +51,27 @@ function copyPath(copy_full)
   end
 end
 
+-- TaskWarrior neovim integration
+function add_task()
+  local task_description = vim.fn.input("Enter task description: ")
+  local cmd = "task add " .. task_description
+  vim.fn.system(cmd)
+end
+
+function remove_task()
+  local task_id = vim.fn.input("Enter task id: ")
+  local cmd = "task " .. task_id .. " done"
+  vim.fn.system(cmd)
+  -- clean neovim command prompt after execution
+  vim.api.nvim_command("echo ''")
+end
+
+function show_task_list_on_modal_window()
+  local task_list = vim.fn.system("task list")
+  vim.api.nvim_command("new")
+  vim.api.nvim_buf_set_lines(0, 0, -1, true, vim.fn.split(task_list, "\n"))
+end
+
 -- Copy
 local keymap_c = {
   { "<leader>c",  group = "Copy",                  remap = false },
@@ -60,19 +81,21 @@ local keymap_c = {
   { "<leader>cc", "<cmd>:CopilotChatToggle<CR>",   desc = "Copilot chat toggle",   remap = false, mode = { "v", "n" } },
   { "<leader>co", "<cmd>:CopilotChatOptimize<CR>", desc = "Copilot chat Optimize", remap = false, mode = "v" },
 }
-
 whichkey.add(keymap_c)
 
 -- Telescope
 local keymap_t = {
   { "<leader>t",  group = "Telescope",                                 remap = false },
-  { "<leader>tb", "<cmd>:Telescope buffers<CR>",                       desc = "Telescope Buffers",    remap = false },
-  { "<leader>tc", "<cmd>:Telescope git_bcommits<CR>",                  desc = "Telescope Commits",    remap = false },
-  { "<leader>td", "<cmd>:Trouble diagnostics toggle filter.buf=0<cr>", desc = "Trouble Toggle",       remap = false },
-  { "<leader>tg", "<cmd>:Telescope live_grep<CR>",                     desc = "Telescope Grep",       remap = false },
-  { "<leader>ts", "<cmd>:Telescope git_status<CR>",                    desc = "Telescope Status",     remap = false },
-  { "<leader>tt", "<cmd>:Telescope lsp_document_symbols<CR>",          desc = "Telescope Tags",       remap = false },
-  { "<leader>ti", "<cmd>:ToggleTerm<CR>",           desc = "Toggle term",          remap = false },
+  { "<leader>tl", "<cmd>:FloatermNew task list<CR>",                   desc = "TaskWarrior task list",   remap = false },
+  { "<leader>ta", add_task,                                            desc = "TaskWarrior add task",    remap = false },
+  { "<leader>tx", remove_task,                                         desc = "TaskWarrior remove task", remap = false },
+  { "<leader>tb", "<cmd>:Telescope buffers<CR>",                       desc = "Telescope Buffers",       remap = false },
+  { "<leader>tc", "<cmd>:Telescope git_bcommits<CR>",                  desc = "Telescope Commits",       remap = false },
+  { "<leader>td", "<cmd>:Trouble diagnostics toggle filter.buf=0<cr>", desc = "Trouble Toggle",          remap = false },
+  { "<leader>tg", "<cmd>:Telescope live_grep<CR>",                     desc = "Telescope Grep",          remap = false },
+  { "<leader>ts", "<cmd>:Telescope git_status<CR>",                    desc = "Telescope Status",        remap = false },
+  { "<leader>tt", "<cmd>:Telescope lsp_document_symbols<CR>",          desc = "Telescope Tags",          remap = false },
+  { "<leader>ti", "<cmd>:ToggleTerm<CR>",                              desc = "Toggle term",             remap = false },
 }
 whichkey.add(keymap_t)
 
