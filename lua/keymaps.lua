@@ -62,7 +62,6 @@ function remove_task()
   local task_id = vim.fn.input("Enter task id: ")
   local cmd = "task " .. task_id .. " done"
   vim.fn.system(cmd)
-  -- clean neovim command prompt after execution
   vim.api.nvim_command("echo ''")
 end
 
@@ -133,7 +132,7 @@ local keymap_r = {
     desc = "Rest Preview",
     remap = false
   },
-  { "<leader>rx", require("rest-nvim").run, desc = "Rest Run", remap = false },
+  { "<leader>rx", "<cmd>:Rest run<CR>", desc = "Rest Run", remap = false },
 }
 whichkey.add(keymap_r)
 

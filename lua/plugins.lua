@@ -209,7 +209,6 @@ local plugins = {
   },
   {
     "rest-nvim/rest.nvim",
-    version = "1.2.1",
     ft = "http",
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
@@ -242,7 +241,8 @@ local plugins = {
         title = 'Copilot Chat',
         width = 0.7, -- fractional width of parent, or absolute width in columns when > 1
         height = 0.7,
-      }
+      },
+      auto_follow_cursor = false,
     },
     enabled = canUseCopilot(),
   }
