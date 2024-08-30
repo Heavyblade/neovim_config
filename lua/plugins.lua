@@ -138,6 +138,9 @@ local plugins = {
     config = function()
       require("config.lsp").setup()
     end,
+    opts = {
+      format = { timeout_ms = 2000 }
+    },
     dependencies = {
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
@@ -206,6 +209,9 @@ local plugins = {
   {
     "github/copilot.vim",
     enabled = canUseCopilot(),
+    config = function()
+      require("copilot").setup()
+    end
   },
   {
     "rest-nvim/rest.nvim",
