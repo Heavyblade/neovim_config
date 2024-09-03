@@ -58,17 +58,6 @@ local plugins = {
       })
     end
   },
-  {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    lazy = true,
-    priority = 1000,
-    config = function()
-      require("catppuccin").setup({
-        transparent_background = true,
-      })
-    end
-  },
   "rebelot/kanagawa.nvim",
   {
     "cohama/agit.vim",
@@ -208,10 +197,7 @@ local plugins = {
   },
   {
     "github/copilot.vim",
-    enabled = canUseCopilot(),
-    config = function()
-      require("copilot").setup()
-    end
+    enabled = canUseCopilot()
   },
   {
     "rest-nvim/rest.nvim",
@@ -237,8 +223,8 @@ local plugins = {
     "CopilotC-Nvim/CopilotChat.nvim",
     branch = "canary",
     dependencies = {
-      { "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
-      { "nvim-lua/plenary.nvim" },  -- for curl, log wrapper
+      { "github/copilot.vim" },    -- or github/copilot.vim
+      { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
     },
     opts = {
       debug = false, -- Enable debugging
