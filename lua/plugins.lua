@@ -211,7 +211,10 @@ local plugins = {
     "jackMort/ChatGPT.nvim",
     event = "VeryLazy",
     config = function()
-      require("chatgpt").setup()
+      local neovim_config_dir = vim.fn.stdpath("config")
+      require("chatgpt").setup({
+        predefined_chat_gpt_prompts = "file://" .. neovim_config_dir .. "/lua/config/prompts.csv",
+      })
     end,
     dependencies = {
       "MunifTanjim/nui.nvim",
