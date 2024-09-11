@@ -8,7 +8,7 @@ local servers = {
   },
   jsonls = {},
   lua_ls = {},
-  tsserver = {},
+  ts_ls= {},
   bashls = {},
   vimls = {},
   pyright = {},

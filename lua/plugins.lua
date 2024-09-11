@@ -144,12 +144,6 @@ local plugins = {
     end
   },
   {
-    'tami5/lspsaga.nvim',
-    config = function()
-      require('lspsaga').init_lsp_saga()
-    end
-  },
-  {
     "hrsh7th/nvim-cmp",
     config = function()
       require("config.cmp").setup()
