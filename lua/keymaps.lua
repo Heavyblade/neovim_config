@@ -19,7 +19,6 @@ map("n", "<Leader>nt", ":NvimTreeToggle<cr>", noremap)
 map("n", "<leader>nf", ":NvimTreeFindFile<cr>", noremap)
 map("n", "<Leader>af", ":AgitFile<cr>", noremap)
 map("n", "<Leader>gs", ":Git<cr>", noremap)
-map("n", "<Leader>rt", ":FloatermNew bundle exec ruby -Itest % -n <cword><cr>", noremap)
 map("n", "<Leader>rs", ":FloatermNew ruby %<cr>", noremap)
 map("n", "[q", ":cprevious<cr>", opts)
 map("n", "]q", ":cnext<cr>", opts)
@@ -95,6 +94,7 @@ local keymap_t = {
   { "<leader>ts", "<cmd>:Telescope git_status<CR>",                    desc = "Telescope Status",        remap = false },
   { "<leader>tt", "<cmd>:Telescope lsp_document_symbols<CR>",          desc = "Telescope Tags",          remap = false },
   { "<leader>ti", "<cmd>:ToggleTerm<CR>",                              desc = "Toggle term",             remap = false },
+  { "<leader>tn", "<cmd>:TestNearest<CR>",                             desc = "Test nearest",            remap = false },
 }
 whichkey.add(keymap_t)
 
@@ -130,6 +130,16 @@ local keymap_r = {
       require("rest-nvim").run(true)
     end,
     desc = "Rest Preview",
+    remap = false
+  },
+  {
+    "<leader>rt",
+    function()
+      local method = require("utils").get_current_method_name()
+      local command = ":FloatermNew bundle exec ruby -Itest % -n " .. method
+      vim.api.nvim_command(command)
+    end,
+    desc = "Run current test",
     remap = false
   },
   { "<leader>rx", "<cmd>:Rest run<CR>", desc = "Rest Run", remap = false },
