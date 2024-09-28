@@ -71,10 +71,31 @@ local function on_attach(bufnr)
   vim.keymap.set('n', 's', api.node.open.vertical, opts('Open: Vertical Split'))
 end
 
+function open_win_config()
+  local screen_w = vim.opt.columns:get()
+  local w_h = 70
+  local s_h = 35
+  local center_x = math.floor((screen_w - w_h) / 2) + 15
+  local center_y = ((vim.opt.lines:get() - s_h) / 4) - vim.opt.cmdheight:get()
+
+  return {
+    relative = 'editor',
+    border = 'rounded',
+    row = center_y,
+    col = center_x,
+    width = w_h,
+    height = s_h,
+  }
+end
+
 require("nvim-tree").setup({
   sync_root_with_cwd = true,
   view = {
     adaptive_size = true,
+    float = {
+      enable = true,
+      open_win_config = open_win_config(),
+    },
   },
   filters = {
     dotfiles = false,
