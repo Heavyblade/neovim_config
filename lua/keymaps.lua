@@ -95,6 +95,7 @@ local keymap_t = {
   { "<leader>tt", "<cmd>:Telescope lsp_document_symbols<CR>",          desc = "Telescope Tags",          remap = false },
   { "<leader>ti", "<cmd>:ToggleTerm<CR>",                              desc = "Toggle term",             remap = false },
   { "<leader>tn", "<cmd>:TestNearest<CR>",                             desc = "Test nearest",            remap = false },
+  { "<leader>tf", "<cmd>:TestFile<CR>",                                desc = "Test File",               remap = false },
 }
 whichkey.add(keymap_t)
 

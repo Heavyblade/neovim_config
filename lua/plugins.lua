@@ -234,6 +234,12 @@ local plugins = {
       auto_follow_cursor = false,
     },
     enabled = canUseCopilot(),
+  },
+  {
+    "vhyrro/luarocks.nvim",
+    opts = {
+      rocks = { "lua-curl", "nvim-nio", "mimetypes", "xml2lua" },  -- Specify LuaRocks packages to install
+    },
   }
 }
 
