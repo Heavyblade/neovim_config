@@ -47,6 +47,13 @@ local plugins = {
   },
   'ThePrimeagen/harpoon',
   {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    lazy = true,
+    config = function()
+      require("config.initialize.nvim_treesitter_textobjects")
+    end
+  },
+  {
     'tpope/vim-surround',
     event = "InsertEnter"
   },
@@ -127,9 +134,6 @@ local plugins = {
     config = function()
       require("config.lsp").setup()
     end,
-    opts = {
-      format = { timeout_ms = 2000 }
-    },
     dependencies = {
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
@@ -141,7 +145,10 @@ local plugins = {
     build = ':TSUpdate',
     config = function()
       require("config.initialize.treesitter")
-    end
+    end,
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter-textobjects",
+    },
   },
   {
     "hrsh7th/nvim-cmp",

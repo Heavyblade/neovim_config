@@ -17,12 +17,12 @@ local function keymappings(bufnr)
 
   -- Whichkey
   local keymap_l = {
-    { "<leader>l",  buffer = 11,                                        group = "Code" },
-    { "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<CR>",           buffer = bufnr, desc = "Code Action" },
-    { "<leader>ld", "<cmd>lua vim.diagnostic.open_float()<CR>",         buffer = bufnr, desc = "Line Diagnostics" },
-    { "<leader>lf", "<cmd>lua vim.lsp.buf.format({async = false})<CR>", buffer = bufnr, desc = "Format Document" },
-    { "<leader>li", "<cmd>LspInfo<CR>",                                 buffer = bufnr, desc = "Lsp Info" },
-    { "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<CR>",                buffer = bufnr, desc = "Rename" },
+    { "<leader>l",  buffer = 11,                                                           group = "Code" },
+    { "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<CR>",                              buffer = bufnr, desc = "Code Action" },
+    { "<leader>ld", "<cmd>lua vim.diagnostic.open_float()<CR>",                            buffer = bufnr, desc = "Line Diagnostics" },
+    { "<leader>lf", "<cmd>lua vim.lsp.buf.format({async = false, timeout_ms = 6000})<CR>", buffer = bufnr, desc = "Format Document" },
+    { "<leader>li", "<cmd>LspInfo<CR>",                                                    buffer = bufnr, desc = "Lsp Info" },
+    { "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<CR>",                                   buffer = bufnr, desc = "Rename" },
   }
   whichkey.add(keymap_l)
 
