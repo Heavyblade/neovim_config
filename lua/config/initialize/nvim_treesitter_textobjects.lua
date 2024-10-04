@@ -16,6 +16,8 @@ require 'nvim-treesitter.configs'.setup({
         ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
         -- You can also use captures from other query groups like `locals.scm`
         ["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" },
+        ["ib"] = "@block.inner",
+        ["ab"] = "@block.outer",
       },
       -- You can choose the select mode (default is charwise 'v')
       --
@@ -38,7 +40,7 @@ require 'nvim-treesitter.configs'.setup({
       -- * query_string: eg '@function.inner'
       -- * selection_mode: eg 'v'
       -- and should return true or false
-      include_surrounding_whitespace = true,
+      include_surrounding_whitespace = false,
     },
   },
 })
