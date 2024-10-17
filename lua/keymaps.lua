@@ -25,6 +25,8 @@ map("n", "]q", ":cnext<cr>", opts)
 map("n", "<Leader>bp", "orequire 'pry'; binding.pry<Esc>", noremap)
 map("n", "<Leader><Space>", ":nohlsearch<CR>", opts)
 map("t", "<Esc>", "<C-\\><C-n>", opts)
+map("n", "<Leader>p", '"0p', noremap)
+map("v", "<Leader>p", '"0p', noremap)
 
 -- Use ctrl-[hjkl] to select the active split!
 map("n", "<c-k>", ":wincmd k<CR>", { silent = true })

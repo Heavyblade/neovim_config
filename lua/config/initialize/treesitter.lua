@@ -18,7 +18,7 @@ require('nvim-treesitter.configs').setup {
     "tsx",
     "lua",
     "markdown",
-    "http", 
+    "http",
     "json",
   },
 }

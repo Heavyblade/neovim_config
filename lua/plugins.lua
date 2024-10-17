@@ -97,14 +97,17 @@ local plugins = {
   },
   {
     'fatih/vim-go',
+    lazy = true,
     ft = 'go',
   },
   {
     'elzr/vim-json',
+    lazy = true,
     ft = 'json',
   },
   {
     'vim-test/vim-test',
+    lazy = true,
     ft = 'ruby',
   },
   'voldikss/vim-floaterm',
@@ -202,6 +205,7 @@ local plugins = {
   },
   {
     "rest-nvim/rest.nvim",
+    lazy = true,
     ft = "http",
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
@@ -247,7 +251,8 @@ local plugins = {
     opts = {
       rocks = { "lua-curl", "nvim-nio", "mimetypes", "xml2lua" }, -- Specify LuaRocks packages to install
     },
-  }
+  },
+
 }
 
 require("lazy").setup(plugins, {})
