@@ -200,10 +200,6 @@ local plugins = {
     end
   },
   {
-    "github/copilot.vim",
-    enabled = canUseCopilot()
-  },
-  {
     "rest-nvim/rest.nvim",
     lazy = true,
     ft = "http",
@@ -252,6 +248,41 @@ local plugins = {
       rocks = { "lua-curl", "nvim-nio", "mimetypes", "xml2lua" }, -- Specify LuaRocks packages to install
     },
   },
+  {
+    "yetone/avante.nvim",
+    event = "VeryLazy",
+    lazy = false,
+    version = false,
+    opts = {
+      -- add any opts here
+    },
+    build = "make",
+    config = function()
+      require('avante_lib').load()
+      require("avante").setup({ provider = "copilot", auto_suggestions_provider = "copilot" })
+    end,
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "stevearc/dressing.nvim",
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+      "nvim-tree/nvim-web-devicons",
+      {
+        "github/copilot.vim",
+        enabled = canUseCopilot(),
+      },
+      {
+        'MeanderingProgrammer/render-markdown.nvim',
+        config = function()
+          require("render-markdown").setup()
+        end,
+        opts = {
+          file_types = { "markdown", "Avante" },
+        },
+        ft = { "markdown", "Avante" },
+      },
+    },
+  }
 
 }
 
