@@ -87,3 +87,4 @@ First we need to install zsh our shell, if we are working with iterm zsh is the 
 - jq
 - pgcli
 - tmuxinator
+- git-delta
