@@ -1,0 +1,12 @@
+---
+BUNDLE_BUILD__THERUBYRACER: "--with-v8-dir=/usr/local/opt/v8@3.15"
+BUNDLE_BUILD__LIBV8: "--with-system-v8"
+BUNDLE_CONSOLE: "pry"
+BUNDLE_BUILD__DEBASE: "--with-cflags=-Wno-error=implicit-function-declaration"
+BUNDLE_CACHE_ALL: "true"
+BUNDLE_GEM__TEST: "rspec"
+BUNDLE_GEM__CI: "false"
+BUNDLE_GEM__MIT: "false"
+BUNDLE_GEM__COC: "true"
+BUNDLE_GEM__CHANGELOG: "true"
+BUNDLE_GEM__LINTER: "rubocop"

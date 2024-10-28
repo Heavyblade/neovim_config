@@ -1,0 +1,46 @@
+[user]
+	name = cristian
+	email = Heavyblade@users.noreply.github.com
+	username = Heavyblade
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[use]
+	email = cristianvg2003@gmail.com
+[alias]
+  ci = commit
+  po = pull origin master
+  pu = push origin master
+  ph = push heroku master
+  st = status
+  ga = add .
+  co = checkout
+  kommit = commit
+[core]
+	excludesFile = ~/.gitignore
+	editor = nvim
+    pager = delta
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	required = true
+	clean = git-lfs clean -- %f
+	process = git-lfs filter-process
+[credential]
+	helper = cache --timeout=2592000
+[push]
+	default = simple
+[web]
+	browser = google-chrome
+[init]
+	defaultBranch = master
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    navigate = true  # use n and N to move between diff sections
+    light = false    # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+    line-numbers = true
+[merge]
+    conflictstyle = diff3
+[diff]
+    colorMoved = default

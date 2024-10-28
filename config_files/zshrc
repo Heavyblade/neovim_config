@@ -1,0 +1,85 @@
+# xxxxxxxxx general vars xxxxxxxxx
+export GOPATH=/Users/cvasquez/go
+export EDITOR=nvim
+export PGPASSWORD=postgres
+export PGUSER=postgres
+export ANDROID_NDK_HOME="/usr/local/share/android-ndk"
+export RAILS_MAX_THREADS=1
+export RAILS_MIN_THREADS=1
+export ENABLE_RAILS_LOGGER=true
+export BROWSER_STACK_USERNAME="xx"
+export BROWSER_STACK_ACCESS_KEY="xx"
+export SPREEDLY_ENV_3DS=xx
+export SPREEDLY_SECRET_3DS=xx
+export SPREEDLY_ENV_3DS=xx
+export SPREEDLY_SECRET_3DS=xx
+export SPREEDLY_SCA_3DS='xx' # Seglan prod with env WfV8miT5c1hA...
+export SPREEDLY_SCA_3DS='xx' # Test Prod key
+export SPREEDLY_SCA_3DS='xx' # Seglan local key
+export SEGLAN_SANDBOX_ROOT_API_KEY='xx'
+export CUSTOM_TEST_CARD_NUMBERS='xx'
+
+# xxxxxxxxx $PATH xxxxxxxxx
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:/Users/cvasquez/.local/bin
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
+export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
+
+if type brew &>/dev/null; then
+ FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+ autoload -Uz compinit
+ compinit
+fi
+
+# xxxxxxxxx alias xxxxxxxxx
+alias vim="nvim"
+alias core="cd ~/rails/spreedly/core && vim ."
+alias am="cd ~/rails/spreedly/active_merchant && vim ."
+alias work="cd ~/Dropbox/obsidian/ && nvim ."
+alias team="cd \"/Users/cvasquez/Google Drive/My Drive/knowledge_vault\" && nvim"
+alias cat='bat'
+alias ls='eza --icons --color=always'
+alias ts='task list project:Today'
+alias ta='task add project:Today'
+alias fv='nvim $(fzf)'
+alias dk='docker-compose'
+alias fvim='nvim $(fzf --preview "bat --color=always {}")'
+alias gco='git branch | grep -v "^\*" | fzf --height=20% --reverse --info=inline | xargs git checkout'
+alias gcb='git branch --show-current | pbcopy'
+
+# xxxxxxxxx init programs xxxxxxxxx
+eval "$(rbenv init -)"
+eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# xxxxxxxxx init programs xxxxxxxxx
+# PCI-DDS [Secure Communication](https://github.com/spreedly/pci-dss/blob/master/records/secure-communication.md#gpg-installation--setup)
+GPG1_DIR=/usr/local/opt/gnupg@1.4/libexec/gpgbin #GPG1_DIR=$(brew --prefix gpg1)/libexec/gpgbin
+
+if [ -d "${GPG1_DIR}" ]; then
+    export PATH="${GPG1_DIR}:${PATH}"
+fi
+# xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+FPATH=/usr/local/share/zsh/site-functions:$FPATH
+. /usr/local/opt/asdf/libexec/asdf.sh
+
+source <(fzf --zsh)
+
+zv () {
+  vim $(zoxide query $1)
+}
+
+# function to get the current git branch
+function gbranch {
+  git branch --show-current
+}
+
+export PATH="/usr/local/opt/llvm@15/bin:$PATH"
+export CPPFLAGS="-I/usr/local/opt/llvm@15/include"
+export LDFLAGS="-L/usr/local/opt/llvm@15/lib"
