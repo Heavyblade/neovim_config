@@ -16,8 +16,8 @@ function canUseCopilot()
 
   vim.g.copilot_workspace_folders = { currentDirectory }
 
-  return currentDirectory ~= "/Users/cvazquez/rails/spreedly/core" and
-      currentDirectory ~= "/Users/cvazquez/rails/spreedly/id"
+  return currentDirectory ~= "/Users/cvasquez/rails/spreedly/core" and
+      currentDirectory ~= "/Users/cvasquez/rails/spreedly/id"
 end
 
 local plugins = {
@@ -33,7 +33,7 @@ local plugins = {
   {
     'goolord/alpha-nvim',
     config = function()
-      require 'alpha'.setup(require 'alpha.themes.startify'.config)
+      require("config.initialize.alpha-nvim")
     end
   },
   'simeji/winresizer',
