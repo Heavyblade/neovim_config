@@ -40,3 +40,8 @@ require('highlight_overwrites')
 vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
 
 require('keymaps')
+vim.filetype.add({
+  extension = {
+    ['http'] = 'http',
+  },
+})

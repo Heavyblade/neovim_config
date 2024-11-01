@@ -200,13 +200,10 @@ local plugins = {
     end
   },
   {
-    "rest-nvim/rest.nvim",
-    lazy = true,
-    ft = "http",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    config = function()
-      require("config.initialize.rest")
-    end
+    'mistweaverco/kulala.nvim',
+    opts = {
+      default_view = "headers_body",
+    },
   },
   {
     "jackMort/ChatGPT.nvim",

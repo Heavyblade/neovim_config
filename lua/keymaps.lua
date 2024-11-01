@@ -126,15 +126,6 @@ local keymap_r = {
     desc = "Ruby block md",
     remap = false
   },
-  { "<leader>rl", require("rest-nvim").last, desc = "Rest Last", remap = false },
-  {
-    "<leader>rp",
-    function()
-      require("rest-nvim").run(true)
-    end,
-    desc = "Rest Preview",
-    remap = false
-  },
   {
     "<leader>rt",
     function()
