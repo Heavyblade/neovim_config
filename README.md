@@ -88,3 +88,4 @@ First we need to install zsh our shell, if we are working with iterm zsh is the 
 - pgcli
 - tmuxinator
 - git-delta
+- gh
