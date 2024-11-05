@@ -113,7 +113,7 @@ local keymap_h = {
 whichkey.add(keymap_h)
 
 local keymap_r = {
-  { "<leader>r",  group = "Ruby / Rest",     remap = false },
+  { "<leader>r",  group = "Ruby / Rest", remap = false },
   {
     "<leader>rb",
     function()
@@ -136,7 +136,7 @@ local keymap_r = {
     desc = "Run current test",
     remap = false
   },
-  { "<leader>rx", "<cmd>:Rest run<CR>", desc = "Rest Run", remap = false },
+  { "<leader>rx", "<cmd>:Rest run<CR>",  desc = "Rest Run", remap = false },
 }
 whichkey.add(keymap_r)
 
@@ -186,5 +186,15 @@ local keymap_g = {
     remap = false
   },
 }
-
 whichkey.add(keymap_g)
+
+-- Kuala
+local kulala = require("kulala")
+local keymap_k = {
+  { "<leader>k",  group = "Kulala", remap = false },
+  { "<leader>kr", kulala.run,       desc = "Kulala run",          remap = false },
+  { "<leader>]",  kulala.jump_next, desc = "Kulala next",         remap = false },
+  { "<leader>[",  kulala.jump_prev, desc = "Kulala Prev",         remap = false },
+  { "<leader>kc", kulala.copy,      desc = "Kulala copy as curl", remap = false },
+}
+whichkey.add(keymap_k)
