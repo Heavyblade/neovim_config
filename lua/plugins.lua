@@ -224,8 +224,8 @@ local plugins = {
     "CopilotC-Nvim/CopilotChat.nvim",
     branch = "canary",
     dependencies = {
-      { "github/copilot.vim" },    -- or github/copilot.vim
-      { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
+      { "zbirenbaum/copilot.lua" },
+      { "nvim-lua/plenary.nvim" },
     },
     opts = {
       debug = false, -- Enable debugging
@@ -239,6 +239,59 @@ local plugins = {
     },
     enabled = canUseCopilot(),
   },
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({
+        suggestion = {
+          enabled = true,
+          auto_trigger = true,
+          keymap = {
+            accept = "<Tab>",
+          },
+        },
+      })
+    end,
+  },
+  {
+    "yetone/avante.nvim",
+    event = "VeryLazy",
+    lazy = false,
+    version = false,
+    opts = {
+      -- add any opts here
+    },
+    build = "make",
+    config = function()
+      require("avante").setup({ provider = "copilot", auto_suggestions_provider = "copilot" })
+    end,
+    init = function()
+      require('avante_lib').load()
+      local config = require("avante.config")
+      config.auto_suggestions_provider = "copilot"
+      -- vim.notify("Avante initialization complete", vim.log.levels.INFO)
+    end,
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "stevearc/dressing.nvim",
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+      "nvim-tree/nvim-web-devicons",
+      "zbirenbaum/copilot.lua",
+      {
+        'MeanderingProgrammer/render-markdown.nvim',
+        config = function()
+          require("render-markdown").setup()
+        end,
+        opts = {
+          file_types = { "markdown", "Avante" },
+        },
+        ft = { "markdown", "Avante" },
+      },
+    },
+  }
 }
 
 require("lazy").setup(plugins, {})
