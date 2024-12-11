@@ -89,3 +89,4 @@ First we need to install zsh our shell, if we are working with iterm zsh is the 
 - tmuxinator
 - git-delta
 - gh
+- atuin

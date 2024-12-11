@@ -21,14 +21,14 @@ set.termguicolors = true
 set.scrolloff = 8
 set.completeopt = { 'menuone', 'noinsert', 'noselect' }
 set.signcolumn = 'yes'
-set.mouse = 'a'
+-- set.mouse = 'a'
 set.clipboard = 'unnamedplus'
 set.ttyfast = true
 set.encoding = 'utf-8'
 set.hidden = true
 set.writebackup = false
 set.updatetime = 1000 -- Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
-set.cursorline = true
+-- set.cursorline = true
 set.shortmess = set.shortmess + 'c'
 
 -- Folding

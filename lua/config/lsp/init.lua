@@ -2,7 +2,18 @@ local M = {}
 local nvim_lsp = require('lspconfig')
 
 local servers = {
-  gopls = {},
+  gopls = {
+    settings = {
+      gopls = {
+        completeUnimported = true,
+        usePlaceholders = true,
+        analyses = {
+          unusedparams = true,
+          shadow = true,
+        },
+      },
+    }
+  },
   html = {
     filetypes = { 'html', 'erb' },
   },

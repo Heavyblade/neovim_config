@@ -20,6 +20,7 @@ map("n", "<leader>nf", ":NvimTreeFindFile<cr>", noremap)
 map("n", "<Leader>af", ":AgitFile<cr>", noremap)
 map("n", "<Leader>gs", ":Git<cr>", noremap)
 map("n", "<Leader>rs", ":FloatermNew ruby %<cr>", noremap)
+map("n", "<Leader>rg", ":FloatermNew go run main.go<cr>", noremap)
 map("n", "[q", ":cprevious<cr>", opts)
 map("n", "]q", ":cnext<cr>", opts)
 map("n", "<Leader>bp", "orequire 'pry'; binding.pry<Esc>", noremap)
@@ -27,6 +28,7 @@ map("n", "<Leader><Space>", ":nohlsearch<CR>", opts)
 map("t", "<Esc>", "<C-\\><C-n>", opts)
 map("n", "<Leader>p", '"0p', noremap)
 map("v", "<Leader>p", '"0p', noremap)
+map("v", "<Leader>ae", ':AvanteEdit<CR>', noremap)
 
 -- Use ctrl-[hjkl] to select the active split!
 map("n", "<c-k>", ":wincmd k<CR>", { silent = true })
@@ -148,24 +150,8 @@ local keymap_g = {
   { "<leader>gl", "<cmd>:Git log -- %<CR>",       desc = "Git log current file", remap = false },
   {
     "<leader>gp",
-    function()
-      local members = { "Heavyblade", "gasb150", "jherreraa", "sinourain", "Sainterman", "javierpedrozaing ", "edgarv09" }
-      local last_two_months = os.date("%Y-%m-%d", os.time() - (2 * 30 * 24 * 60 * 60))
-
-      utils.picker("Team Members", members, function(selected)
-        vim.cmd("Octo search author:" .. selected[1] .. " is:pr is:open created:>=" .. last_two_months)
-      end)
-    end,
-    desc = "My open PRs",
-    remap = false
-  },
-  {
-    "<leader>gr",
-    function()
-      local last_two_months = os.date("%Y-%m-%d", os.time() - (2 * 30 * 24 * 60 * 60))
-      vim.cmd("Octo search user-review-requested:@me is:pr is:open created:>=" .. last_two_months)
-    end,
-    desc = "PRs to Review",
+    utils.build_octo_repo_query,
+    desc = "Search PR in repo",
     remap = false
   },
   {
@@ -198,3 +184,10 @@ local keymap_k = {
   { "<leader>kc", kulala.copy,      desc = "Kulala copy as curl", remap = false },
 }
 whichkey.add(keymap_k)
+
+-- Avante
+local keymap_a = {
+  { "<leader>a",  group = "Avante", remap = false },
+  { "<leader>aa", "<cmd>:AvanteToggle<CR>", desc = "Avante", remap = false },
+}
+whichkey.add(keymap_a)

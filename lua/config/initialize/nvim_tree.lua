@@ -74,8 +74,8 @@ end
 function open_win_config()
   local screen_w = vim.opt.columns:get()
   local w_h = 70
-  local s_h = 35
-  local center_x = math.floor((screen_w - w_h) / 2) + 15
+  local s_h = 40
+  local center_x = 15
   local center_y = ((vim.opt.lines:get() - s_h) / 4) - vim.opt.cmdheight:get()
 
   return {

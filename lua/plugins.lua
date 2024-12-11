@@ -13,11 +13,10 @@ vim.opt.rtp:prepend(lazypath)
 
 function canUseCopilot()
   local currentDirectory          = vim.fn.getcwd()
-
   vim.g.copilot_workspace_folders = { currentDirectory }
 
-  return currentDirectory ~= "/Users/cvasquez/rails/spreedly/core" and
-      currentDirectory ~= "/Users/cvasquez/rails/spreedly/id"
+  return currentDirectory ~= "/Users/cvasquez/rails/advent_2024" and
+      currentDirectory ~= "/Users/cvasquez/rails/spreedly/core"
 end
 
 local plugins = {
@@ -222,27 +221,18 @@ local plugins = {
   },
   {
     "CopilotC-Nvim/CopilotChat.nvim",
-    branch = "canary",
+    branch = "main",
     dependencies = {
       { "zbirenbaum/copilot.lua" },
       { "nvim-lua/plenary.nvim" },
     },
-    opts = {
-      debug = false, -- Enable debugging
-      window = {
-        layout = 'float',
-        title = 'Copilot Chat',
-        width = 0.7, -- fractional width of parent, or absolute width in columns when > 1
-        height = 0.7,
-      },
-      auto_follow_cursor = false,
-    },
-    enabled = canUseCopilot(),
+    opts = require("config.initialize.copilot_chat").opts,
   },
   {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
     event = "InsertEnter",
+    enabled = canUseCopilot(),
     config = function()
       require("copilot").setup({
         suggestion = {
@@ -265,7 +255,13 @@ local plugins = {
     },
     build = "make",
     config = function()
-      require("avante").setup({ provider = "copilot", auto_suggestions_provider = "copilot" })
+      require("avante").setup({
+        provider = "copilot",
+        auto_suggestions_provider = "copilot",
+        windows = {
+          position = "right",
+        }
+      })
     end,
     init = function()
       require('avante_lib').load()
@@ -286,9 +282,9 @@ local plugins = {
           require("render-markdown").setup()
         end,
         opts = {
-          file_types = { "markdown", "Avante" },
+          file_types = { "markdown", "Avante", "copilot-chat" },
         },
-        ft = { "markdown", "Avante" },
+        ft = { "markdown", "Avante", "copilot-chat" },
       },
     },
   }

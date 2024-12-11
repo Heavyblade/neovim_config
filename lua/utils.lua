@@ -1,8 +1,3 @@
-local pickers = require "telescope.pickers"
-local finders = require "telescope.finders"
-local conf = require("telescope.config").values
-local actions = require "telescope.actions"
-local action_state = require "telescope.actions.state"
 local ts_utils = require 'nvim-treesitter.ts_utils'
 
 _G.dump = function(...)
@@ -46,23 +41,7 @@ function M.info(msg, name)
 end
 
 function M.picker(title, options, callback)
-  local opts = require("telescope.themes").get_dropdown {}
-
-  pickers.new(opts, {
-    prompt_title = title,
-    finder = finders.new_table {
-      results = options
-    },
-    sorter = conf.generic_sorter(opts),
-    attach_mappings = function(prompt_bufnr, map)
-      actions.select_default:replace(function()
-        actions.close(prompt_bufnr)
-        local selection = action_state.get_selected_entry()
-        callback(selection)
-      end)
-      return true
-    end,
-  }):find()
+  vim.ui.select(options, { prompt = title }, callback)
 end
 
 function M.concatenate_table(table, prefix)
@@ -100,6 +79,52 @@ function M.get_current_method_name()
   end
 
   print("No method found at cursor position")
+end
+
+M.members = {
+  "none",
+  "Heavyblade",
+  "gasb150",
+  "jherreraa",
+  "sinourain",
+  "javierpedrozaing ",
+  "edgarv09",
+  "rubenmarindev",
+  "KenderBolivarT",
+  "Buitragox"
+}
+
+M.projects = {
+  "none",
+  "activemerchant/active_merchant",
+  "spreedly/docs",
+  "spreedly/core",
+  "spreedly/iframe"
+}
+
+function M.build_octo_repo_query()
+  vim.ui.select(M.members, { prompt = 'Select Member', }, function(selected)
+    local selected_member = selected
+
+    vim.ui.select(M.projects, { prompt = 'Select Project', }, function(selected)
+      local selected_project = selected
+
+      local search_term = vim.fn.input("Search for: ")
+
+      local query = "Octo search is:pr"
+      if selected_member ~= "none" then
+        query = query .. " author:" .. selected_member
+      end
+      if selected_project ~= "none" then
+        query = query .. " repo:" .. selected_project
+      end
+      if search_term ~= "" then
+        query = query .. " " .. search_term
+      end
+
+      vim.cmd(query)
+    end)
+  end)
 end
 
 return M
