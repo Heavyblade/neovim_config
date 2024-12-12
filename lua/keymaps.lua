@@ -187,7 +187,18 @@ whichkey.add(keymap_k)
 
 -- Avante
 local keymap_a = {
-  { "<leader>a",  group = "Avante", remap = false },
+  { "<leader>a",  group = "Avante",         remap = false },
   { "<leader>aa", "<cmd>:AvanteToggle<CR>", desc = "Avante", remap = false },
 }
 whichkey.add(keymap_a)
+
+-- Debugger
+local dap = require("dap")
+local dapui = require("dapui")
+local keymap_d = {
+  { "<leader>d",  group = "Debugging",   remap = false },
+  { "<leader>db", dap.toggle_breakpoint, desc = "Toggle Breakpoint", remap = false },
+  { "<leader>dc", dap.continue,          desc = "Debugger Continue", remap = false },
+  { "<leader>dt", dapui.toggle,           desc = "Debugger Continue", remap = false },
+}
+whichkey.add(keymap_d)

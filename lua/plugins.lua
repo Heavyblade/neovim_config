@@ -99,6 +99,7 @@ local plugins = {
     lazy = true,
     ft = 'go',
   },
+  require("config.initialize.nvim_dap"),
   {
     'elzr/vim-json',
     lazy = true,
