@@ -17,6 +17,10 @@ local function on_attach(client, bufnr)
   -- Configure key mappings
   require("config.lsp.keymaps").setup(bufnr)
 
+  vim.diagnostic.config({
+    virtual_text = false,
+  })
+
   print("LSP Server Ready")
 end
 
@@ -35,11 +39,11 @@ local function getOptions()
   local handlers = {
     ["textDocument/publishDiagnostics"] = vim.lsp.with(
       vim.lsp.diagnostic.on_publish_diagnostics, {
-      virtual_text = false,
-      underline = true,
-      signs = true,
-      update_in_insert = false,
-    }
+        virtual_text = false,
+        underline = true,
+        signs = true,
+        update_in_insert = false
+      }
     ),
     ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
     ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),

@@ -19,24 +19,13 @@ local servers = {
   },
   jsonls = {},
   lua_ls = {},
-  ts_ls= {},
+  ts_ls = {},
   bashls = {},
   vimls = {},
   pyright = {},
-  solargraph = {
-    cmd = { os.getenv("HOME") .. "/.rbenv/shims/solargraph", 'stdio' },
+  ruby_lsp = {
+    cmd = { os.getenv("HOME") .. "/.rbenv/shims/ruby-lsp", 'stdio' },
     root_dir = nvim_lsp.util.root_pattern("Gemfile", ".git"),
-    settings = {
-      solargraph = {
-        autoformat = true,
-        completion = true,
-        diagnostic = true,
-        folding = true,
-        references = true,
-        rename = true,
-        symbols = true
-      }
-    }
   },
   marksman = {},
 }
