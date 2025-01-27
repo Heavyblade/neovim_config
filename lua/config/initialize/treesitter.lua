@@ -20,5 +20,6 @@ require('nvim-treesitter.configs').setup {
     "markdown",
     "http",
     "json",
+    "diff"
   },
 }
