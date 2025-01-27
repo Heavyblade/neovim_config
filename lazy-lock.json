@@ -44,6 +44,7 @@
   "telescope.nvim": { "branch": "master", "commit": "415af52339215926d705cccc08145f3782c4d132" },
   "toggleterm.nvim": { "branch": "main", "commit": "50ea089fc548917cc3cc16b46a8211833b9e3c7c" },
   "trouble.nvim": { "branch": "main", "commit": "50481f414bd3c1a40122c1d759d7e424d5fafe84" },
+  "typr": { "branch": "main", "commit": "249fd11305e9adf92762474691e00f5a32b12f6e" },
   "vim-floaterm": { "branch": "master", "commit": "4e28c8dd0271e10a5f55142fb6fe9b1599ee6160" },
   "vim-fugitive": { "branch": "master", "commit": "d74a7cff4cfcf84f83cc7eccfa365488f3bbabc2" },
   "vim-gist": { "branch": "master", "commit": "5bfbb5450d9eff248f6c074de0b7800392439304" },
@@ -52,6 +53,7 @@
   "vim-json": { "branch": "master", "commit": "3727f089410e23ae113be6222e8a08dd2613ecf2" },
   "vim-surround": { "branch": "master", "commit": "3d188ed2113431cf8dac77be61b842acb64433d9" },
   "vim-test": { "branch": "master", "commit": "d317336c4022c272e74cfe11e277483183dd0b5f" },
+  "volt": { "branch": "main", "commit": "1a7d6b1dfb2f176715ccc9e838be32d044f8a734" },
   "webapi-vim": { "branch": "master", "commit": "70c49ada7827d3545a65cbdab04c5c89a3a8464e" },
   "which-key.nvim": { "branch": "main", "commit": "6cebd86917df559a88de0f806b2989799c6e6423" },
   "winresizer": { "branch": "master", "commit": "9bd559a03ccec98a458e60c705547119eb5350f3" }

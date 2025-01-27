@@ -284,6 +284,12 @@ local plugins = {
         ft = { "markdown", "Avante", "copilot-chat" },
       },
     },
+  },
+  {
+    "nvzone/typr",
+    dependencies = "nvzone/volt",
+    opts = {},
+    cmd = { "Typr", "TyprStats" },
   }
 }
 
