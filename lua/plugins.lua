@@ -65,10 +65,6 @@ local plugins = {
     end
   },
   "rebelot/kanagawa.nvim",
-  {
-    "cohama/agit.vim",
-    cmd = "AgitFile",
-  },
   { 'airblade/vim-gitgutter',  branch = 'main' },
   'tpope/vim-fugitive',
   {
