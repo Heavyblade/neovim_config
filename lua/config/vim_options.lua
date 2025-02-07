@@ -36,6 +36,7 @@ set.foldmethod = 'indent'
 set.foldnestmax = 10
 set.foldenable = false
 set.foldlevel = 2
+vim.g.mapleader = " "
 
 -- Set tokyonight background
 -- vim.g.tokyonight_style = "night"

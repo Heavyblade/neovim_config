@@ -2,8 +2,6 @@ local whichkey = require "which-key"
 local utils = require "utils"
 local map = vim.api.nvim_set_keymap
 
-vim.g.mapleader = " "
-
 local opts = { noremap = true, silent = true }
 local noremap = { noremap = true }
 
@@ -28,7 +26,6 @@ map("n", "<Leader><Space>", ":nohlsearch<CR>", opts)
 map("t", "<Esc>", "<C-\\><C-n>", opts)
 map("n", "<Leader>p", '"0p', noremap)
 map("v", "<Leader>p", '"0p', noremap)
-map("v", "<Leader>ae", ':AvanteEdit<CR>', noremap)
 
 -- Use ctrl-[hjkl] to select the active split!
 map("n", "<c-k>", ":wincmd k<CR>", { silent = true })
@@ -184,13 +181,6 @@ local keymap_k = {
   { "<leader>kc", kulala.copy,      desc = "Kulala copy as curl", remap = false },
 }
 whichkey.add(keymap_k)
-
--- Avante
-local keymap_a = {
-  { "<leader>a",  group = "Avante",         remap = false },
-  { "<leader>aa", "<cmd>:AvanteToggle<CR>", desc = "Avante", remap = false },
-}
-whichkey.add(keymap_a)
 
 -- Debugger
 local dap = require("dap")
