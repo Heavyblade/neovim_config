@@ -42,6 +42,7 @@ local function keymappings(bufnr)
     { "gd", vim.lsp.buf.definition,                       desc = "Definition" },
     { "gs", "<cmd>lua vim.lsp.buf.signature_help()<CR>",  buffer = bufnr,     desc = "Signature Help" },
     { "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", buffer = bufnr,     desc = "Goto Type Definition" },
+    { "gr", vim.lsp.buf.references,                       buffer = bufnr,     desc = "Goto references" },
   }
 
   whichkey.add(keymap_g)

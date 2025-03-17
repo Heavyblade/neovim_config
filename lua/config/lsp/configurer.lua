@@ -7,7 +7,7 @@ local function on_attach(client, bufnr)
   -- See `:help omnifunc` and `:help ins-completion` for more information.
   vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
-  if client.server_capabilities.documentSymbolProvider then
+  if client.server_capabilities.documentSymbolProvider and client.name ~= 'sorbet' then
     navic.attach(client, bufnr)
   end
   -- Use LSP as the handler for formatexpr.
@@ -21,7 +21,9 @@ local function on_attach(client, bufnr)
     virtual_text = false,
   })
 
-  print("LSP Server Ready")
+  -- if client.name ~= 'sorbet' then
+    print("LSP Server Ready [" .. client.name .. "]")
+  -- end
 end
 
 local function getOptions()
