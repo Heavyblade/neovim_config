@@ -25,7 +25,7 @@ local plugins = {
     event = "InsertEnter",
     config = function()
       require("nvim-autopairs").setup {
-        disable_filetype = { "TelescopePrompt", "norg" }
+        disable_filetype = { "TelescopePrompt", "norg", "typr" }
       }
     end
   },
@@ -257,6 +257,7 @@ local plugins = {
         auto_suggestions_provider = "copilot",
         windows = {
           position = "right",
+          width = 50,
         }
       })
     end,
