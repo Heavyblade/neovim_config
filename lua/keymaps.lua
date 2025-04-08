@@ -79,6 +79,7 @@ local keymap_c = {
   { "<leader>cg", "<cmd>:ChatGPT<CR>",             desc = "ChatGPT",               remap = false },
   { "<leader>cc", "<cmd>:CopilotChatToggle<CR>",   desc = "Copilot chat toggle",   remap = false, mode = { "v", "n" } },
   { "<leader>co", "<cmd>:CopilotChatOptimize<CR>", desc = "Copilot chat Optimize", remap = false, mode = "v" },
+  { "<leader>ct", "<cmd>:CopilotChatPrompts<CR>",  desc = "Copilot chat Prompts",  remap = false, mode = { "v", "n" } },
 }
 whichkey.add(keymap_c)
 
@@ -152,7 +153,7 @@ local keymap_g = {
     remap = false
   },
   {
-    "<leader>gt",
+    "<leader>gx",
     function()
       require('octo')
       local members = { "Heavyblade", "gasb150", "javierpedrozaing ", "edgarv09" }
@@ -189,6 +190,6 @@ local keymap_d = {
   { "<leader>d",  group = "Debugging",   remap = false },
   { "<leader>db", dap.toggle_breakpoint, desc = "Toggle Breakpoint", remap = false },
   { "<leader>dc", dap.continue,          desc = "Debugger Continue", remap = false },
-  { "<leader>dt", dapui.toggle,           desc = "Debugger Continue", remap = false },
+  { "<leader>dt", dapui.toggle,          desc = "Debugger Continue", remap = false },
 }
 whichkey.add(keymap_d)
