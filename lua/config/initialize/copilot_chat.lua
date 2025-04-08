@@ -21,12 +21,15 @@ M.opts = {
     },
     TransLateToEnglish = {
       prompt = 'Translate this text to English.',
-      system_prompt = 'You are an assistant translator who helps translate text to English and check grammar and correctness',
+      system_prompt =
+      'You are an assistant translator who helps translate text to English and check grammar and correctness',
       description = 'Translate to English'
     },
     CorrectGrammar = {
       prompt = 'Correct the grammar, syntax, and redaction of this article without changing its meaning or main ideas.',
-      system_prompt = 'You are an expert in grammar and syntax correction.',
+      system_prompt =
+      'Correct the grammar, syntax, and redaction of this text without changing its meaning or main ideas.',
+      mapping = '<leader>ccg',
       description = 'Correct Grammar and Syntax'
     },
   },
