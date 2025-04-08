@@ -1,4 +1,6 @@
-local ts_utils = require 'nvim-treesitter.ts_utils'
+if not vim.g.vscode then
+  local ts_utils = require 'nvim-treesitter.ts_utils'
+end
 
 _G.dump = function(...)
   print(vim.inspect(...))
@@ -65,20 +67,22 @@ function M.create_quickfix_list(files)
   vim.api.nvim_command('copen')
 end
 
-function M.get_current_method_name()
-  local node = ts_utils.get_node_at_cursor()
-  if not node then return end
+if not vim.g.vscode then
+  function M.get_current_method_name()
+    local node = ts_utils.get_node_at_cursor()
+    if not node then return end
 
-  while node do
-    if node:type() == 'method' or node:type() == 'function' then
-      local method_name = ts_utils.get_node_text(node:child(1), 0)[1]
-      print("Current method: " .. method_name)
-      return method_name
+    while node do
+      if node:type() == 'method' or node:type() == 'function' then
+        local method_name = ts_utils.get_node_text(node:child(1), 0)[1]
+        print("Current method: " .. method_name)
+        return method_name
+      end
+      node = node:parent()
     end
-    node = node:parent()
-  end
 
-  print("No method found at cursor position")
+    print("No method found at cursor position")
+  end
 end
 
 M.members = {
