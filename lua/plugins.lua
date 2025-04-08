@@ -229,7 +229,6 @@ local plugins = {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
     event = "InsertEnter",
-    enabled = canUseCopilot(),
     config = function()
       require("copilot").setup({
         suggestion = {
