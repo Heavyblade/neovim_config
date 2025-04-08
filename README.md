@@ -67,6 +67,7 @@ luarocks install lua-curl
 luarocks install nvim-nio
 luarocks install mimetypes
 luarocks install xml2lua
+luarocks install --lua-version 5.1 tiktoken_core
 ```
 ## Proper terminar setup
 
@@ -90,3 +91,4 @@ First we need to install zsh our shell, if we are working with iterm zsh is the 
 - git-delta
 - gh
 - atuin
+- lynx => text browser (for CopilotChat)
