@@ -256,7 +256,7 @@ local plugins = {
         auto_suggestions_provider = "copilot",
         windows = {
           position = "right",
-          width = 50,
+          width = 40,
         }
       })
     end,
@@ -290,7 +290,7 @@ local plugins = {
     dependencies = "nvzone/volt",
     opts = {},
     cmd = { "Typr", "TyprStats" },
-  }
+  },
 }
 
 require("lazy").setup(plugins, {})
