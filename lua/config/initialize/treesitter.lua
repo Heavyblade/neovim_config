@@ -21,5 +21,6 @@ require('nvim-treesitter.configs').setup {
     "http",
     "json",
     "diff",
+    "python",
   },
 }
