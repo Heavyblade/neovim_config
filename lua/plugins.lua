@@ -202,21 +202,6 @@ local plugins = {
     },
   },
   {
-    "jackMort/ChatGPT.nvim",
-    event = "VeryLazy",
-    config = function()
-      local neovim_config_dir = vim.fn.stdpath("config")
-      require("chatgpt").setup({
-        predefined_chat_gpt_prompts = "file://" .. neovim_config_dir .. "/lua/config/prompts.csv",
-      })
-    end,
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim"
-    }
-  },
-  {
     "CopilotC-Nvim/CopilotChat.nvim",
     branch = "main",
     dependencies = {
@@ -253,18 +238,15 @@ local plugins = {
     config = function()
       require("avante").setup({
         provider = "copilot",
+        copilot = {
+          model = "claude-3.7-sonnet",
+        },
         auto_suggestions_provider = "copilot",
         windows = {
           position = "right",
           width = 40,
         }
       })
-    end,
-    init = function()
-      require('avante_lib').load()
-      local config = require("avante.config")
-      config.auto_suggestions_provider = "copilot"
-      -- vim.notify("Avante initialization complete", vim.log.levels.INFO)
     end,
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
