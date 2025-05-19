@@ -1,5 +1,7 @@
-if not vim.g.vscode then
-  local ts_utils = require 'nvim-treesitter.ts_utils'
+local ts_utils = nil
+
+if vim.g.vscode == nil then
+  ts_utils = require 'nvim-treesitter.ts_utils'
 end
 
 _G.dump = function(...)

@@ -1,5 +1,6 @@
 local whichkey = require "which-key"
 local map = vim.api.nvim_set_keymap
+local vscode = require("vscode")
 
 local opts = { noremap = true, silent = true }
 local noremap = { noremap = true }
@@ -30,3 +31,29 @@ local keymap_g = {
   { "<leader>gl", "<cmd>:Git log -- %<CR>",       desc = "Git log current file", remap = false },
 }
 whichkey.add(keymap_g)
+
+-- Telescope
+local keymap_t = {
+  { "<leader>t",  group = "Telescope",                                           remap = false },
+  { "<leader>tt", function() vscode.call("workbench.action.gotoSymbol") end,     desc = "Telescope Tags",    remap = false },
+  { "<leader>tb", function() vscode.call("workbench.action.showAllEditors") end, desc = "Telescope Buffers", remap = false },
+}
+whichkey.add(keymap_t)
+
+-- Harpoon
+local keymap_h = {
+  { "<leader>h",  group = "Harpoon",                                                      remap = false },
+  { "<leader>hg", function() vscode.call("vscode-harpoon.editorQuickPick") end,           desc = "Harpoon menu", remap = false },
+  { "<leader>hm", function() vscode.call("vscode-harpoon.addEditor") end,                 desc = "Harpoon mark", remap = false },
+  { "<leader>hp", function() vscode.call("vscode-harpoon.gotoPreviousHarpoonEditor") end, desc = "Harpoon Prev", remap = false },
+}
+whichkey.add(keymap_h)
+
+-- NerdTree
+local keymap_n = {
+  { "<leader>n",  group = "NerdTree",                                                            remap = false },
+  { "<leader>nf", function() vscode.call("workbench.files.action.showActiveFileInExplorer") end, desc = "Find file in explorer", remap = false },
+}
+whichkey.add(keymap_n)
+
+vim.keymap.set("n", "<c-n>", function() vscode.call("vscode-harpoon.gotoPreviousHarpoonEditor") end, { silent = true })
