@@ -1,6 +1,11 @@
 local M = {}
 local nvim_lsp = require('lspconfig')
 
+function canUseSorbet()
+  local currentDirectory = vim.fn.getcwd()
+  return string.find(currentDirectory, "ruby%-lsp") ~= nil
+end
+
 local servers = {
   gopls = {
     settings = {
@@ -29,15 +34,18 @@ local servers = {
     root_dir = nvim_lsp.util.root_pattern("Gemfile", ".git"),
   },
   marksman = {},
-  sorbet = {
-    root_dir = nvim_lsp.util.root_pattern("sorbet"),
-  },
 }
+
+if canUseSorbet() then
+  servers.sorbet = {
+    root_dir = nvim_lsp.util.root_pattern("sorbet"),
+  }
+end
 
 function M.setup()
   require("mason").setup({})
   require("mason-lspconfig").setup {
-    ensure_installed = vim.tbl_keys(servers),
+    -- ensure_installed = vim.tbl_keys(servers),
     automatic_installation = false,
   }
   require("config.lsp.configurer").setup(servers)
