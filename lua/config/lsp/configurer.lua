@@ -21,9 +21,7 @@ local function on_attach(client, bufnr)
     virtual_text = false,
   })
 
-  -- if client.name ~= 'sorbet' then
-    print("LSP Server Ready [" .. client.name .. "]")
-  -- end
+  print("LSP Server Ready [" .. client.name .. "]")
 end
 
 local function getOptions()
