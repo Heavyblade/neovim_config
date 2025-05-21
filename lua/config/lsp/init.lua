@@ -27,13 +27,13 @@ local servers = {
   ts_ls = {},
   bashls = {},
   vimls = {},
-  pyright = {},
   ruby_lsp = {
     -- cmd = { os.getenv("HOME") .. "/.rbenv/shims/ruby-lsp", '--debug', 'stdio' },
     cmd = { os.getenv("HOME") .. "/.rbenv/shims/ruby-lsp", 'stdio' },
     root_dir = nvim_lsp.util.root_pattern("Gemfile", ".git"),
   },
   marksman = {},
+  pylsp = {},
 }
 
 if canUseSorbet() then

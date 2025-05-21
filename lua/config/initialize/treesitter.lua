@@ -18,6 +18,7 @@ require('nvim-treesitter.configs').setup {
     "tsx",
     "lua",
     "markdown",
+    "markdown_inline",
     "http",
     "json",
     "diff",
