@@ -27,22 +27,13 @@ local function keymappings(bufnr)
   whichkey.add(keymap_l)
 
   local keymap_g = {
-    name = "Goto",
-    d = { vim.lsp.buf.definition, "Definition" },
-    D = { "<cmd>lua vim.lsp.buf.declaration()<CR>", "Declaration" },
-    s = { "<cmd>lua vim.lsp.buf.signature_help()<CR>", "Signature Help" },
-    I = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Goto Implementation" },
-    t = { "<cmd>lua vim.lsp.buf.type_definition()<CR>", "Goto Type Definition" },
-  }
-
-  local keymap_g = {
-    { "g",  buffer = bufnr,                               group = "Goto" },
-    { "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>",     buffer = bufnr,     desc = "Declaration" },
-    { "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>",  buffer = bufnr,     desc = "Goto Implementation" },
-    { "gd", vim.lsp.buf.definition,                       desc = "Definition" },
-    { "gs", "<cmd>lua vim.lsp.buf.signature_help()<CR>",  buffer = bufnr,     desc = "Signature Help" },
-    { "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", buffer = bufnr,     desc = "Goto Type Definition" },
-    { "gr", vim.lsp.buf.references,                       buffer = bufnr,     desc = "Goto references" },
+    { "g",  group = "LSP Goto",                           remap = false },
+    { "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>",     desc = "Declaration",          remap = false },
+    { "gd", "<cmd>lua vim.lsp.buf.definition()<CR>",      desc = "Definition",           remap = false },
+    { "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>",  desc = "Goto Implementation",  remap = false },
+    { "gs", "<cmd>lua vim.lsp.buf.signature_help()<CR>",  desc = "Signature Help",       remap = false },
+    { "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", desc = "Goto Type Definition", remap = false },
+    { "gr", "<cmd>lua vim.lsp.buf.references()<CR>",      desc = "Goto references",      remap = false },
   }
 
   whichkey.add(keymap_g)

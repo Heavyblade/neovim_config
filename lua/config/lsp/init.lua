@@ -33,7 +33,15 @@ local servers = {
     root_dir = nvim_lsp.util.root_pattern("Gemfile", ".git"),
   },
   marksman = {},
-  pylsp = {},
+  pylsp = {
+    settings = {
+      pylsp = {
+        plugins = {
+          pylsp_mypy = { enabled = true },
+        },
+      },
+    },
+  },
 }
 
 if canUseSorbet() then

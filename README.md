@@ -16,10 +16,28 @@ Some plugins had dependencies on system tools:
 Some LSP servers are defined (they are going to be auto installed by Mason lsp manager):
 
 - gopls
-- solargraph
-- tsserver
+- html
+- jsonls
+- ts_ls
+- bash_ls
+- vim_ls
+- ruby_lsp
+- marksman
 - sumneko_lua
-- vimls
+- pylsp
+
+### Python LSP Server (pylsp)
+To make it work properly and load the depencies first install the server on the project environment:
+
+```bash
+# install lsp server with basic Dependencies
+pip install "python-lsp-server[all]"
+
+# Install extra plugins
+pip install pylsp-mypy                                                                                                                                   │
+pip install -U mypy                                                                                                                                      │
+pip install python-lsp-isort
+```
 
 ## Font
 
@@ -27,48 +45,6 @@ Some plugins like NerdTree and Trouble display icons on the screen and Need a ne
 
 check [Nerd Fonts website](https://www.nerdfonts.com/)
 
-
-## Solargraph
-
-To solargraph work properly with Rubocop is important to set a `.solargraph.yml` file on your home like:
-
-```yaml
-  include:
-  - "**/*.rb"
-  exclude:
-  - spec/**/*
-  - test/**/*
-  - vendor/**/*
-  - ".bundle/**/*"
-  require: []
-  domains: []
-  reporters:
-  - rubocop
-  - require_not_found
-  max_files: 5000
-```
-
-### Rest nvim
-
-First we need to install lua:
-
-```bash
-asdf plugin-add lua https://github.com/Stratus3D/asdf-lua.git
-asdf install lua 5.1
-echo "lua 5.1" > ~/.tool-version
-asdf global lua 5.1
-
-brew install luarocks
-```
-then we need to install some specific rocks
-
-```bash
-luarocks install lua-curl
-luarocks install nvim-nio
-luarocks install mimetypes
-luarocks install xml2lua
-luarocks install --lua-version 5.1 tiktoken_core
-```
 ## Proper terminar setup
 
 First we need to install zsh our shell, if we are working with iterm zsh is the shell by default
@@ -81,14 +57,14 @@ First we need to install zsh our shell, if we are working with iterm zsh is the 
 3) install starship for a pretty prompt and set one of their presets
 4) install tmux and also install [tmux-themepack](https://github.com/jimeh/tmux-themepack) to center and colorize the tmux status bar.
 5) install complementary cli tools:
-- bat
-- exa
-- zoxide
-- htop
-- jq
-- pgcli
-- tmuxinator
-- git-delta
-- gh
-- atuin
-- lynx => text browser (for CopilotChat)
+    - bat
+    - exa
+    - zoxide
+    - htop
+    - jq
+    - pgcli
+    - tmuxinator
+    - git-delta
+    - gh
+    - atuin
+    - lynx => text browser (for CopilotChat)
