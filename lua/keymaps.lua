@@ -17,7 +17,6 @@ map("n", "<Leader>nt", ":NvimTreeToggle<cr>", noremap)
 map("n", "<leader>nf", ":NvimTreeFindFile<cr>", noremap)
 map("n", "<Leader>af", ":AgitFile<cr>", noremap)
 map("n", "<Leader>gs", ":Git<cr>", noremap)
-map("n", "<Leader>rs", ":FloatermNew ruby %<cr>", noremap)
 map("n", "<Leader>rg", ":FloatermNew go run main.go<cr>", noremap)
 map("n", "[q", ":cprevious<cr>", opts)
 map("n", "]q", ":cnext<cr>", opts)
@@ -113,7 +112,7 @@ local keymap_h = {
 whichkey.add(keymap_h)
 
 local keymap_r = {
-  { "<leader>r",  group = "Ruby / Rest", remap = false },
+  { "<leader>r", group = "Ruby / Rest", remap = false },
   {
     "<leader>rb",
     function()
@@ -136,7 +135,25 @@ local keymap_r = {
     desc = "Run current test",
     remap = false
   },
-  { "<leader>rx", "<cmd>:Rest run<CR>",  desc = "Rest Run", remap = false },
+  {
+    "<leader>rs",
+    function()
+      local buf = vim.api.nvim_get_current_buf()
+      local filetype = vim.api.nvim_buf_get_option(buf, "filetype")
+
+      if filetype == "ruby" then
+        vim.api.nvim_command(":FloatermNew bundle exec ruby")
+      elseif filetype == "python" then
+        vim.api.nvim_command(":FloatermNew python3 %")
+      elseif filetype == "javascript" or filetype == "typescript" then
+        vim.api.nvim_command(":FloatermNew node")
+      elseif filetype == "go" then
+        vim.api.nvim_command(":FloatermNew go run")
+      end
+    end,
+    desc = "Run",
+    remap = false
+  },
 }
 whichkey.add(keymap_r)
 
