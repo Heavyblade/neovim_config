@@ -21,6 +21,7 @@ map("n", "<Leader>rg", ":FloatermNew go run main.go<cr>", noremap)
 map("n", "[q", ":cprevious<cr>", opts)
 map("n", "]q", ":cnext<cr>", opts)
 map("n", "<Leader>bp", "orequire 'pry'; binding.pry<Esc>", noremap)
+map("n", "<Leader>dp", "oimport ipdb; ipdb.set_trace()<Esc>", noremap)
 map("n", "<Leader><Space>", ":nohlsearch<CR>", opts)
 map("t", "<Esc>", "<C-\\><C-n>", opts)
 map("n", "<Leader>p", '"0p', noremap)
@@ -142,13 +143,13 @@ local keymap_r = {
       local filetype = vim.api.nvim_buf_get_option(buf, "filetype")
 
       if filetype == "ruby" then
-        vim.api.nvim_command(":FloatermNew bundle exec ruby")
+        vim.api.nvim_command(":FloatermNew bundle exec ruby %")
       elseif filetype == "python" then
         vim.api.nvim_command(":FloatermNew python3 %")
       elseif filetype == "javascript" or filetype == "typescript" then
-        vim.api.nvim_command(":FloatermNew node")
+        vim.api.nvim_command(":FloatermNew node %")
       elseif filetype == "go" then
-        vim.api.nvim_command(":FloatermNew go run")
+        vim.api.nvim_command(":FloatermNew go run %")
       end
     end,
     desc = "Run",

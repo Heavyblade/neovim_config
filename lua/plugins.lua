@@ -275,6 +275,7 @@ local plugins = {
     opts = {},
     cmd = { "Typr", "TyprStats" },
   },
+  {'cohama/agit.vim'}
 }
 
 require("lazy").setup(plugins, {})

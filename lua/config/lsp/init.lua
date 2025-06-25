@@ -38,6 +38,7 @@ local servers = {
       pylsp = {
         plugins = {
           pylsp_mypy = { enabled = true },
+          pyls_isort = { enabled = true },
         },
       },
     },
