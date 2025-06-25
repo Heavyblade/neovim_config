@@ -2,11 +2,12 @@
 theme = tokyonight_night
 background=0a0410
 background-blur-radius = 20
-background-opacity = 0.98
+background-opacity = 0.97
 background-opacity = 1
 
 # Font
 font-family = Fira Code
+# font-family = JetBrainsMono NFM
 font-style = Regular
 font-style-bold = SemiBold
 font-size = 17
@@ -27,3 +28,4 @@ macos-option-as-alt = true
 quick-terminal-position = top
 keybind = global:cmd+t=toggle_quick_terminal
 #command = /Users/cvasquez/.config/nvim/config_files/ghostty_tmux.sh
+command = /Users/cvasquez/.config/nvim/config_files/ghostty_tmux.sh
