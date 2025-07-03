@@ -43,7 +43,7 @@ pip install python-lsp-isort
 
 Some plugins like NerdTree and Trouble display icons on the screen and Need a nerd font compatible, ensure to install one on your terminal.
 
-check [Nerd Fonts website](https://www.nerdfonts.com/)
+check [Nerd Fonts website](https://www.nerdfonts.com/) and install [FireCode](https://www.programmingfonts.org/#firacode)
 
 ## Proper terminar setup
 
@@ -53,12 +53,12 @@ First we need to install zsh our shell, if we are working with iterm zsh is the 
 2) install a couple of needed plugins with homebrew:
     a) brew install zsh-syntax-highlighting
     b) brew install zsh-autosuggestions
-    c) brew install zsh-autocompletions
+    c) brew install zsh-completions
 3) install starship for a pretty prompt and set one of their presets
-4) install tmux and also install [tmux-themepack](https://github.com/jimeh/tmux-themepack) to center and colorize the tmux status bar.
+4) install tmux and also to center and colorize the tmux status bar install [tmux-themepack](https://github.com/jimeh/tmux-themepack) use the manual way just with git.
 5) install complementary cli tools:
     - bat
-    - exa
+    - eza
     - zoxide
     - htop
     - jq
