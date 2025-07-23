@@ -229,7 +229,7 @@ local plugins = {
   {
     "yetone/avante.nvim",
     event = "VeryLazy",
-    lazy = false,
+    enabled = true,
     version = false,
     opts = {
       -- add any opts here
@@ -240,14 +240,30 @@ local plugins = {
         provider = "copilot",
         providers = {
           copilot = {
-            model = "claude-3.7-sonnet",
+            -- model = "claude-3.7-sonnet",
+            model = "gpt-4.1",
           },
         },
         auto_suggestions_provider = "copilot",
         windows = {
           position = "right",
           width = 40,
-        }
+          input = {
+            height = 10,
+          },
+        },
+        -- system_prompt as function ensures LLM always has latest MCP server state
+        -- This is evaluated for every message, even in existing chats
+        system_prompt = function()
+          local hub = require("mcphub").get_hub_instance()
+          return hub and hub:get_active_servers_prompt() or ""
+        end,
+        -- Using function prevents requiring mcphub before it's loaded
+        custom_tools = function()
+          return {
+            require("mcphub.extensions.avante").mcp_tool(),
+          }
+        end,
       })
     end,
     dependencies = {
@@ -275,7 +291,17 @@ local plugins = {
     opts = {},
     cmd = { "Typr", "TyprStats" },
   },
-  {'cohama/agit.vim'}
+  { 'cohama/agit.vim' },
+  {
+    "ravitemer/mcphub.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    build = "npm install -g mcp-hub@latest", -- Installs `mcp-hub` node binary globally
+    config = function()
+      require("mcphub").setup()
+    end
+  },
 }
 
 require("lazy").setup(plugins, {})

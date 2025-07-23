@@ -99,6 +99,7 @@ require("nvim-tree").setup({
   },
   filters = {
     dotfiles = false,
+    custom = { '^\\.venv', '__pycache__', 'node_modules', '^\\.git', '^\\.vscode', '^\\.ipynb_checkpoints', '^\\.DS_Store' },
   },
   git = {
     ignore = false,

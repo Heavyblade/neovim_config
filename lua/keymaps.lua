@@ -80,6 +80,7 @@ local keymap_c = {
   { "<leader>cc", "<cmd>:CopilotChatToggle<CR>",   desc = "Copilot chat toggle",   remap = false, mode = { "v", "n" } },
   { "<leader>co", "<cmd>:CopilotChatOptimize<CR>", desc = "Copilot chat Optimize", remap = false, mode = "v" },
   { "<leader>ct", "<cmd>:CopilotChatPrompts<CR>",  desc = "Copilot chat Prompts",  remap = false, mode = { "v", "n" } },
+  { "<leader>cx", "<cmd>:FloatermNew --width=0.7 --name=codex --wintype=vsplit codex<CR>",   desc = "Codex CLI",             remap = false },
 }
 whichkey.add(keymap_c)
 
@@ -134,6 +135,14 @@ local keymap_r = {
       vim.api.nvim_command(command)
     end,
     desc = "Run current test",
+    remap = false
+  },
+  {
+    "<leader>rc",
+    function()
+      vim.api.nvim_command(":FloatermNew codex")
+    end,
+    desc = "Run codex",
     remap = false
   },
   {
