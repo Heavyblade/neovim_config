@@ -21,10 +21,12 @@ local function on_attach(client, bufnr)
     virtual_text = false,
   })
 
-  print("LSP Server Ready [" .. client.name .. "]")
+  if client.name ~= 'pylsp' then
+    print("LSP Server Ready [" .. client.name .. "]")
+  end
 end
 
-local function getOptions()
+local function getOptions(server_name)
   local border = {
     { "╭", "FloatBorder" },
     { "─", "FloatBorder" },
@@ -50,6 +52,10 @@ local function getOptions()
   }
   local capabilities = vim.lsp.protocol.make_client_capabilities()
 
+  if server_name == 'pylsp' then
+   capabilities.textDocument.formatting = nil
+  end
+
   local opts = {
     on_attach = on_attach,
     handlers = handlers,
@@ -63,9 +69,8 @@ local function getOptions()
 end
 
 function M.setup(servers)
-  local options = getOptions()
-
   for server_name, _ in pairs(servers) do
+    local options = getOptions(server_name)
     local opts = vim.tbl_deep_extend("force", options, servers[server_name] or {})
     config_lsp[server_name].setup(opts)
   end

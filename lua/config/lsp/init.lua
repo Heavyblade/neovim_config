@@ -36,13 +36,17 @@ local servers = {
   pylsp = {
     settings = {
       pylsp = {
-        plugins = {
-          pylsp_mypy = { enabled = true },
-          pyls_isort = { enabled = true },
+        disableOrganizeImports = true,
+      },
+      python = {
+        analysis = {
+          -- Ignore all files for analysis to exclusively use Ruff for linting
+          ignore = { '*' },
         },
       },
     },
   },
+  ruff = {},
 }
 
 if canUseSorbet() then
