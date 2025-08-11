@@ -299,7 +299,14 @@ local plugins = {
     },
     build = "npm install -g mcp-hub@latest", -- Installs `mcp-hub` node binary globally
     config = function()
-      require("mcphub").setup()
+      require("mcphub").setup({
+        global_env = {
+          OPENAI_API_KEY = os.getenv("OPENAI_API_KEY"),
+        },
+        workspace = {
+          look_for = { ".mcphub/servers.json", ".cursor/mcp.json" },
+        },
+      })
     end
   },
 }
