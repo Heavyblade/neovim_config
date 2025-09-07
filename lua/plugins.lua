@@ -92,19 +92,20 @@ local plugins = {
   },
   {
     'fatih/vim-go',
+    event = "VeryLazy",
     lazy = true,
     ft = 'go',
   },
   require("config.initialize.nvim_dap"),
-  {
-    'elzr/vim-json',
-    lazy = true,
-    ft = 'json',
-  },
+  -- {
+  --   'elzr/vim-json',
+  --   lazy = true,
+  --   ft = 'json',
+  -- },
   {
     'vim-test/vim-test',
     lazy = true,
-    ft = 'ruby',
+    cmd = 'TestFile',
   },
   'voldikss/vim-floaterm',
   { 'akinsho/toggleterm.nvim', version = "*",  config = true },
@@ -197,9 +198,11 @@ local plugins = {
   },
   {
     'mistweaverco/kulala.nvim',
+    lazy = true,
     opts = {
       default_view = "headers_body",
     },
+    ft = 'http',
   },
   {
     "CopilotC-Nvim/CopilotChat.nvim",
@@ -242,6 +245,9 @@ local plugins = {
           copilot = {
             -- model = "claude-3.7-sonnet",
             model = "gpt-4.1",
+          },
+          gemini ={
+            model = "gemini-2.5-pro",
           },
         },
         auto_suggestions_provider = "copilot",
