@@ -1,9 +1,12 @@
 # Background
-theme = tokyonight_night
+theme = TokyoNight Night
 background=0a0410
-background-blur-radius = 20
-background-opacity = 0.97
+background=030105
+background=000000
+background-blur-radius = 15
 background-opacity = 1
+background-opacity = 0.88
+maximize=true
 
 # Font
 font-family = Fira Code
@@ -17,7 +20,10 @@ window-width=174
 window-height=91
 macos-option-as-alt = true
 #window-decoration = false
-#macos-titlebar-style = hidden
+macos-titlebar-style = hidden
+window-padding-x=10
+window-padding-y=10
+window-padding-balance=true
 
 #custom-shader = shaders/matrix-hallway.glsl
 #custom-shader = shaders/retro-terminal.glsl
@@ -27,5 +33,3 @@ macos-option-as-alt = true
 # extras
 quick-terminal-position = top
 keybind = global:cmd+t=toggle_quick_terminal
-#command = /Users/cvasquez/.config/nvim/config_files/ghostty_tmux.sh
-command = /Users/cvasquez/.config/nvim/config_files/ghostty_tmux.sh
