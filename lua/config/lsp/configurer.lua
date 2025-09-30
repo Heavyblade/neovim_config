@@ -1,4 +1,4 @@
-local config_lsp = require('lspconfig')
+local config_lsp = vim.lsp.config
 local navic = require("nvim-navic")
 local M = {}
 
@@ -72,7 +72,7 @@ function M.setup(servers)
   for server_name, _ in pairs(servers) do
     local options = getOptions(server_name)
     local opts = vim.tbl_deep_extend("force", options, servers[server_name] or {})
-    config_lsp[server_name].setup(opts)
+    config_lsp(server_name, opts)
   end
 end
 

@@ -1,5 +1,4 @@
 local M = {}
-local nvim_lsp = require('lspconfig')
 
 function canUseSorbet()
   local currentDirectory = vim.fn.getcwd()
@@ -30,7 +29,7 @@ local servers = {
   ruby_lsp = {
     -- cmd = { os.getenv("HOME") .. "/.rbenv/shims/ruby-lsp", '--debug', 'stdio' },
     cmd = { os.getenv("HOME") .. "/.rbenv/shims/ruby-lsp", 'stdio' },
-    root_dir = nvim_lsp.util.root_pattern("Gemfile", ".git"),
+    root_markers = { 'Gemfile', '.git' },
   },
   marksman = {},
   pylsp = {
@@ -51,7 +50,7 @@ local servers = {
 
 if canUseSorbet() then
   servers.sorbet = {
-    root_dir = nvim_lsp.util.root_pattern("sorbet"),
+    root_markers = { 'sorbet'},
   }
 end
 
