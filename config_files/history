@@ -1,0 +1,176 @@
+
+dk up -d
+dk restart mediamtx
+rm -r downloads/*
+dk logs tts
+dk stop
+dk down
+docker compose up -d --no-deps --build
+dk logs extraction
+dk pos
+dk ps
+git st
+git diff .env.example
+git add .env.example
+git add Dockerfile
+git add scripts/run_tts.py
+git commit -m "Entire pipeline running"
+gpb
+git co main
+git pull origin main
+git co dockerized
+git rebase main
+z media
+ls
+vim
+z new_neural
+env | grep POST
+vim .zshrc
+exit
+ls
+vim lsp.log
+cnvim
+cnvimexit
+cat .rbenv-gemsets
+gem env
+gem install bcrypt_pbkdf@1.1.1
+gem install bcrypt_pbkdf
+ls -a
+ls -a .ruby-lsp
+bundle install -f .ruby-lsp/Gemfile
+bundle install --gemfile=.ruby-lsp/Gemfile
+gem pristine --all
+gem list | grep bcrypy
+gem list | grep bcryp
+gem uninstall bcrypt_pbkdf
+gem uninstall bycrypt
+gem uninstall bcrypt
+bundle
+exit
+dk stop mediamtx
+dk start mediamtx
+yz
+npm install -g @openai/codex
+z prompt
+ls
+bundle exec rails s
+bundle exec rails c
+bundle exec ruby-lsp
+mv fuji_background.jpg .config/nvim/config_files/fuji_backgrund.jpg
+git clone git@github.com:Heavyblade/cirrus.git
+pgcli -p 5432 -h localhost -u postgres
+pgcli -p 5432 -h localhost -u postgres new_neural
+unset POSTGRES_HOST
+docker exec -it tts /bin/bash
+dk restart tts
+docker ps
+docker exec -it new_neural-tts-1 /bin/bash
+dk ps -a
+ls -a
+code .
+git add -p
+git commit -m "setting dirs"
+gpb
+docker volume prune
+clear
+gt st
+dk up kafka-ui
+dk up postgres -d
+dk up db -d
+dk up kafka-ui -d
+yz
+dk up -d --no-deps --build
+dk app logs
+dk app hls_consumer
+dk logs hls_consumer
+git commit --amend --no-edit
+git commit -m "improving readme"
+git fetch
+git co feature/sync-timeline-highlights
+vimgit st
+git rebase --continue
+dk stop app
+dk stop tts
+dk stop hls_consumer
+dk stop extraction
+git co -b sync_to_check
+ls downloads/856f3437-8943-4d91-8ed9-341500cedbf2
+ls downloads/856f3437-8943-4d91-8ed9-341500cedbf2/stream
+dk start postgres
+dk start db
+uv run dev
+dk logs mediamtx
+dk up mediamtx -d
+git co scripts
+git checkout scripts/run_tts.py
+dk down mediamtx
+dk start mediamtx
+pwd
+git diff docker-compose.yml
+git co docker-compose.yml
+colima start --vm-type=vz --dns 1.1.1.1 --dns 8.8.8.8 --memory 8 --cpu 3
+nvim
+vim
+cp .env .env_back
+vim .env
+uv sync
+uv dev up
+codex
+gemini
+nvim --version
+cghostty
+dk stop kafka
+dk down kafka
+surf .
+ls downloads
+ls downloads/856f3437-8943-4d91-8ed9-341500cedbf2
+rm -r downloads/*
+ls downloads/
+dk stop
+docker ps -a | grep media
+docker rm ce7c54f40c5a
+git co -b vibe_code_baby
+git add api
+git commit -m "Basic stream working"
+git add client
+git commit -m "adding pdf button"
+gitst
+git commit -m "Autoclose the left banner"
+pgcli -p 5432 -h localhost -u postgres new_neural
+yz
+codex
+git branch -D feature/sync-timeline-highlights
+git log
+git reset HEAD~
+git co api
+git co client
+gco
+uv run ruff check --fix
+git add infrastructure
+git add services
+git co -b cleaning_code
+git commit -m "Ruff cleaning"
+git commit -m "Moving threaded extraction"
+git commit -m "removing db backed streaming"
+dk sp
+git commit -m "removing unnecesary threaded extraction"
+git add api/main.py
+git commit --amend --no-edit
+langgraph dev
+colima status
+git add lazy-lock.json
+git pu
+npm install -g @google/gemini-cli
+z cirrus
+curl http://localhost:5000/users/1/show.json
+ls
+ls | grep lsp
+z merchant
+cim
+vim notas.md
+code .
+cnvim
+git add -p
+git commit -m "Updating and refactoring lspconfig"
+
+
