@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Grammar",
+    "text": "My goal is to refine the selected text. Please meticulously correct all grammar and typos while preserving its exact meaning",
+    "keyword": "::grammar"
+  },
+  {
+    "name": "Improve Code",
+    "text": "Improve this code by applying OOP best practices (e.g., SOLID, KISS), making sure the resulting code is both efficient and highly readable. Prioritize solutions that leverage {lang}'s idiomatic conventions.",
+    "keyword": "::improve_code"
+  },
+  {
+    "name": "improve prompt",
+    "text": "I want you to improve this prompt to enhance clarity, grammar accuracy so it can be more clear when sent to an LLM",
+    "keyword": "::improve_prompt"
+  },
+  {
+    "name": "Error block",
+    "text": "<error>\n{error_message}\n<\/error>",
+    "keyword": "::error"
+  },
+  {
+    "name": "PR description",
+    "text": "The last {number} commits correspond to a pull request .  \nWrite a concise, one-paragraph description of the pull request that highlights the functionality and purpose of these changes.  \nDo not mention specific files, folders, or implementation details—focus only on what the integration enables or improves.\n",
+    "keyword": "::pr_description"
+  },
+  {
+    "name": "code review",
+    "text": "The last {number} commits represent a pull request. Please perform a detailed code review considering that this is a Python project.\n\nAssess the code for readability, maintainability, and adherence to Python best practices (PEP 8, idiomatic style, type hints, etc.).\n\nIdentify potential bugs, performance issues, or edge cases that might have been overlooked.\n\nReview the design and architecture choices: are they consistent, scalable, and testable?\n\nCheck for proper documentation, comments, and meaningful naming conventions.\n\nSuggest improvements where necessary and highlight strengths in the implementation.",
+    "keyword": "::pr_review"
+  }
+]

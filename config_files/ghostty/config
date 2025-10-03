@@ -3,14 +3,15 @@ theme = TokyoNight Night
 background=0a0410
 background=030105
 background=000000
-background-blur-radius = 15
+background-blur-radius = 25
 background-opacity = 1
-background-opacity = 0.88
+background-opacity = 0.98
 maximize=true
+background-image=~/.config/nvim/config_files/fuji_backgrund.jpg
+background-image-opacity=0.05
 
 # Font
 font-family = Fira Code
-# font-family = JetBrainsMono NFM
 font-style = Regular
 font-style-bold = SemiBold
 font-size = 17
