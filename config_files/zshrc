@@ -23,26 +23,23 @@ export FZF_DEFAULT_OPTS='--tmux center'
 # xxxxxxxxx $PATH xxxxxxxxx
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:/Users/cvasquez/.local/bin
+export PATH=$PATH:/Users/cvazquez/.local/bin
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="/usr/local/opt/node@14/bin:$PATH"
 export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
 export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
-
-if type brew &>/dev/null; then
- FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-
- autoload -Uz compinit
- compinit
-fi
+export PATH="$HOME/.cargo/bin:$PATH"
+FPATH=/usr/local/share/zsh-completions:$FPATH
 
 # xxxxxxxxx alias xxxxxxxxx
 alias vim="nvim"
-alias core="cd ~/rails/spreedly/core && vim ."
-alias am="cd ~/rails/spreedly/active_merchant && vim ."
-alias work="cd ~/Dropbox/obsidian/ && nvim ."
-alias team="cd \"/Users/cvasquez/Google Drive/My Drive/knowledge_vault\" && nvim"
+alias cnvim="cd ~/.config/nvim && nvim"
+alias cghostty="nvim ~/.config/ghostty/config"
+alias czhrc="cd && nvim .zshrc"
 alias cat='bat'
 alias ls='eza --icons --color=always'
+alias ll='eza -lhg --icons --color=always'
+alias la='eza -alhg --icons --color=always'
 alias ts='task list project:Today'
 alias ta='task add project:Today'
 alias fv='nvim $(fzf)'
@@ -50,37 +47,48 @@ alias dk='docker-compose'
 alias fvim='nvim $(fzf --preview "bat --color=always {}")'
 alias gco='git branch | grep -v "^\*" | fzf --height=20% --reverse --info=inline | xargs git checkout'
 alias gcb='git branch --show-current | pbcopy'
+alias gpb='git push origin `gbranch` -f'
+alias slides="presenterm --image-protocol kitty-local"
+alias rnvim="nvim --clean"
+alias brs="bundle exec rails s"
+alias yz="yazi"
+# alias gcc='gcc-12'
 
 # xxxxxxxxx init programs xxxxxxxxx
 eval "$(rbenv init -)"
-eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
+eval "$(direnv hook zsh)"
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# xxxxxxxxx init programs xxxxxxxxx
-# PCI-DDS [Secure Communication](https://github.com/spreedly/pci-dss/blob/master/records/secure-communication.md#gpg-installation--setup)
-GPG1_DIR=/usr/local/opt/gnupg@1.4/libexec/gpgbin #GPG1_DIR=$(brew --prefix gpg1)/libexec/gpgbin
-
-if [ -d "${GPG1_DIR}" ]; then
-    export PATH="${GPG1_DIR}:${PATH}"
-fi
-# xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 FPATH=/usr/local/share/zsh/site-functions:$FPATH
 . /usr/local/opt/asdf/libexec/asdf.sh
 
 source <(fzf --zsh)
 
-zv () {
-  vim $(zoxide query $1)
-}
-
 # function to get the current git branch
 function gbranch {
   git branch --show-current
 }
 
+autoload -Uz compinit
+if [ "$(date +'%j')" != "$(stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)" ]; then
+    compinit
+else
+    compinit -C
+fi
+
+# accept suggestions with tab
+# bindkey '\t' end-of-line
+
 export PATH="/usr/local/opt/llvm@15/bin:$PATH"
 export CPPFLAGS="-I/usr/local/opt/llvm@15/include"
 export LDFLAGS="-L/usr/local/opt/llvm@15/lib"
+
+eval "$(atuin init zsh --disable-up-arrow)"
+
+# Added by Windsurf
+export PATH="/Users/cvazquez/.codeium/windsurf/bin:$PATH"
+#zprof
+
+eval "$(starship init zsh)"
