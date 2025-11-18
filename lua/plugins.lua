@@ -103,9 +103,7 @@ local plugins = {
   --   ft = 'json',
   -- },
   {
-    'vim-test/vim-test',
-    lazy = true,
-    cmd = 'TestFile',
+    'vim-test/vim-test'
   },
   'voldikss/vim-floaterm',
   { 'akinsho/toggleterm.nvim', version = "*",  config = true },

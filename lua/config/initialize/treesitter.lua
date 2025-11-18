@@ -15,6 +15,7 @@ require('nvim-treesitter.configs').setup {
     "go",
     "javascript",
     "html",
+    "slim",
     "tsx",
     "lua",
     "markdown",
@@ -23,5 +24,7 @@ require('nvim-treesitter.configs').setup {
     "json",
     "diff",
     "python",
+    "sql",
   },
 }
+

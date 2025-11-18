@@ -46,6 +46,7 @@ local servers = {
     },
   },
   ruff = {},
+  postgres_lsp = {},
 }
 
 if canUseSorbet() then
@@ -57,7 +58,7 @@ end
 function M.setup()
   require("mason").setup({})
   require("mason-lspconfig").setup {
-    -- ensure_installed = vim.tbl_keys(servers),
+    ensure_installed = vim.tbl_keys(servers),
     automatic_installation = false,
   }
   require("config.lsp.configurer").setup(servers)

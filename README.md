@@ -68,3 +68,20 @@ First we need to install zsh our shell, if we are working with iterm zsh is the 
     - gh
     - atuin
     - lynx => text browser (for CopilotChat)
+
+## Direnv
+
+To make dir env working
+
+1. install with homebrew
+
+```bash
+brew install direnv
+```
+
+2. Activate on shell
+
+on .zshrc
+```bash
+eval "$(direnv hook zsh)"
+```
