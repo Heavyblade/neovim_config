@@ -44,4 +44,7 @@ vim.filetype.add({
   extension = {
     ['http'] = 'http',
   },
+  pattern = {
+    ['.*%.html%.slim'] = 'slim',
+  },
 })
