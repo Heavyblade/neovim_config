@@ -5,10 +5,9 @@ background=030105
 background=000000
 background-blur-radius = 25
 background-opacity = 1
-background-opacity = 0.98
 maximize=true
 background-image=~/.config/nvim/config_files/fuji_backgrund.jpg
-background-image-opacity=0.05
+background-image-opacity=0.13
 
 # Font
 font-family = Fira Code
@@ -33,4 +32,4 @@ window-padding-balance=true
 
 # extras
 quick-terminal-position = top
-keybind = global:cmd+t=toggle_quick_terminal
+#keybind = global:cmd+t=toggle_quick_terminal
