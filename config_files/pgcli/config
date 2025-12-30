@@ -233,7 +233,7 @@ output.null = "#808080"
 # Named queries are queries you can execute by name.
 [named queries]
 table_by_column = "SELECT * FROM information_schema.columns WHERE table_schema = 'public' AND column_name LIKE '%$1%'"
-table_by_name = "select * from information_schema.tables where table_name like '%$1%'"
+table_by_name = "SELECT * FROM information_schema.tables where table_name like '%$1%'"
 
 # Here's where you can provide a list of connection string aliases.
 # You can use it by passing the -D option. `pgcli -D example_dsn`

@@ -47,11 +47,12 @@ local servers = {
   },
   ruff = {},
   postgres_lsp = {},
+  svelte = {},
 }
 
 if canUseSorbet() then
   servers.sorbet = {
-    root_markers = { 'sorbet'},
+    root_markers = { 'sorbet' },
   }
 end
 

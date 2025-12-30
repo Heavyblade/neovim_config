@@ -9,6 +9,7 @@ local noremap = { noremap = true }
 map("n", "<SPACE>", "", {})
 map("n", "q", "", {})
 map("n", "s", ":HopWord<cr>", {})
+map("v", "w", "iw", {})
 map("n", "<C-p>", ":Telescope find_files<cr>", {})
 map("t", "<C-\\>", ":FloatermToggle<cr>", {})
 map("n", "<C-\\>", ":FloatermToggle<cr>", {})

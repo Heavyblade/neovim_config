@@ -25,6 +25,7 @@ require('nvim-treesitter.configs').setup {
     "diff",
     "python",
     "sql",
+    "svelte"
   },
 }
 
