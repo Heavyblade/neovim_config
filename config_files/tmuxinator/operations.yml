@@ -1,0 +1,12 @@
+# /Users/cristianvasquez/.config/tmuxinator/operations.yml
+
+name: operations
+root: ~/rails/operations.forusall.com
+
+windows:
+  - vim: vim .
+  - console: ls
+  - cursor: cursor-agent
+  - web: bundle exec rails s
+  - sidekiq: redis-cli FLUSHALL && bundle exec sidekiq
+  - pgcli: pgcli -h localhost -U postgres -d operations_development
