@@ -74,14 +74,14 @@ end
 
 -- Copy
 local keymap_c = {
-  { "<leader>c",  group = "Copy",                  remap = false },
-  { "<leader>cp", copyPath(false),                 desc = "Copy Path",             remap = false },
-  { "<leader>cP", copyPath(true),                  desc = "Copy Full Path",        remap = false },
-  { "<leader>cg", "<cmd>:ChatGPT<CR>",             desc = "ChatGPT",               remap = false },
-  { "<leader>cc", "<cmd>:CopilotChatToggle<CR>",   desc = "Copilot chat toggle",   remap = false, mode = { "v", "n" } },
-  { "<leader>co", "<cmd>:CopilotChatOptimize<CR>", desc = "Copilot chat Optimize", remap = false, mode = "v" },
-  { "<leader>ct", "<cmd>:CopilotChatPrompts<CR>",  desc = "Copilot chat Prompts",  remap = false, mode = { "v", "n" } },
-  { "<leader>cx", "<cmd>:FloatermNew --width=0.7 --name=codex --wintype=vsplit codex<CR>",   desc = "Codex CLI",             remap = false },
+  { "<leader>c",  group = "Copy",                                                          remap = false },
+  { "<leader>cp", copyPath(false),                                                         desc = "Copy Path",             remap = false },
+  { "<leader>cP", copyPath(true),                                                          desc = "Copy Full Path",        remap = false },
+  { "<leader>cg", "<cmd>:ChatGPT<CR>",                                                     desc = "ChatGPT",               remap = false },
+  { "<leader>cc", "<cmd>:CopilotChatToggle<CR>",                                           desc = "Copilot chat toggle",   remap = false, mode = { "v", "n" } },
+  { "<leader>co", "<cmd>:CopilotChatOptimize<CR>",                                         desc = "Copilot chat Optimize", remap = false, mode = "v" },
+  { "<leader>ct", "<cmd>:CopilotChatPrompts<CR>",                                          desc = "Copilot chat Prompts",  remap = false, mode = { "v", "n" } },
+  { "<leader>cx", "<cmd>:FloatermNew --width=0.7 --name=codex --wintype=vsplit codex<CR>", desc = "Codex CLI",             remap = false },
 }
 whichkey.add(keymap_c)
 
@@ -174,6 +174,8 @@ local keymap_g = {
   { "<leader>ga", "<cmd>:GitGutterStageHunk<CR>", desc = "Git Add chunk",        remap = false },
   { "<leader>gb", "<cmd>:Git blame<CR>",          desc = "Git blame",            remap = false },
   { "<leader>gl", "<cmd>:Git log -- %<CR>",       desc = "Git log current file", remap = false },
+  { "<leader>go", "<cmd>:DiffviewOpen<CR>",       desc = "GitDiff open",         remap = false },
+  { "<leader>gc", "<cmd>:DiffviewClose<CR>",       desc = "GitDiff open",         remap = false },
   {
     "<leader>gp",
     utils.build_octo_repo_query,

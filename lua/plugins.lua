@@ -235,7 +235,7 @@ local plugins = {
             -- model = "claude-3.7-sonnet",
             model = "gpt-4.1",
           },
-          gemini ={
+          gemini = {
             model = "gemini-2.5-pro",
           },
         },
@@ -304,6 +304,7 @@ local plugins = {
       })
     end
   },
+  { "sindrets/diffview.nvim" }
 }
 
 require("lazy").setup(plugins, {})
