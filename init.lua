@@ -29,10 +29,16 @@ end
 
 vim.b['did_ftplugin'] = 1
 
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { '<filetype>' },
+  callback = function() vim.treesitter.start() end,
+})
+
 require('config.vim_options')
 require('plugin_flags')
 require('plugins')
 
+vim.o.termguicolors=true
 require('config.initialize.kanagawa')
 vim.cmd('colorscheme kanagawa-wave')
 require('highlight_overwrites')

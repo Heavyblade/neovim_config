@@ -47,6 +47,7 @@ local plugins = {
   'ThePrimeagen/harpoon',
   {
     "nvim-treesitter/nvim-treesitter-textobjects",
+    branch = "main",
     lazy = true,
     config = function()
       require("config.initialize.nvim_treesitter_textobjects")
