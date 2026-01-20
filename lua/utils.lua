@@ -1,7 +1,7 @@
 local ts_utils = nil
 
 if vim.g.vscode == nil then
-  ts_utils = require 'nvim-treesitter.ts_utils'
+  -- ts_utils = require 'nvim-treesitter.ts_utils'
 end
 
 _G.dump = function(...)
@@ -71,12 +71,12 @@ end
 
 if not vim.g.vscode then
   function M.get_current_method_name()
-    local node = ts_utils.get_node_at_cursor()
+    local node = vim.treesitter.get_node()
     if not node then return end
 
     while node do
       if node:type() == 'method' or node:type() == 'function' then
-        local method_name = ts_utils.get_node_text(node:child(1), 0)[1]
+        local method_name = vim.treesitter.get_node_text(node:child(1), 0)
         print("Current method: " .. method_name)
         return method_name
       end

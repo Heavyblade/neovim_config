@@ -39,4 +39,4 @@ set.foldlevel = 2
 vim.g.mapleader = " "
 
 -- Set tokyonight background
--- vim.g.tokyonight_style = "night"
+vim.g.tokyonight_style = "night"

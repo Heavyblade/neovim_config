@@ -1,7 +1,16 @@
-local parser_configs = require "nvim-treesitter.parsers".get_parser_configs()
+local parser_configs = require "nvim-treesitter.parsers"
 parser_configs.tsx.filetype_to_parsername = { "javascript", "typescript.tsx" }
 
-require('nvim-treesitter.configs').setup {
+vim.cmd.syntax("off")
+vim.api.nvim_create_autocmd("BufReadPost", {
+  pattern = "*",
+  callback = function()
+    vim.treesitter.start()
+  end,
+  once = true,
+})
+
+require('nvim-treesitter.config').setup({
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = false,
@@ -27,5 +36,4 @@ require('nvim-treesitter.configs').setup {
     "sql",
     "svelte"
   },
-}
-
+})
