@@ -1,35 +1,26 @@
+# zmodload zsh/zprof
+
 # xxxxxxxxx general vars xxxxxxxxx
-export GOPATH=/Users/cvasquez/go
+export GOPATH=/Users/cristianvasquez/go
 export EDITOR=nvim
 export PGPASSWORD=postgres
 export PGUSER=postgres
 export ANDROID_NDK_HOME="/usr/local/share/android-ndk"
-export RAILS_MAX_THREADS=1
-export RAILS_MIN_THREADS=1
-export ENABLE_RAILS_LOGGER=true
-export BROWSER_STACK_USERNAME="xx"
-export BROWSER_STACK_ACCESS_KEY="xx"
-export SPREEDLY_ENV_3DS=xx
-export SPREEDLY_SECRET_3DS=xx
-export SPREEDLY_ENV_3DS=xx
-export SPREEDLY_SECRET_3DS=xx
-export SPREEDLY_SCA_3DS='xx' # Seglan prod with env WfV8miT5c1hA...
-export SPREEDLY_SCA_3DS='xx' # Test Prod key
-export SPREEDLY_SCA_3DS='xx' # Seglan local key
-export SEGLAN_SANDBOX_ROOT_API_KEY='xx'
-export CUSTOM_TEST_CARD_NUMBERS='xx'
-export FZF_DEFAULT_OPTS='--tmux center'
+export FZF_DEFAULT_OPTS='--tmux 80%'
+export HOMEBREW_NO_AUTO_UPDATE=1
+export LANGCHAIN_TRACING_V2=true
+#export ASDF_PYTHON_VERSION=3.11.13
+#export ASDF_NODEJS_VERSION=24.3.0
 
 # xxxxxxxxx $PATH xxxxxxxxx
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:/Users/cvazquez/.local/bin
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-export PATH="/usr/local/opt/node@14/bin:$PATH"
-export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
-export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
-export PATH="$HOME/.cargo/bin:$PATH"
+export PATH=$PATH:/Users/cristianvasquez/.local/bin
+export PATH="/opt/homebrew/opt/node@22/bin:$PATH"
+
 FPATH=/usr/local/share/zsh-completions:$FPATH
+FPATH=/usr/local/share/zsh/site-functions:$FPATH
 
 # xxxxxxxxx alias xxxxxxxxx
 alias vim="nvim"
@@ -48,23 +39,21 @@ alias fvim='nvim $(fzf --preview "bat --color=always {}")'
 alias gco='git branch | grep -v "^\*" | fzf --height=20% --reverse --info=inline | xargs git checkout'
 alias gcb='git branch --show-current | pbcopy'
 alias gpb='git push origin `gbranch` -f'
+alias gst='git status'
 alias slides="presenterm --image-protocol kitty-local"
 alias rnvim="nvim --clean"
 alias brs="bundle exec rails s"
 alias yz="yazi"
-# alias gcc='gcc-12'
 
 # xxxxxxxxx init programs xxxxxxxxx
 eval "$(rbenv init -)"
 eval "$(zoxide init zsh)"
 eval "$(direnv hook zsh)"
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-FPATH=/usr/local/share/zsh/site-functions:$FPATH
-. /usr/local/opt/asdf/libexec/asdf.sh
-
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source <(fzf --zsh)
+eval "$(atuin init zsh --disable-up-arrow)"
+eval "$(starship init zsh)"
 
 # function to get the current git branch
 function gbranch {
@@ -78,17 +67,8 @@ else
     compinit -C
 fi
 
-# accept suggestions with tab
-# bindkey '\t' end-of-line
+#export PATH="/opt/homebrew/opt/llvm@15/bin:$PATH"
+#export LDFLAGS="-L/opt/homebrew/opt/llvm@15/lib"
+#export CPPFLAGS="-I/opt/homebrew/opt/llvm@15/include"
 
-export PATH="/usr/local/opt/llvm@15/bin:$PATH"
-export CPPFLAGS="-I/usr/local/opt/llvm@15/include"
-export LDFLAGS="-L/usr/local/opt/llvm@15/lib"
-
-eval "$(atuin init zsh --disable-up-arrow)"
-
-# Added by Windsurf
-export PATH="/Users/cvazquez/.codeium/windsurf/bin:$PATH"
 #zprof
-
-eval "$(starship init zsh)"
