@@ -19,13 +19,6 @@ local ensure_installed = {
   "svelte"
 }
 
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = ensure_installed,
-  callback = function(args)
-    vim.treesitter.start(args.buf, args.match)
-  end
-})
-
 require('nvim-treesitter.config').setup({
   highlight = {
     enable = true,
@@ -36,6 +29,13 @@ require('nvim-treesitter.config').setup({
     disable = {},
   },
   ensure_installed = ensure_installed,
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = ensure_installed,
+  callback = function(args)
+    vim.treesitter.start(args.buf, args.match)
+  end
 })
 
 require('nvim-treesitter').install(ensure_installed)
