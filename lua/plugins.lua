@@ -65,7 +65,27 @@ local plugins = {
       })
     end
   },
-  "rebelot/kanagawa.nvim",
+  {
+    "rebelot/kanagawa.nvim",
+    config = function()
+      require('config.initialize.kanagawa')
+    end
+  },
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+    config = function()
+      require("catppuccin").setup({
+        flavour = "latte",
+        transparent_background = true,
+        float = {
+          transparent = true,
+          solid = false,
+        },
+      })
+    end
+  },
   { 'airblade/vim-gitgutter',  branch = 'main' },
   'tpope/vim-fugitive',
   {
