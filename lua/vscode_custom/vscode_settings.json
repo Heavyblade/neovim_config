@@ -1,0 +1,41 @@
+{
+    "workbench.colorTheme": "Tokyo Night",
+    "editor.fontFamily": "JetBrainsMono Nerd Font",
+    "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
+    "workbench.commandPalette.experimental.askChatLocation": "quickChat",
+    "editor.fontSize": 14,
+    "editor.minimap.enabled": false,
+    "breadcrumbs.filePath": "off",
+    "workbench.editor.showTabs": "single",
+    "extensions.ignoreRecommendations": true,
+    "workbench.startupEditor": "none",
+    "vim.enableNeovim": true,
+    "vim.useSystemClipboard": true,
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "workbench.activityBar.location": "top",
+    "workbench.layoutControl.enabled": false,
+    "workbench.navigationControl.enabled": false,
+    "window.commandCenter": false,
+    "editor.fontLigatures": true,
+    "terminal.integrated.fontLigatures.enabled": true,
+    "terminal.integrated.fontSize": 14,
+    "terminal.explorerKind": "external",
+    "editor.lineNumbers": "relative",
+    "rubyLsp.rubyVersionManager": {
+        "rbenvExecutablePath": "/opt/homebrew/bin/rbenv",
+        "identifier": "auto"
+    },
+    "workbench.fontAliasing": "antialiased",
+    "vscode-neovim.neovimInitVimPaths.darwin": "/Users/cristianvasquez/.config/nvim/init_vscode.lua",
+    "window.restoreWindows": "none",
+    "editor.accessibilitySupport": "off",
+    "terminal.integrated.enablePersistentSessions": false,
+    "workbench.editor.restoreViewState": false,
+    "zenMode.restore": false,
+    "files.hotExit": "off",
+    "liveServer.settings.donotShowInfoMsg": true,
+    "workbench.trustedDomains.promptInTrustedWorkspace": true,
+    "github.copilot.nextEditSuggestions.enabled": true
+}
