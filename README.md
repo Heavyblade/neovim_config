@@ -45,7 +45,7 @@ Some plugins like NerdTree and Trouble display icons on the screen and Need a ne
 
 check [Nerd Fonts website](https://www.nerdfonts.com/) and install [FireCode](https://www.programmingfonts.org/#firacode)
 
-## Proper terminar setup
+## Propper terminar setup
 
 First we need to install zsh our shell, if we are working with iterm zsh is the shell by default
 
