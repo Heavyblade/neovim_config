@@ -175,7 +175,7 @@ local keymap_g = {
   { "<leader>gb", "<cmd>:Git blame<CR>",          desc = "Git blame",            remap = false },
   { "<leader>gl", "<cmd>:Git log -- %<CR>",       desc = "Git log current file", remap = false },
   { "<leader>go", "<cmd>:DiffviewOpen<CR>",       desc = "GitDiff open",         remap = false },
-  { "<leader>gc", "<cmd>:DiffviewClose<CR>",       desc = "GitDiff open",         remap = false },
+  { "<leader>gc", "<cmd>:DiffviewClose<CR>",      desc = "GitDiff open",         remap = false },
   {
     "<leader>gp",
     utils.build_octo_repo_query,
@@ -197,6 +197,17 @@ local keymap_g = {
       vim.cmd("Octo search " .. members_string .. projects_string .. "is:pr is:open created:>=" .. last_two_months)
     end,
     desc = "Team Prs",
+    remap = false
+  },
+  {
+    "<leader>gm",
+    function()
+      require('octo')
+      local last_two_months = os.date("%Y-%m-%d", os.time() - (2 * 30 * 24 * 60 * 60))
+
+      vim.cmd("Octo search author:cristianvasquez-dmaker repo:DealMakerTech/dealmaker-rails is:pr is:open created:>=" .. last_two_months)
+    end,
+    desc = "My Prs",
     remap = false
   },
 }
@@ -230,3 +241,42 @@ local keymap_a = {
   { "<leader>an", "<cmd>:AvanteChatNew<CR>", desc = "Avante new chat", remap = false },
 }
 whichkey.add(keymap_a)
+
+-- Query
+local keymap_q = {
+  { "<leader>q", group = "Query", remap = false },
+  {
+    "<leader>qc",
+    function()
+      local query = vim.fn.input("Enter column name: ")
+      local cmd = 'mycli -u root --port 3306 --password password --execute "\\f table_by_column ' ..
+          query .. '" -t dealmaker_development'
+      vim.cmd("FloatermNew " .. cmd)
+    end
+    ,
+    desc = "Search tables by column name",
+    remap = false
+  },
+  {
+    "<leader>qt",
+    function()
+      local query = vim.fn.input("Enter Table name: ")
+      local cmd = 'mycli -u root --port 3306 --password password --execute "\\f table_by_name ' ..
+          query .. '" -t dealmaker_development'
+      vim.cmd("FloatermNew " .. cmd)
+    end,
+    desc = "Search tables by table name",
+    remap = false
+  },
+  {
+    "<leader>qe",
+    function()
+      local query = vim.fn.input("Enter Query: ")
+      local cmd = 'mycli -u root --port 3306 --password password --execute "' .. query .. '" -t dealmaker_development'
+      vim.cmd("FloatermNew " .. cmd)
+    end,
+    desc = "Executes the given query",
+    remap = false
+  }
+}
+whichkey.add(keymap_q)
