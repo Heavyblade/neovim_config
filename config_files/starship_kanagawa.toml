@@ -20,16 +20,14 @@ $java\
 $kotlin\
 $haskell\
 $python\
-[](fg:color_blue bg:color_bg3)\
-$docker_context\
-$conda\
-$pixi\
-[](fg:color_bg3 bg:color_bg1)\
+$ruby\
+[](fg:color_blue bg:color_bg1)\
 $time\
 [ ](fg:color_bg1)\
 $line_break$character"""
 
 palette = 'kanagawa'
+command_timeout = 3000
 
 [palettes.kanagawa]
 color_fg0 = '#DCD7BA'
@@ -147,6 +145,11 @@ symbol = ""
 style = "bg:color_blue"
 format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
 
+[ruby]
+symbol = ""
+style = "bg:color_blue"
+format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+
 [python]
 symbol = ""
 style = "bg:color_blue"
@@ -154,8 +157,8 @@ format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
 
 [docker_context]
 symbol = ""
-style = "bg:color_bg3"
-format = '[[ $symbol( $context) ](fg:#7a9657 bg:color_bg3)]($style)'
+style = "bg:color_yellow"
+format = '[[ $symbol( $context) ](fg:font_light bg:color_yellow)]($style)'
 
 [conda]
 style = "bg:color_bg3"
