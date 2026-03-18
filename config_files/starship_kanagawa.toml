@@ -185,3 +185,9 @@ vimcmd_symbol = '[](bold fg:color_green)'
 vimcmd_replace_one_symbol = '[](bold fg:color_purple)'
 vimcmd_replace_symbol = '[](bold fg:color_purple)'
 vimcmd_visual_symbol = '[](bold fg:color_yellow)'
+
+[custom.foo]
+command = 'cat .rbenv-gemsets' # shows output of command
+style = "bg:color_blue"
+detect_files = ['.rbenv-gemsets'] # can specify filters but wildcards are not supported
+format = ' [$output]($style)'
