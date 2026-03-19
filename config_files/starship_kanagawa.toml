@@ -20,7 +20,7 @@ $java\
 $kotlin\
 $haskell\
 $python\
-$ruby\
+${custom.ruby}\
 [](fg:color_blue bg:color_bg1)\
 $time\
 [ ](fg:color_bg1)\
@@ -146,9 +146,14 @@ style = "bg:color_blue"
 format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
 
 [ruby]
+disabled = true
+
+[custom.ruby]
+command = 'cat .ruby-version'
+detect_files = ['.ruby-version']
 symbol = ""
 style = "bg:color_blue"
-format = '[[ $symbol( $version) ](fg:color_fg0 bg:color_blue)]($style)'
+format = '[[ $symbol( $output) ](fg:color_fg0 bg:color_blue)]($style)'
 
 [python]
 symbol = ""
