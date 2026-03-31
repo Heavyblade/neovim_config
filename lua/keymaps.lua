@@ -280,3 +280,19 @@ local keymap_q = {
   }
 }
 whichkey.add(keymap_q)
+
+-- Insert mode: Ctrl+F to insert a file path
+vim.keymap.set('i', '<C-p>', function()
+  require('telescope.builtin').find_files({
+    attach_mappings = function(_, map)
+      map('i', '<CR>', function(prompt_bufnr)
+        local entry = require('telescope.actions.state').get_selected_entry()
+        require('telescope.actions').close(prompt_bufnr)
+        local path = "@" .. entry[1] or vim.fn.fnamemodify(entry.path, ':.') .. " "
+        vim.api.nvim_put({ path }, '', true, true)
+      end)
+      return true
+    end,
+  })
+end, { noremap = true, silent = true, desc = "Insert file path" })
+
