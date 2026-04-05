@@ -186,8 +186,8 @@ local keymap_g = {
     "<leader>gx",
     function()
       require('octo')
-      local members = { "Heavyblade", "gasb150", "javierpedrozaing ", "edgarv09" }
-      local projects = { "activemerchant/active_merchant", "spreedly/docs", "spreedly/core", "spreedly/iframe" }
+      local members = utils.project_entities("members")
+      local projects = utils.project_entities("projects")
 
       local members_string = utils.concatenate_table(members, "author:")
       local projects_string = utils.concatenate_table(projects, "repo:")
@@ -204,8 +204,11 @@ local keymap_g = {
     function()
       require('octo')
       local last_two_months = os.date("%Y-%m-%d", os.time() - (2 * 30 * 24 * 60 * 60))
+      local me = utils.project_entities("members")[2]
+      local default_repo = utils.project_entities("projects")[1]
 
-      vim.cmd("Octo search author:cristianvasquez-dmaker repo:DealMakerTech/dealmaker-rails is:pr is:open created:>=" .. last_two_months)
+      vim.cmd("Octo search author:" .. me .. " repo:" .. default_repo .. " is:pr is:open created:>=" ..
+        last_two_months)
     end,
     desc = "My Prs",
     remap = false
