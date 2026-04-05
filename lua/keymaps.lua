@@ -290,6 +290,7 @@ vim.keymap.set('i', '<C-p>', function()
         require('telescope.actions').close(prompt_bufnr)
         local path = "@" .. entry[1] or vim.fn.fnamemodify(entry.path, ':.') .. " "
         vim.api.nvim_put({ path }, '', true, true)
+        vim.schedule(function() vim.cmd('startinsert!') end)
       end)
       return true
     end,

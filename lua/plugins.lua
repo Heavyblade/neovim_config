@@ -71,21 +71,6 @@ local plugins = {
       require('config.initialize.kanagawa')
     end
   },
-  {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    priority = 1000,
-    config = function()
-      require("catppuccin").setup({
-        flavour = "latte",
-        transparent_background = true,
-        float = {
-          transparent = true,
-          solid = false,
-        },
-      })
-    end
-  },
   { 'airblade/vim-gitgutter',  branch = 'main' },
   'tpope/vim-fugitive',
   {
@@ -118,11 +103,6 @@ local plugins = {
     ft = 'go',
   },
   require("config.initialize.nvim_dap"),
-  -- {
-  --   'elzr/vim-json',
-  --   lazy = true,
-  --   ft = 'json',
-  -- },
   {
     'vim-test/vim-test'
   },
@@ -253,8 +233,8 @@ local plugins = {
         provider = "copilot",
         providers = {
           copilot = {
-            -- model = "claude-3.7-sonnet",
-            model = "gpt-4.1",
+            model = "claude-opus-4.6",
+            -- model = "gpt-4.1",
           },
           gemini = {
             model = "gemini-2.5-pro",

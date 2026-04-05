@@ -117,7 +117,7 @@ function M.build_octo_repo_query()
 
       local search_term = vim.fn.input("Search for: ")
 
-      local query = "Octo search is:pr"
+      local query = "Octo search is:pr is:open"
       if selected_member ~= "none" then
         query = query .. " author:" .. selected_member
       end
