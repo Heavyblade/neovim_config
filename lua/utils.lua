@@ -87,32 +87,11 @@ if not vim.g.vscode then
   end
 end
 
-M.members = {
-  "none",
-  "Heavyblade",
-  "gasb150",
-  "jherreraa",
-  "sinourain",
-  "javierpedrozaing ",
-  "edgarv09",
-  "rubenmarindev",
-  "KenderBolivarT",
-  "Buitragox"
-}
-
-M.projects = {
-  "none",
-  "activemerchant/active_merchant",
-  "spreedly/docs",
-  "spreedly/core",
-  "spreedly/iframe"
-}
-
 function M.build_octo_repo_query()
-  vim.ui.select(M.members, { prompt = 'Select Member', }, function(selected)
+  vim.ui.select(M.project_entities("members"), { prompt = 'Select Member', }, function(selected)
     local selected_member = selected
 
-    vim.ui.select(M.projects, { prompt = 'Select Project', }, function(selected)
+    vim.ui.select(M.project_entities("projects"), { prompt = 'Select Project', }, function(selected)
       local selected_project = selected
 
       local search_term = vim.fn.input("Search for: ")
@@ -131,6 +110,26 @@ function M.build_octo_repo_query()
       vim.cmd(query)
     end)
   end)
+end
+
+function M.readFile(filePath)
+  local file = io.open(filePath, "r")
+  if not file then
+    print("Could not open file: " .. filePath)
+    return nil
+  end
+
+  local content = file:read("*a")
+  file:close()
+  return content
+end
+
+function M.project_entities(type)
+  local currentDirectory = vim.fn.expand('$HOME/.config/nvim')
+  local fileEntities     = M.readFile(currentDirectory .. "/lua/project_entities.json")
+  local jsonEntities     = vim.fn.json_decode(fileEntities)
+
+  return jsonEntities[type]
 end
 
 return M
