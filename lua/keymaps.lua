@@ -238,13 +238,6 @@ local keymap_d = {
 }
 whichkey.add(keymap_d)
 
--- Avante
-local keymap_a = {
-  { "<leader>a",  group = "Avante",          remap = false },
-  { "<leader>an", "<cmd>:AvanteChatNew<CR>", desc = "Avante new chat", remap = false },
-}
-whichkey.add(keymap_a)
-
 -- Query
 local keymap_q = {
   { "<leader>q", group = "Query", remap = false },

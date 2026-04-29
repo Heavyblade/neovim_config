@@ -220,91 +220,12 @@ local plugins = {
     end,
   },
   {
-    "yetone/avante.nvim",
-    event = "VeryLazy",
-    enabled = true,
-    version = false,
-    opts = {
-      -- add any opts here
-    },
-    build = "make",
-    config = function()
-      require("avante").setup({
-        provider = "copilot",
-        providers = {
-          copilot = {
-            model = "claude-opus-4.6",
-            -- model = "gpt-4.1",
-          },
-          gemini = {
-            model = "gemini-2.5-pro",
-          },
-        },
-        auto_suggestions_provider = "copilot",
-        windows = {
-          position = "right",
-          width = 40,
-          input = {
-            height = 10,
-          },
-        },
-        -- system_prompt as function ensures LLM always has latest MCP server state
-        -- This is evaluated for every message, even in existing chats
-        system_prompt = function()
-          local hub = require("mcphub").get_hub_instance()
-          return hub and hub:get_active_servers_prompt() or ""
-        end,
-        -- Using function prevents requiring mcphub before it's loaded
-        custom_tools = function()
-          return {
-            require("mcphub.extensions.avante").mcp_tool(),
-          }
-        end,
-      })
-    end,
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      "stevearc/dressing.nvim",
-      "nvim-lua/plenary.nvim",
-      "MunifTanjim/nui.nvim",
-      "nvim-tree/nvim-web-devicons",
-      "zbirenbaum/copilot.lua",
-      {
-        'MeanderingProgrammer/render-markdown.nvim',
-        config = function()
-          require("render-markdown").setup()
-        end,
-        opts = {
-          file_types = { "markdown", "Avante", "copilot-chat" },
-        },
-        ft = { "markdown", "Avante", "copilot-chat" },
-      },
-    },
-  },
-  {
     "nvzone/typr",
     dependencies = "nvzone/volt",
     opts = {},
     cmd = { "Typr", "TyprStats" },
   },
   { 'cohama/agit.vim' },
-  {
-    "ravitemer/mcphub.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
-    build = "npm install -g mcp-hub@latest", -- Installs `mcp-hub` node binary globally
-    config = function()
-      require("mcphub").setup({
-        global_env = {
-          OPENAI_API_KEY = os.getenv("OPENAI_API_KEY"),
-        },
-        workspace = {
-          look_for = { ".mcphub/servers.json", ".cursor/mcp.json" },
-        },
-      })
-    end
-  },
   { "sindrets/diffview.nvim" }
 }
 
