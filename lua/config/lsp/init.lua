@@ -5,6 +5,20 @@ function canUseSorbet()
   return string.find(currentDirectory, "ruby%-lsp") ~= nil
 end
 
+function get_node_modules_folder()
+  local cwd = vim.fn.getcwd()
+  local paths = {
+    cwd .. "/application/node_modules",
+    cwd .. "/node_modules"
+  }
+  for _, path in ipairs(paths) do
+    if vim.fn.isdirectory(path) == 1 then
+      return path
+    end
+  end
+  return nil
+end
+
 local servers = {
   gopls = {
     settings = {
@@ -47,7 +61,10 @@ local servers = {
   },
   ruff = {},
   postgres_lsp = {},
-  svelte = {},
+  svelte = {
+    cmd = { get_node_modules_folder() .. "/svelte-language-server/bin/server.js", '--stdio' },
+    -- cmd = { "yarn", "run", "svelteserver", "--stdio" }
+  },
 }
 
 if canUseSorbet() then

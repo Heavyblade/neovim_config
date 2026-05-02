@@ -226,7 +226,16 @@ local plugins = {
     cmd = { "Typr", "TyprStats" },
   },
   { 'cohama/agit.vim' },
-  { "sindrets/diffview.nvim" }
+  { "sindrets/diffview.nvim" },
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    branch = "main",
+    dependencies = {
+      { "zbirenbaum/copilot.lua" },
+      { "nvim-lua/plenary.nvim" },
+    },
+    opts = require("config.initialize.copilot_chat").opts,
+  },
 }
 
 require("lazy").setup(plugins, {})
