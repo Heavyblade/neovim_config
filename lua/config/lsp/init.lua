@@ -16,7 +16,7 @@ function get_node_modules_folder()
       return path
     end
   end
-  return nil
+  return ""
 end
 
 local servers = {

@@ -37,7 +37,7 @@ local plugins = {
   },
   'simeji/winresizer',
   {
-    'phaazon/hop.nvim',
+    'smoka7/hop.nvim',
     event = "BufEnter",
     lazy = true,
     config = function()
@@ -235,6 +235,16 @@ local plugins = {
       { "nvim-lua/plenary.nvim" },
     },
     opts = require("config.initialize.copilot_chat").opts,
+  },
+  {
+    'MeanderingProgrammer/render-markdown.nvim',
+    config = function()
+      require("render-markdown").setup()
+    end,
+    opts = {
+      file_types = { "markdown", "Avante", "copilot-chat" },
+      ft = { "markdown", "Avante", "copilot-chat" },
+    }
   },
 }
 
