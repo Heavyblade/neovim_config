@@ -39,21 +39,21 @@ local function getOptions(server_name)
   }
 
   local handlers = {
-    ["textDocument/publishDiagnostics"] = vim.lsp.with(
-      vim.lsp.diagnostic.on_publish_diagnostics, {
+    ["textDocument/publishDiagnostics"] = vim.lsp.buf.workspace_diagnostics(
+      {
         virtual_text = false,
         underline = true,
         signs = true,
         update_in_insert = false
       }
     ),
-    ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
-    ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
+    ["textDocument/hover"] = vim.lsp.buf.hover({ border = border }),
+    ["textDocument/signatureHelp"] = vim.lsp.buf.signature_help({ border = border }),
   }
   local capabilities = vim.lsp.protocol.make_client_capabilities()
 
   if server_name == 'pylsp' then
-   capabilities.textDocument.formatting = nil
+    capabilities.textDocument.formatting = nil
   end
 
   local opts = {
