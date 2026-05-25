@@ -32,6 +32,12 @@ M.opts = {
       mapping = '<leader>ccg',
       description = 'Correct Grammar and Syntax'
     },
+    ImprovePrompt = {
+      prompt = 'I want you to improve this prompt to enhance clarity, grammar accuracy so it can be more clear when sent to an LLM',
+      system_prompt =
+      'You are an expert prompt engineer who helps improve prompts to get better results from the AI.',
+      description = 'Improve Prompt'
+    }
   },
   auto_follow_cursor = false,
   question_header = " User ",

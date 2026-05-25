@@ -63,7 +63,9 @@ local servers = {
   postgres_lsp = {},
   svelte = {
     cmd = { get_node_modules_folder() .. "/svelte-language-server/bin/server.js", '--stdio' },
-    -- cmd = { "yarn", "run", "svelteserver", "--stdio" }
+  },
+  emmet_ls = {
+    filetypes = { 'html', 'erb' },
   },
 }
 
