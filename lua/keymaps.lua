@@ -36,6 +36,12 @@ map("n", "<c-l>", ":wincmd l<CR>", { silent = true })
 map("n", "<c-n>", ":lua require('harpoon.ui').nav_next()<CR>", { silent = true })
 map("n", "<c-b>", ":bnext<CR>", { silent = true })
 
+-- Use =, -, +, _ to resize the active split!
+map("n", "=", [[<cmd>vertical resize +5<cr>]], { silent = true })
+map("n", "-", [[<cmd>vertical resize -5<cr>]], { silent = true })
+map("n", "+", [[<cmd>horizontal resize +2<cr>]], { silent = true })
+map("n", "_", [[<cmd>horizontal resize -2<cr>]], { silent = true })
+
 vim.cmd("autocmd CursorHold * lua vim.diagnostic.open_float()")
 
 function copyPath(copy_full)
@@ -292,4 +298,3 @@ vim.keymap.set('i', '<C-p>', function()
     end,
   })
 end, { noremap = true, silent = true, desc = "Insert file path" })
-

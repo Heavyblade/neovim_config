@@ -35,7 +35,6 @@ local plugins = {
       require("config.initialize.alpha-nvim")
     end
   },
-  'simeji/winresizer',
   {
     'smoka7/hop.nvim',
     event = "BufEnter",
