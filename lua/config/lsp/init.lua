@@ -44,6 +44,11 @@ local servers = {
     -- cmd = { os.getenv("HOME") .. "/.rbenv/shims/ruby-lsp", '--debug', 'stdio' },
     cmd = { os.getenv("HOME") .. "/.rbenv/shims/ruby-lsp", 'stdio' },
     root_markers = { 'Gemfile', '.git' },
+    settings = {
+      addonSettings = {
+        ["Ruby LSP Rails"] = { enablePendingMigrationsPrompt = false }
+      }
+    }
   },
   marksman = {},
   pylsp = {
