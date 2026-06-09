@@ -1,6 +1,7 @@
 local M = {}
 
 M.opts = {
+  model = 'claude-sonnet-4.6',
   debug = false, -- Enable debugging
   window = {
     layout = 'float',

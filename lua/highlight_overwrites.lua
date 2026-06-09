@@ -15,3 +15,7 @@ vim.api.nvim_set_hl(0, 'FloatermBorder', { fg = "#54546d", bg = "NONE", blend = 
 vim.api.nvim_set_hl(0, 'LineNr', { fg = "#54546d", blend = 50 })
 vim.api.nvim_set_hl(0, 'SignColumn', { fg = "#54546d", blend = 50 })
 
+-- GitGutter
+vim.api.nvim_set_hl(0, 'GitGutterChange', { fg = "#bdb9a4", blend = 50 })
+vim.api.nvim_set_hl(0, 'GitGutterAdd', { fg = "#728d51", blend = 50 })
+vim.api.nvim_set_hl(0, 'GitGutterDelete', { fg = "#804e5e", blend = 50 })

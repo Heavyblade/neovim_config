@@ -36,7 +36,15 @@ local servers = {
     filetypes = { 'html', 'erb' },
   },
   jsonls = {},
-  lua_ls = {},
+  lua_ls = {
+    settings = {
+      Lua = {
+        diagnostics = {
+          globals = { "vim" },
+        },
+      },
+    },
+  },
   ts_ls = {},
   bashls = {},
   vimls = {},
