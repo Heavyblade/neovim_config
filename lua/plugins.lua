@@ -197,10 +197,13 @@ local plugins = {
   {
     'mistweaverco/kulala.nvim',
     lazy = true,
+    config = function()
+      require("kulala").setup()
+    end,
     opts = {
       default_view = "headers_body",
     },
-    ft = 'http',
+    ft = { "http", "rest" },
   },
   {
     "zbirenbaum/copilot.lua",

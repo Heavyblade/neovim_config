@@ -44,6 +44,7 @@ alias slides="presenterm --image-protocol kitty-local"
 alias rnvim="nvim --clean"
 alias brs="bundle exec rails s"
 alias yz="yazi"
+alias ga='git add $(git status --porcelain | fzf --multi --height=20% --reverse --info=inline | awk "{print \$2}")'
 
 # xxxxxxxxx init programs xxxxxxxxx
 eval "$(rbenv init -)"
@@ -66,6 +67,10 @@ if [ "$(date +'%j')" != "$(stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)" ]; t
 else
     compinit -C
 fi
+
+specs_changed() {
+  make "exec/rspec $(git diff master --name-only --diff-filter=d | grep '_spec\.rb$' | sed 's/^application\///' | tr '\n' ' ')"
+}
 
 #export PATH="/opt/homebrew/opt/llvm@15/bin:$PATH"
 #export LDFLAGS="-L/opt/homebrew/opt/llvm@15/lib"

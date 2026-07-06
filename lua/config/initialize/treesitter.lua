@@ -16,7 +16,8 @@ local ensure_installed = {
   "diff",
   "python",
   "sql",
-  "svelte"
+  "svelte",
+  "css",
 }
 
 require('nvim-treesitter.config').setup({

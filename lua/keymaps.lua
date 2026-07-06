@@ -27,7 +27,7 @@ map("n", "<Leader><Space>", ":nohlsearch<CR>", opts)
 map("t", "<Esc>", "<C-\\><C-n>", opts)
 map("n", "<Leader>p", '"0p', noremap)
 map("v", "<Leader>p", '"0p', noremap)
-map("n", "<Tab>", ":tabnext<CR>", opts)
+map("n", "]t", ":tabnext<CR>", opts)
 
 -- Use ctrl-[hjkl] to select the active split!
 map("n", "<c-k>", ":wincmd k<CR>", { silent = true })
