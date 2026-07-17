@@ -8,8 +8,8 @@ end
 function get_node_modules_folder()
   local cwd = vim.fn.getcwd()
   local paths = {
+    cwd .. "/node_modules",
     cwd .. "/application/node_modules",
-    cwd .. "/node_modules"
   }
   for _, path in ipairs(paths) do
     if vim.fn.isdirectory(path) == 1 then
@@ -80,6 +80,7 @@ local servers = {
   emmet_ls = {
     filetypes = { 'html', 'erb' },
   },
+  rust_analyzer = {}
 }
 
 if canUseSorbet() then
