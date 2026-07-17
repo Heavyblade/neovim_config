@@ -68,7 +68,7 @@ else
     compinit -C
 fi
 
-specs_changed() {
+function specs_changed() {
   make "exec/rspec $(git diff master --name-only --diff-filter=d | grep '_spec\.rb$' | sed 's/^application\///' | tr '\n' ' ')"
 }
 
