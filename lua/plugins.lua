@@ -114,6 +114,12 @@ local plugins = {
       })
     end
   },
+  {
+    "rebelot/kanagawa.nvim",
+    config = function()
+      require('config.initialize.kanagawa')
+    end
+  },
   -- Nice to have
   {
     'MeanderingProgrammer/render-markdown.nvim',
@@ -153,12 +159,6 @@ local plugins = {
     lazy = true,
     config = function()
       require("config.initialize.nvim_treesitter_textobjects")
-    end
-  },
-  {
-    "rebelot/kanagawa.nvim",
-    config = function()
-      require('config.initialize.kanagawa')
     end
   },
   {
@@ -222,36 +222,18 @@ local plugins = {
     dependencies = { 'kyazdani42/nvim-web-devicons' },
   },
   {
-    'pwntester/octo.nvim',
-    lazy = true,
-    cmd = "Octo",
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-      'nvim-telescope/telescope.nvim',
-      'kyazdani42/nvim-web-devicons',
-    },
-    config = function()
-      require("octo").setup()
-    end
-  },
-  {
     'mistweaverco/kulala.nvim',
     lazy = true,
     config = function()
-      require("kulala").setup()
+      require("kulala").setup({
+        additional_curl_args = { "--insecure" }
+      })
     end,
     opts = {
       default_view = "headers_body",
     },
     ft = { "http", "rest" },
   },
-  {
-    "kdheepak/lazygit.nvim",
-    -- optional for floating window border decoration
-    requires = {
-      "nvim-lua/plenary.nvim",
-    },
-  }
 }
 
 require("lazy").setup(plugins, {})
